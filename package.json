@@ -27,7 +27,7 @@
     "@tensorflow-models/face-landmarks-detection": "^0.0.2",
     "svelte-hmr": "^0.14.3",
     "parcel": "^1.12.4",
-    "jszip": "^3.6.0",
+    "jszip": "^3.5.0",
     "@pwabuilder/pwaupdate": "^0.2.0",
     "@jaames/iro": "^5.5.0",
     "localforage": "^1.9.0",

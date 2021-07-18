@@ -8536,7 +8536,7 @@ specifiers:
   '@tensorflow/tfjs-converter': ^2.8.5
   '@tensorflow/tfjs-core': ^2.8.5
   interactjs: ^1.10.11
-  jszip: ^3.6.0
+  jszip: ^3.5.0
   localforage: ^1.9.0
   'null': ^2.0.0
   parcel: ^1.12.4
