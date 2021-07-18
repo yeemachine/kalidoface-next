@@ -5,7 +5,8 @@
   },
   "plugins": [
     "@snowpack/plugin-svelte",
-    "@snowpack/plugin-dotenv"
+    "@snowpack/plugin-dotenv",
+    "@snowpack/plugin-webpack"
   ],
   "buildOptions":{
     "out":"docs",

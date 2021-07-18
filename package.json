@@ -1,5 +1,5 @@
 {
-  "name": "Kalidoface3D",
+  "name": "Kalidoface",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,11 +7,11 @@
   "author": "",
   "license": "ISC",
   "engines": {
-    "node": "14.x"
+    "node": "12.x"
   },
   "scripts": {
     "clean": "rm dist/bundle.js",
-    "start": "snowpack dev --polyfill-node",
+    "start": "snowpack dev",
     "build": "snowpack build"
   },
   "dependencies": {
@@ -20,10 +20,10 @@
     "svelte-preprocess": "^4.7.3",
     "interactjs": "^1.10.11",
     "peerjs": "^1.3.2",
-    "@tensorflow/tfjs-core": "^2.8.5",
-    "@tensorflow/tfjs-converter": "^2.8.5",
-    "@tensorflow/tfjs-backend-webgl": "^2.8.5",
-    "@tensorflow/tfjs-backend-wasm": "^3.0.0",
+    "@tensorflow/tfjs-core": "^3.7.0",
+    "@tensorflow/tfjs-converter": "^3.7.0",
+    "@tensorflow/tfjs-backend-webgl": "^3.7.0",
+    "@tensorflow/tfjs-backend-wasm": "^3.7.0",
     "@tensorflow-models/face-landmarks-detection": "^0.0.2",
     "svelte-hmr": "^0.14.3",
     "parcel": "^1.12.4",
@@ -35,30 +35,19 @@
     "@pixiv/three-vrm": "^0.6.4",
     "@mediapipe/holistic": "^0.4.1625245411",
     "@mediapipe/drawing_utils": "^0.3.1620248257",
-    "three-ik": "^0.1.0",
-    "@pixi/core": "5.3.7",
-    "@pixi/sprite": "5.3.7",
-    "@pixi/app": "5.3.7",
-    "@pixi/ticker": "5.3.7",
-    "@pixi/interaction": "5.3.7",
-    "@pixi/loaders": "^5.3.7",
-    "@pixi/utils": "5.3.7",
-    "@pixi/math": "5.3.7",
-    "@pixi/display": "5.3.7",
-    "@pixi/graphics": "5.3.7",
-    "pixi-live2d-display": "^0.3.1",
-    "seedrandom": "^3.0.5",
-    "long": "^4.0.0"
+    "three-ik": "^0.1.0"
   },
   "devDependencies": {
-    "snowpack": "^3.8.2",
+    "snowpack": "^2.18.5",
     "@snowpack/plugin-svelte": "^3.4.1",
     "@snowpack/plugin-dotenv": "^2.0.4",
     "snowpack-plugin-rollup-bundle": "^0.3.3",
-    "@snowpack/plugin-webpack": "^3.0.0",
+    "@snowpack/plugin-webpack": "^2.1.3",
     "rollup-plugin-node-polyfills": "^0.1.2",
     "null": "^2.0.0",
-    "prettier-plugin-svelte": "^2.1.6",
-    "core-js": "^3.15.2"
+    "prettier-plugin-svelte": "^2.1.6"
+  },
+  "glitch": {
+    "projectType": "generated_static"
   }
 }

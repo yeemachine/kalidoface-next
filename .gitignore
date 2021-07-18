@@ -1,5 +1,5 @@
 web_modules
-#docs/dist
+docs/dist
 docs/__snowpack__
 public
 src
