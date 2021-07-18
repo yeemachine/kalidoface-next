@@ -1,5 +1,5 @@
-import { cd as sizeToSquarishShape, b4 as sizeFromShape, e as env, ce as rightPad, cf as nearestLargerEven, bx as squeezeShape, q as arraysEqual, f as assert, cg as isMobile, ch as computeStrides, ci as repeatedTry, cj as getBroadcastDims$1, ar as assertAndGetBroadcastShape, ck as getTypedArrayFromDType, cl as indexToLoc, cm as locToIndex, cn as makeZerosTypedArray, aA as buffer, co as getArrayFromDType, cp as createScalarValue, cq as computeOutAndReduceShapes, cr as upcastType, cs as encodeString, ct as fingerPrint64, cu as swap, aV as parseAxisParam, bn as TensorBuffer, cv as KernelBackend, cw as DataStorage, cx as engine, cy as now, cz as decodeString, cA as flatten, cB as sum$1, cC as isString, i as tidy, g as scalar, cD as bytesPerElement, bE as whereImpl$1, cE as isBrowser, cF as registerBackend, cG as Identity, cH as Complex, cI as LeakyRelu, cJ as Prelu, cK as Multiply, cL as Reshape, cM as inferFromImplicitShape, a4 as isInt, cN as getAxesPermutation, cO as getInnerMostAxes, cP as assertAxesAreInnerMostDims, aW as expandShapeToKeepDim, cQ as sumOutType, cR as Sum, G as Transpose, bU as _FusedMatMul, Q as Abs, S as Acos, U as Acosh, M as Add, V as AddN, W as All, X as Any, Y as ArgMax, Z as ArgMin, _ as Asin, $ as Asinh, a0 as Atan, a1 as Atan2, a2 as Atanh, a5 as AvgPool, a3 as eitherStridesOrDilationsAreOne, cS as computePool2DInfo, a6 as AvgPool3D, cT as computePool3DInfo, cU as AvgPool3DGrad, cV as AvgPoolGrad, F as BatchMatMul, ac as FusedBatchNorm, a9 as Slice, ab as BatchToSpaceND, ad as Bincount, ba as NotEqual, bh as Real, cW as Cast, z as zeros, cX as hasEncodingLoss, af as Ceil, ag as ClipByValue, P as ComplexAbs, aG as Imag, a8 as Concat, ah as Conv2D, cY as convertConv2DDataFormat, bM as computeConv2DInfo, bJ as Conv2DBackpropFilter, ai as Conv2DBackpropInput, aj as Conv3D, cZ as computeConv3DInfo, c_ as Conv3DBackpropFilterV2, c$ as Conv3DBackpropInputV2, ak as Cos, al as Cosh, bV as CropAndResize, am as Cumsum, d0 as getUndoAxesPermutation, an as DenseBincount, ao as DepthToSpace, ap as DepthwiseConv2dNative, bR as DepthwiseConv2dNativeBackpropFilter, bS as DepthwiseConv2dNativeBackpropInput, d1 as Diag, aq as Dilation2D, d2 as computeDilation2DInfo, av as Einsum, d3 as Elu, d4 as EluGrad, as as Equal, aw as Erf, ax as Exp, ay as ExpandDims, az as Expm1, bs as FFT, aB as Fill, d5 as inferDtype, bW as FlipLeftRight, aC as Floor, N as FloorDiv, L as FromPixels, bN as FusedConv2D, bT as FusedDepthwiseConv2D, bI as GatherNd, aD as GatherV2, aE as Greater, aF as GreaterEqual, bt as IFFT, d6 as IsFinite, d7 as IsInf, aH as IsNan, aI as Less, aJ as LessEqual, aK as LinSpace, aM as Log, aN as Log1p, aX as LogicalAnd, aY as LogicalNot, aZ as LogicalOr, aL as LRN, d8 as LRNGrad, aT as Max, b1 as Maximum, a_ as MaxPool, a$ as MaxPool3D, d9 as MaxPool3DGrad, da as MaxPoolGrad, b0 as MaxPoolWithArgmax, b2 as Mean, b5 as Min, b6 as Minimum, b7 as MirrorPad, b8 as Mod, R as RealDiv, aU as Sub, br as Softmax, b9 as Multinomial, aR as Neg, bY as NonMaxSuppressionV3, bZ as nonMaxSuppressionV3Impl$1, c0 as NonMaxSuppressionV4, c1 as nonMaxSuppressionV4Impl$1, b_ as NonMaxSuppressionV5, b$ as nonMaxSuppressionV5Impl$1, O as OneHot, au as ZerosLike, bb as OnesLike, by as Pack, aP as assertShapesMatch, bc as PadV2, be as Pow, bf as Prod, bg as Range, bi as Reciprocal, db as Relu, dc as Relu6, c2 as ResizeBilinear, dd as ResizeBilinearGrad, c3 as ResizeNearestNeighbor, de as ResizeNearestNeighborGrad, bj as Reverse, bX as RotateWithOffset, bk as Round, bl as Rsqrt, bG as ScatterNd, df as calculateShapes, at as Select, bm as Selu, dg as Sigmoid, bo as Sign, bp as Sin, bq as Sinh, aS as Softplus, bd as SpaceToBatchND, c6 as SparseFillEmptyRows, c7 as SparseReshape, c8 as SparseSegmentMean, c9 as SparseSegmentSum, bH as SparseToDense, bu as SplitV, bv as Sqrt, dh as Square, bw as SquaredDifference, di as Step, bz as StridedSlice, ca as StringNGrams, cb as StringSplit, cc as StringToHashBucketFast, bA as Tan, aa as Tanh, ae as Tile, bB as TopK, c4 as Transform, bC as Unique, bD as Unpack, dj as UnsortedSegmentSum, dk as registerKernel } from '../common/non_max_suppression_impl-9daabd29.js';
-import { b as backend_util, f as fromUint8ToStringArray, i as isSliceContinous, c as computeFlatOffset, a as fromStringArrayToUint8, m as mergeRealAndImagArrays, w as warn, d as computeOptimalWindowSize, p as parseSliceParams, e as assertParamsValid, g as getReshaped, h as getPermuted, j as getReshapedPermuted, k as getSliceBeginCoords, l as getSliceSize, n as computeOutShape, o as assertParamsConsistent, q as decodeEinsumEquation, r as checkEinsumDimSizes, s as getEinsumComputePath, t as getEinsumPermutation, u as isIdentityPermutation, E as ERF_P, v as ERF_A1, x as ERF_A2, y as ERF_A3, z as ERF_A4, A as ERF_A5, B as prepareAndValidate, C as collectGatherOpShapeInfo, D as getImageCenter, S as SELU_SCALEALPHA, F as SELU_SCALE, G as prepareSplitSize, H as sliceInfo, I as computeOutShape$1, J as segOpComputeOptimalWindowSize } from '../common/backend_util-7cd32a14.js';
+import { ca as sizeToSquarishShape, bU as sizeFromShape, e as env, cb as rightPad, cc as nearestLargerEven, cd as squeezeShape, aS as arraysEqual, a1 as assert, ce as isMobile, cf as computeStrides, cg as repeatedTry, bJ as assertAndGetBroadcastShape, ch as getTypedArrayFromDType, ci as getBroadcastDims$1, cj as indexToLoc, ck as locToIndex, cl as makeZerosTypedArray, bs as buffer, cm as getArrayFromDType, cn as createScalarValue, co as computeOutAndReduceShapes, cp as upcastType, cq as isSliceContinous, cr as computeFlatOffset, cs as parseAxisParam, bz as TensorBuffer, ct as KernelBackend, cu as DataStorage, cv as engine, cw as now, cx as decodeString, cy as flatten, cz as sum$1, cA as isString, cB as encodeString, a8 as tidy, a2 as scalar, cC as bytesPerElement, bA as whereImpl$1, cD as isBrowser, cE as registerBackend, cF as Identity, cG as Complex, cH as LeakyRelu, cI as Prelu, cJ as Multiply, cK as Reshape, cL as inferFromImplicitShape, bn as isInt, cM as getAxesPermutation, cN as getInnerMostAxes, cO as assertAxesAreInnerMostDims, c7 as expandShapeToKeepDim, cP as sumOutType, cQ as Sum, cR as Transpose, bV as _FusedMatMul, cS as Abs, cT as Acos, cU as Acosh, cV as Add, bk as AddN, cW as All, cX as Any, cY as ArgMax, cZ as ArgMin, c_ as Asin, c$ as Asinh, d0 as Atan, d1 as Atan2, d2 as Atanh, d3 as AvgPool, bm as eitherStridesOrDilationsAreOne, d4 as computePool2DInfo, bo as AvgPool3D, d5 as computePool3DInfo, d6 as AvgPool3DGrad, d7 as AvgPoolGrad, d8 as BatchMatMul, d9 as FusedBatchNorm, da as Slice, db as parseSliceParams, dc as assertParamsValid, dd as BatchToSpaceND, bp as Bincount, de as NotEqual, df as Real, dg as Cast, aj as zeros, dh as hasEncodingLoss, di as Ceil, dj as ClipByValue, dk as ComplexAbs, dl as Imag, dm as Concat, dn as Conv2D, dp as convertConv2DDataFormat, bH as computeConv2DInfo, dq as Conv2DBackpropFilter, dr as Conv2DBackpropInput, bq as Conv3D, ds as computeConv3DInfo, dt as Conv3DBackpropFilterV2, du as Conv3DBackpropInputV2, dv as Cos, dw as Cosh, bW as CropAndResize, dx as Cumsum, dy as getUndoAxesPermutation, br as DenseBincount, dz as DepthToSpace, dA as DepthwiseConv2dNative, dB as DepthwiseConv2dNativeBackpropFilter, dC as DepthwiseConv2dNativeBackpropInput, dD as Diag, dE as Dilation2D, dF as computeDilation2DInfo, dG as Elu, dH as EluGrad, dI as Equal, dJ as Erf, dK as Exp, dL as ExpandDims, dM as Expm1, dN as FFT, bt as Fill, dO as inferDtype, bX as FlipLeftRight, dP as Floor, dQ as FloorDiv, bj as FromPixels, bL as FusedConv2D, bR as FusedDepthwiseConv2D, bE as GatherNd, dR as GatherV2, dS as Greater, dT as GreaterEqual, dU as IFFT, dV as IsFinite, dW as IsInf, dX as IsNan, dY as Less, dZ as LessEqual, bu as LinSpace, d_ as Log, d$ as Log1p, e0 as LogicalAnd, e1 as LogicalNot, e2 as LogicalOr, e3 as LRN, e4 as LRNGrad, e5 as Max, e6 as Maximum, e7 as MaxPool, bv as MaxPool3D, e8 as MaxPool3DGrad, e9 as MaxPoolGrad, bw as MaxPoolWithArgmax, ea as Mean, eb as Min, ec as Minimum, ed as MirrorPad, ee as Mod, ef as RealDiv, eg as Sub, eh as Softmax, bx as Multinomial, ei as Neg, bZ as NonMaxSuppressionV3, b_ as nonMaxSuppressionV3Impl$1, c1 as NonMaxSuppressionV4, c2 as nonMaxSuppressionV4Impl$1, b$ as NonMaxSuppressionV5, c0 as nonMaxSuppressionV5Impl$1, ej as OneHot, ek as ZerosLike, el as OnesLike, em as Pack, c5 as assertShapesMatch, en as PadV2, eo as Pow, ep as Prod, by as Range, eq as Reciprocal, er as Relu, es as Relu6, et as ResizeBilinear, eu as ResizeBilinearGrad, ev as ResizeNearestNeighbor, ew as ResizeNearestNeighborGrad, ex as Reverse, bY as RotateWithOffset, ey as Round, ez as Rsqrt, bC as ScatterNd, eA as calculateShapes, eB as Select, eC as Selu, eD as SELU_SCALEALPHA, eE as SELU_SCALE, eF as Sigmoid, eG as Sign, eH as Sin, eI as Sinh, eJ as Softplus, eK as SpaceToBatchND, bD as SparseToDense, eL as SplitV, eM as Sqrt, eN as Square, eO as SquaredDifference, eP as Step, eQ as StridedSlice, eR as sliceInfo, eS as Tan, eT as Tanh, eU as Tile, eV as TopK, eW as Unique, eX as Unpack, eY as UnsortedSegmentSum, eZ as registerKernel } from '../common/zeros_like-371809d6.js';
+import { b as backend_util, f as fromUint8ToStringArray, a as fromStringArrayToUint8, m as mergeRealAndImagArrays, w as warn, c as computeOptimalWindowSize, g as getReshaped, d as getPermuted, e as getReshapedPermuted, h as getSliceBeginCoords, i as getSliceSize, j as computeOutShape, k as assertParamsConsistent, E as ERF_P, l as ERF_A1, n as ERF_A2, o as ERF_A3, p as ERF_A4, q as ERF_A5, r as prepareAndValidate, s as collectGatherOpShapeInfo, t as getImageCenter, u as prepareSplitSize, v as computeOutShape$1, x as segOpComputeOptimalWindowSize } from '../common/backend_util-068d7069.js';
 
 /**
  * @license
@@ -853,7 +853,8 @@ ENV.registerFlag('WEBGL_PACK_NORMALIZATION', () => ENV.getBool('WEBGL_PACK'));
 /** Whether we will pack the clip op. */
 ENV.registerFlag('WEBGL_PACK_CLIP', () => ENV.getBool('WEBGL_PACK'));
 /** Whether we will pack the depthwise conv op. */
-ENV.registerFlag('WEBGL_PACK_DEPTHWISECONV', () => ENV.getBool('WEBGL_PACK'));
+// TODO: https://github.com/tensorflow/tfjs/issues/1679
+ENV.registerFlag('WEBGL_PACK_DEPTHWISECONV', () => false);
 /** Whether we will pack binary ops. */
 ENV.registerFlag('WEBGL_PACK_BINARY_OPERATIONS', () => ENV.getBool('WEBGL_PACK'));
 /** Whether we will pack unary ops. */
@@ -939,48 +940,6 @@ ENV.registerFlag('WEBGL_DELETE_TEXTURE_THRESHOLD', () => {
             `delete) or at least 0, but got ${threshold}.`);
     }
 });
-/**
- * Trigger a manual GL command flush if the threshold of time has passed since
- * previous Kernel execution. This can be useful for Andorid device where GL
- * command flush are delayed un til the end of javascript task. This value is
- * measured in millisecond. Typically you want to set this value to close to 1.
- *
- * Default value 1 for mobile chrome, and -1 for rest cases. -1 indicates that
- * we will not enforce manual flush and depend on system default flush schedule.
- */
-ENV.registerFlag('WEBGL_FLUSH_THRESHOLD', () => {
-    return isMobile() && ENV.getBool('IS_CHROME') ? 1 : -1;
-}, threshold => {
-    if (threshold < 0 && threshold !== -1) {
-        throw new Error(`WEBGL_FLUSH_THRESHOLD must be -1 (indicating never ` +
-            `manual flush) or at least 0, but got ${threshold}.`);
-    }
-});
-/**
- * Threshold for input tensor size that determines whether WebGL backend will
- * delegate computation to CPU.
- *
- * Default value is 128.
- */
-ENV.registerFlag('CPU_HANDOFF_SIZE_THRESHOLD', () => 128);
-/** Whether we will use shapes uniforms. */
-ENV.registerFlag('WEBGL_USE_SHAPES_UNIFORMS', () => false);
-/**
- * Threshold for last dimension of input tensor that determines whether
- * WebGL backend for the Top K op will delegate computation to CPU. If input
- * is smaller than threshold then CPU will be used
- *
- * Default value is 100000.
- */
-ENV.registerFlag('TOPK_LAST_DIM_CPU_HANDOFF_SIZE_THRESHOLD', () => 100000);
-/**
- * Threshold for K that determines whether
- * WebGL backend for the Top K op will delegate computation to CPU. If k
- * is larger than threshold then CPU will be used
- *
- * Default value is 128.
- */
-ENV.registerFlag('TOPK_K_CPU_HANDOFF_THRESHOLD', () => 128);
 
 /**
  * @license
@@ -1128,18 +1087,6 @@ function getLogicalCoordinatesFromFlatIndex(coords, shape, index = 'index') {
         const line2 = i === strides.length - 1 ?
             `int ${coords[i + 1]} = ${index} - ${coords[i]} * ${stride}` :
             `index -= ${coords[i]} * ${stride}`;
-        return `${line1}; ${line2};`;
-    })
-        .join('');
-}
-function getLogicalCoordinatesFromFlatIndexByUniform(coords, shape, index = 'index') {
-    const strides = computeStrides(shape);
-    return strides
-        .map((_, i) => {
-        const line1 = `int ${coords[i]} = ${index} / outShapeStrides[${i}]`;
-        const line2 = i === strides.length - 1 ?
-            `int ${coords[i + 1]} = ${index} - ${coords[i]} * outShapeStrides[${i}]` :
-            `index -= ${coords[i]} * outShapeStrides[${i}]`;
         return `${line1}; ${line2};`;
     })
         .join('');
@@ -1912,11 +1859,9 @@ class GPGPUContext {
         this.throwIfDisposed();
         const gl = this.gl;
         const fragmentShader = createFragmentShader(gl, fragmentShaderSource);
-        if (this.vertexShader == null) {
-            this.vertexShader = createVertexShader$1(gl);
-        }
+        const vertexShader = createVertexShader$1(gl);
         const program = createProgram(gl);
-        callAndCheck(gl, () => gl.attachShader(program, this.vertexShader));
+        callAndCheck(gl, () => gl.attachShader(program, vertexShader));
         callAndCheck(gl, () => gl.attachShader(program, fragmentShader));
         linkProgram(gl, program);
         if (this.debug) {
@@ -2195,7 +2140,7 @@ function linearSearchLastTrue(arr) {
  * =============================================================================
  */
 const { getBroadcastDims } = backend_util;
-function makeShader(inputsInfo, outputShape, program) {
+function makeShader(inputsInfo, outputShape, userCode, usesPackedTextures) {
     const prefixSnippets = [];
     inputsInfo.forEach(x => {
         const size = sizeFromShape(x.shapeInfo.logicalShape);
@@ -2207,53 +2152,10 @@ function makeShader(inputsInfo, outputShape, program) {
             prefixSnippets.push(`uniform sampler2D ${x.name};`);
             prefixSnippets.push(`uniform int offset${x.name};`);
         }
-        if (program.enableShapeUniforms) {
-            const { uniformShape } = getUniformInfoFromShape(program.packedInputs, x.shapeInfo.logicalShape, x.shapeInfo.texShape);
-            switch (uniformShape.length) {
-                case 1:
-                    prefixSnippets.push(`uniform int ${x.name}Shape;`);
-                    break;
-                case 2:
-                    prefixSnippets.push(`uniform ivec2 ${x.name}Shape;`);
-                    break;
-                case 3:
-                    prefixSnippets.push(`uniform ivec3 ${x.name}Shape;`);
-                    break;
-                case 4:
-                    prefixSnippets.push(`uniform ivec4 ${x.name}Shape;`);
-                    break;
-            }
-            prefixSnippets.push(`uniform ivec2 ${x.name}TexShape;`);
-        }
     });
-    if (program.enableShapeUniforms) {
-        switch (outputShape.logicalShape.length) {
-            case 1:
-                prefixSnippets.push(`uniform int outShape;`);
-                break;
-            case 2:
-                prefixSnippets.push(`uniform ivec2 outShape;`);
-                prefixSnippets.push(`uniform int outShapeStrides;`);
-                break;
-            case 3:
-                prefixSnippets.push(`uniform ivec3 outShape;`);
-                prefixSnippets.push(`uniform ivec2 outShapeStrides;`);
-                break;
-            case 4:
-                prefixSnippets.push(`uniform ivec4 outShape;`);
-                prefixSnippets.push(`uniform ivec3 outShapeStrides;`);
-                break;
-        }
-        prefixSnippets.push(`uniform ivec2 outTexShape;`);
-    }
-    if (program.customUniforms) {
-        program.customUniforms.forEach((d) => {
-            prefixSnippets.push(`uniform ${d.type} ${d.name}${d.arrayIndex ? `[${d.arrayIndex}]` : ''};`);
-        });
-    }
     const inputPrefixSnippet = prefixSnippets.join('\n');
     const inputSamplingSnippet = inputsInfo
-        .map(x => getInputSamplingSnippet(x, outputShape, program.packedInputs, program.enableShapeUniforms))
+        .map(x => getInputSamplingSnippet(x, outputShape, usesPackedTextures))
         .join('\n');
     const outTexShape = outputShape.texShape;
     const glsl = getGlslDifferences();
@@ -2262,36 +2164,37 @@ function makeShader(inputsInfo, outputShape, program) {
     let floatTextureSetOutputSnippet;
     let shaderPrefix = getShaderPrefix(glsl);
     if (outputShape.isPacked) {
-        outputSamplingSnippet = getPackedOutputSamplingSnippet(outputShape.logicalShape, outTexShape, program.enableShapeUniforms);
+        outputSamplingSnippet =
+            getPackedOutputSamplingSnippet(outputShape.logicalShape, outTexShape);
         floatTextureSetOutputSnippet = getFloatTextureSetRGBASnippet(glsl);
     }
     else {
-        outputSamplingSnippet = getOutputSamplingSnippet(outputShape.logicalShape, outTexShape, program.enableShapeUniforms);
+        outputSamplingSnippet =
+            getOutputSamplingSnippet(outputShape.logicalShape, outTexShape);
         floatTextureSetOutputSnippet = getFloatTextureSetRSnippet(glsl);
     }
-    if (program.packedInputs) {
+    if (usesPackedTextures) {
         shaderPrefix += SHADER_PACKED_PREFIX;
     }
     const source = [
         shaderPrefix, floatTextureSampleSnippet, floatTextureSetOutputSnippet,
-        inputPrefixSnippet, outputSamplingSnippet, inputSamplingSnippet,
-        program.userCode
+        inputPrefixSnippet, outputSamplingSnippet, inputSamplingSnippet, userCode
     ].join('\n');
     return source;
 }
-function getSamplerFromInInfo(inInfo, enableShapeUniforms = false) {
+function getSamplerFromInInfo(inInfo) {
     const shape = inInfo.shapeInfo.logicalShape;
     switch (shape.length) {
         case 0:
-            return getSamplerScalar(inInfo, enableShapeUniforms);
+            return getSamplerScalar(inInfo);
         case 1:
-            return getSampler1D(inInfo, enableShapeUniforms);
+            return getSampler1D(inInfo);
         case 2:
-            return getSampler2D(inInfo, enableShapeUniforms);
+            return getSampler2D(inInfo);
         case 3:
-            return getSampler3D(inInfo, enableShapeUniforms);
+            return getSampler3D(inInfo);
         case 4:
-            return getSampler4D(inInfo, enableShapeUniforms);
+            return getSampler4D(inInfo);
         case 5:
             return getSampler5D(inInfo);
         case 6:
@@ -2301,28 +2204,28 @@ function getSamplerFromInInfo(inInfo, enableShapeUniforms = false) {
                 ` is not yet supported`);
     }
 }
-function getPackedSamplerFromInInfo(inInfo, enableShapeUniforms) {
+function getPackedSamplerFromInInfo(inInfo) {
     const shape = inInfo.shapeInfo.logicalShape;
     switch (shape.length) {
         case 0:
             return getPackedSamplerScalar(inInfo);
         case 1:
-            return getPackedSampler1D(inInfo, enableShapeUniforms);
+            return getPackedSampler1D(inInfo);
         case 2:
-            return getPackedSampler2D(inInfo, enableShapeUniforms);
+            return getPackedSampler2D(inInfo);
         case 3:
-            return getPackedSampler3D(inInfo, enableShapeUniforms);
+            return getPackedSampler3D(inInfo);
         default:
-            return getPackedSamplerND(inInfo, enableShapeUniforms);
+            return getPackedSamplerND(inInfo);
     }
 }
-function getInputSamplingSnippet(inInfo, outShapeInfo, usesPackedTextures = false, enableShapeUniforms) {
+function getInputSamplingSnippet(inInfo, outShapeInfo, usesPackedTextures = false) {
     let res = '';
     if (usesPackedTextures) {
-        res += getPackedSamplerFromInInfo(inInfo, enableShapeUniforms);
+        res += getPackedSamplerFromInInfo(inInfo);
     }
     else {
-        res += getSamplerFromInInfo(inInfo, enableShapeUniforms);
+        res += getSamplerFromInInfo(inInfo);
     }
     const inShape = inInfo.shapeInfo.logicalShape;
     const outShape = outShapeInfo.logicalShape;
@@ -2336,32 +2239,32 @@ function getInputSamplingSnippet(inInfo, outShapeInfo, usesPackedTextures = fals
     }
     return res;
 }
-function getPackedOutputSamplingSnippet(outShape, outTexShape, enableShapeUniforms) {
+function getPackedOutputSamplingSnippet(outShape, outTexShape) {
     switch (outShape.length) {
         case 0:
             return getOutputScalarCoords();
         case 1:
-            return getOutputPacked1DCoords(outShape, outTexShape, enableShapeUniforms);
+            return getOutputPacked1DCoords(outShape, outTexShape);
         case 2:
-            return getOutputPacked2DCoords(outShape, outTexShape, enableShapeUniforms);
+            return getOutputPacked2DCoords(outShape, outTexShape);
         case 3:
-            return getOutputPacked3DCoords(outShape, outTexShape, enableShapeUniforms);
+            return getOutputPacked3DCoords(outShape, outTexShape);
         default:
-            return getOutputPackedNDCoords(outShape, outTexShape, enableShapeUniforms);
+            return getOutputPackedNDCoords(outShape, outTexShape);
     }
 }
-function getOutputSamplingSnippet(outShape, outTexShape, enableShapeUniforms) {
+function getOutputSamplingSnippet(outShape, outTexShape) {
     switch (outShape.length) {
         case 0:
             return getOutputScalarCoords();
         case 1:
-            return getOutput1DCoords(outShape, outTexShape, enableShapeUniforms);
+            return getOutput1DCoords(outShape, outTexShape);
         case 2:
-            return getOutput2DCoords(outShape, outTexShape, enableShapeUniforms);
+            return getOutput2DCoords(outShape, outTexShape);
         case 3:
-            return getOutput3DCoords(outShape, outTexShape, enableShapeUniforms);
+            return getOutput3DCoords(outShape, outTexShape);
         case 4:
-            return getOutput4DCoords(outShape, outTexShape, enableShapeUniforms);
+            return getOutput4DCoords(outShape, outTexShape);
         case 5:
             return getOutput5DCoords(outShape, outTexShape);
         case 6:
@@ -2504,16 +2407,9 @@ function getOutputScalarCoords() {
     }
   `;
 }
-function getOutputPacked1DCoords(shape, texShape, enableShapeUniforms) {
+function getOutputPacked1DCoords(shape, texShape) {
     const packedTexShape = [Math.ceil(texShape[0] / 2), Math.ceil(texShape[1] / 2)];
     if (packedTexShape[0] === 1) {
-        if (enableShapeUniforms) {
-            return `
-      int getOutputCoords() {
-        return 2 * int(resultUV.x * ceil(float(outTexShape[1]) / 2.0));
-      }
-    `;
-        }
         return `
       int getOutputCoords() {
         return 2 * int(resultUV.x * ${packedTexShape[1]}.0);
@@ -2521,28 +2417,11 @@ function getOutputPacked1DCoords(shape, texShape, enableShapeUniforms) {
     `;
     }
     if (packedTexShape[1] === 1) {
-        if (enableShapeUniforms) {
-            return `
-      int getOutputCoords() {
-        return 2 * int(resultUV.y * ceil(float(outTexShape[0]) / 2.0));
-      }
-    `;
-        }
         return `
       int getOutputCoords() {
         return 2 * int(resultUV.y * ${packedTexShape[0]}.0);
       }
     `;
-    }
-    if (enableShapeUniforms) {
-        return `
-    int getOutputCoords() {
-      ivec2 packedTexShape = ivec2(ceil(float(outTexShape[0]) / 2.0), ceil(float(outTexShape[1]) / 2.0));
-      ivec2 resTexRC = ivec2(resultUV.yx *
-                             vec2(packedTexShape[0], packedTexShape[1]));
-      return 2 * (resTexRC.x * packedTexShape[1] + resTexRC.y);
-    }
-  `;
     }
     return `
     int getOutputCoords() {
@@ -2552,15 +2431,8 @@ function getOutputPacked1DCoords(shape, texShape, enableShapeUniforms) {
     }
   `;
 }
-function getOutput1DCoords(shape, texShape, enableShapeUniforms) {
+function getOutput1DCoords(shape, texShape) {
     if (texShape[0] === 1) {
-        if (enableShapeUniforms) {
-            return `
-      int getOutputCoords() {
-        return int(resultUV.x * float(outTexShape[1]));
-      }
-    `;
-        }
         return `
       int getOutputCoords() {
         return int(resultUV.x * ${texShape[1]}.0);
@@ -2568,27 +2440,11 @@ function getOutput1DCoords(shape, texShape, enableShapeUniforms) {
     `;
     }
     if (texShape[1] === 1) {
-        if (enableShapeUniforms) {
-            return `
-      int getOutputCoords() {
-        return int(resultUV.y * float(outTexShape[0]));
-      }
-    `;
-        }
         return `
       int getOutputCoords() {
         return int(resultUV.y * ${texShape[0]}.0);
       }
     `;
-    }
-    if (enableShapeUniforms) {
-        return `
-    int getOutputCoords() {
-      ivec2 resTexRC = ivec2(resultUV.yx *
-                             vec2(outTexShape[0], outTexShape[1]));
-      return resTexRC.x * outTexShape[1] + resTexRC.y;
-    }
-  `;
     }
     return `
     int getOutputCoords() {
@@ -2598,27 +2454,7 @@ function getOutput1DCoords(shape, texShape, enableShapeUniforms) {
     }
   `;
 }
-function getOutputPacked3DCoords(shape, texShape, enableShapeUniforms) {
-    if (enableShapeUniforms) {
-        return `
-    ivec3 getOutputCoords() {
-      ivec2 packedTexShape = ivec2(ceil(float(outTexShape[0]) / 2.0), ceil(float(outTexShape[1]) / 2.0));
-      int texelsInLogicalRow = int(ceil(float(outShape[2]) / 2.0));
-      int texelsInBatch = texelsInLogicalRow * int(ceil(float(outShape[1]) / 2.0));
-      ivec2 resTexRC = ivec2(resultUV.yx *
-                             vec2(packedTexShape[0], packedTexShape[1]));
-      int index = resTexRC.x * packedTexShape[1] + resTexRC.y;
-
-      int b = index / texelsInBatch;
-      index -= b * texelsInBatch;
-
-      int r = 2 * (index / texelsInLogicalRow);
-      int c = imod(index, texelsInLogicalRow) * 2;
-
-      return ivec3(b, r, c);
-    }
-  `;
-    }
+function getOutputPacked3DCoords(shape, texShape) {
     const packedTexShape = [Math.ceil(texShape[0] / 2), Math.ceil(texShape[1] / 2)];
     const texelsInLogicalRow = Math.ceil(shape[2] / 2);
     const texelsInBatch = texelsInLogicalRow * Math.ceil(shape[1] / 2);
@@ -2638,19 +2474,7 @@ function getOutputPacked3DCoords(shape, texShape, enableShapeUniforms) {
     }
   `;
 }
-function getOutput3DCoords(shape, texShape, enableShapeUniforms) {
-    if (enableShapeUniforms) {
-        const coordsFromIndexSnippet = getLogicalCoordinatesFromFlatIndexByUniform(['r', 'c', 'd'], shape);
-        return `
-  ivec3 getOutputCoords() {
-    ivec2 resTexRC = ivec2(resultUV.yx *
-                           vec2(outTexShape[0], outTexShape[1]));
-    int index = resTexRC.x * outTexShape[1] + resTexRC.y;
-    ${coordsFromIndexSnippet}
-    return ivec3(r, c, d);
-  }
-`;
-    }
+function getOutput3DCoords(shape, texShape) {
     const coordsFromIndexSnippet = getLogicalCoordinatesFromFlatIndex(['r', 'c', 'd'], shape);
     return `
     ivec3 getOutputCoords() {
@@ -2662,33 +2486,7 @@ function getOutput3DCoords(shape, texShape, enableShapeUniforms) {
     }
   `;
 }
-function getOutputPackedNDCoords(shape, texShape, enableShapeUniforms) {
-    if (enableShapeUniforms) {
-        // TODO: support 5d and 6d
-        return `
-    ivec4 getOutputCoords() {
-      ivec2 packedTexShape = ivec2(ceil(float(outTexShape[0]) / 2.0), ceil(float(outTexShape[1]) / 2.0));
-      ivec2 resTexRC = ivec2(resultUV.yx *
-                             vec2(packedTexShape[0], packedTexShape[1]));
-      int index = resTexRC.x * packedTexShape[1] + resTexRC.y;
-
-      int texelsInLogicalRow = int(ceil(float(outShape[3]) / 2.0));
-      int texelsInBatch = texelsInLogicalRow * int(ceil(float(outShape[2]) / 2.0));
-      int texelsInBatchN = texelsInBatch * outShape[1];
-
-      int b2 = index / texelsInBatchN;
-      index -= b2 * texelsInBatchN;
-
-      int b = index / texelsInBatch;
-      index -= b * texelsInBatch;
-
-      int r = 2 * (index / texelsInLogicalRow);
-      int c = imod(index, texelsInLogicalRow) * 2;
-
-      return ivec4(b2, b, r, c);
-    }
-  `;
-    }
+function getOutputPackedNDCoords(shape, texShape) {
     const packedTexShape = [Math.ceil(texShape[0] / 2), Math.ceil(texShape[1] / 2)];
     const texelsInLogicalRow = Math.ceil(shape[shape.length - 1] / 2);
     const texelsInBatch = texelsInLogicalRow * Math.ceil(shape[shape.length - 2] / 2);
@@ -2721,19 +2519,7 @@ function getOutputPackedNDCoords(shape, texShape, enableShapeUniforms) {
     }
   `;
 }
-function getOutput4DCoords(shape, texShape, enableShapeUniforms) {
-    if (enableShapeUniforms) {
-        const coordsFromIndexSnippet = getLogicalCoordinatesFromFlatIndexByUniform(['r', 'c', 'd', 'd2'], shape);
-        return `
-    ivec4 getOutputCoords() {
-      ivec2 resTexRC = ivec2(resultUV.yx *
-        vec2(outTexShape[0], outTexShape[1]));
-      int index = resTexRC.x * outTexShape[1] + resTexRC.y;
-      ${coordsFromIndexSnippet}
-      return ivec4(r, c, d, d2);
-    }
-  `;
-    }
+function getOutput4DCoords(shape, texShape) {
     const coordsFromIndexSnippet = getLogicalCoordinatesFromFlatIndex(['r', 'c', 'd', 'd2'], shape);
     return `
     ivec4 getOutputCoords() {
@@ -2776,17 +2562,9 @@ function getOutput6DCoords(shape, texShape) {
     }
   `;
 }
-function getOutputPacked2DCoords(shape, texShape, enableShapeUniforms) {
+function getOutputPacked2DCoords(shape, texShape) {
     const packedTexShape = [Math.ceil(texShape[0] / 2), Math.ceil(texShape[1] / 2)];
     if (arraysEqual(shape, texShape)) {
-        if (enableShapeUniforms) {
-            return `
-      ivec2 getOutputCoords() {
-        ivec2 packedTexShape = ivec2(ceil(float(outTexShape[0]) / 2.0), ceil(float(outTexShape[1]) / 2.0));
-        return 2 * ivec2(resultUV.yx * vec2(packedTexShape[0], packedTexShape[1]));
-      }
-    `;
-        }
         return `
       ivec2 getOutputCoords() {
         return 2 * ivec2(resultUV.yx * vec2(${packedTexShape[0]}, ${packedTexShape[1]}));
@@ -2804,22 +2582,6 @@ function getOutputPacked2DCoords(shape, texShape, enableShapeUniforms) {
      *
      * index: The texel index
      */
-    if (enableShapeUniforms) {
-        return `
-    ivec2 getOutputCoords() {
-      ivec2 packedTexShape = ivec2(ceil(float(outTexShape[0]) / 2.0), ceil(float(outTexShape[1]) / 2.0));
-      int texelsInLogicalRow = int(ceil(float(outShape[1]) / 2.0));
-      ivec2 resTexRC = ivec2(resultUV.yx *
-                             vec2(packedTexShape[0], packedTexShape[1]));
-
-      int index = resTexRC.x * packedTexShape[1] + resTexRC.y;
-      int r = 2 * (index / texelsInLogicalRow);
-      int c = imod(index, texelsInLogicalRow) * 2;
-
-      return ivec2(r, c);
-    }
-  `;
-    }
     return `
     ivec2 getOutputCoords() {
       ivec2 resTexRC = ivec2(resultUV.yx *
@@ -2833,15 +2595,8 @@ function getOutputPacked2DCoords(shape, texShape, enableShapeUniforms) {
     }
   `;
 }
-function getOutput2DCoords(shape, texShape, enableShapeUniforms) {
+function getOutput2DCoords(shape, texShape) {
     if (arraysEqual(shape, texShape)) {
-        if (enableShapeUniforms) {
-            return `
-      ivec2 getOutputCoords() {
-        return ivec2(resultUV.yx * vec2(outTexShape[0], outTexShape[1]));
-      }
-    `;
-        }
         return `
       ivec2 getOutputCoords() {
         return ivec2(resultUV.yx * vec2(${texShape[0]}, ${texShape[1]}));
@@ -2849,16 +2604,6 @@ function getOutput2DCoords(shape, texShape, enableShapeUniforms) {
     `;
     }
     if (shape[1] === 1) {
-        if (enableShapeUniforms) {
-            return `
-      ivec2 getOutputCoords() {
-        ivec2 resTexRC = ivec2(resultUV.yx *
-                               vec2(outTexShape[0], outTexShape[1]));
-        int index = resTexRC.x * outTexShape[1] + resTexRC.y;
-        return ivec2(index, 0);
-      }
-    `;
-        }
         return `
       ivec2 getOutputCoords() {
         ivec2 resTexRC = ivec2(resultUV.yx *
@@ -2869,16 +2614,6 @@ function getOutput2DCoords(shape, texShape, enableShapeUniforms) {
     `;
     }
     if (shape[0] === 1) {
-        if (enableShapeUniforms) {
-            return `
-      ivec2 getOutputCoords() {
-        ivec2 resTexRC = ivec2(resultUV.yx *
-                               vec2(outTexShape[0], outTexShape[1]));
-        int index = resTexRC.x * outTexShape[1] + resTexRC.y;
-        return ivec2(0, index);
-      }
-    `;
-        }
         return `
       ivec2 getOutputCoords() {
         ivec2 resTexRC = ivec2(resultUV.yx *
@@ -2887,18 +2622,6 @@ function getOutput2DCoords(shape, texShape, enableShapeUniforms) {
         return ivec2(0, index);
       }
     `;
-    }
-    if (enableShapeUniforms) {
-        return `
-    ivec2 getOutputCoords() {
-      ivec2 resTexRC = ivec2(resultUV.yx *
-                             vec2(outTexShape[0], outTexShape[1]));
-      int index = resTexRC.x * outTexShape[1] + resTexRC.y;
-      int r = index / outShape[1];
-      int c = index - r * outShape[1];
-      return ivec2(r, c);
-    }
-  `;
     }
     return `
     ivec2 getOutputCoords() {
@@ -2924,7 +2647,7 @@ function getPackedSamplerScalar(inputInfo) {
     }
   `;
 }
-function getSamplerScalar(inputInfo, enableShapeUniforms) {
+function getSamplerScalar(inputInfo) {
     const texName = inputInfo.name;
     const funcName = 'get' + texName.charAt(0).toUpperCase() + texName.slice(1);
     if (inputInfo.shapeInfo.isUniform) {
@@ -2938,16 +2661,8 @@ function getSamplerScalar(inputInfo, enableShapeUniforms) {
       }
     `;
     }
-    const offset = getFlatOffsetUniformName(texName);
-    if (enableShapeUniforms) {
-        return `
-    float ${funcName}() {
-      vec2 uv = uvFromFlat(${texName}TexShape[0], ${texName}TexShape[1], ${offset});
-      return sampleTexture(${texName}, uv);
-    }
-  `;
-    }
     const [tNumR, tNumC] = inputInfo.shapeInfo.texShape;
+    const offset = getFlatOffsetUniformName(texName);
     return `
     float ${funcName}() {
       vec2 uv = uvFromFlat(${tNumR}, ${tNumC}, ${offset});
@@ -2955,22 +2670,12 @@ function getSamplerScalar(inputInfo, enableShapeUniforms) {
     }
   `;
 }
-function getPackedSampler1D(inputInfo, enableShapeUniforms) {
+function getPackedSampler1D(inputInfo) {
     const texName = inputInfo.name;
     const funcName = 'get' + texName.charAt(0).toUpperCase() + texName.slice(1);
     const texShape = inputInfo.shapeInfo.texShape;
-    const glsl = getGlslDifferences();
-    if (enableShapeUniforms) {
-        return `
-    vec4 ${funcName}(int index) {
-      ivec2 packedTexShape = ivec2(ceil(float(${texName}TexShape[0]) / 2.0), ceil(float(${texName}TexShape[1]) / 2.0));
-      vec2 uv = packedUVfrom1D(
-        packedTexShape[0], packedTexShape[1], index);
-      return ${glsl.texture2D}(${texName}, uv);
-    }
-  `;
-    }
     const packedTexShape = [Math.ceil(texShape[0] / 2), Math.ceil(texShape[1] / 2)];
+    const glsl = getGlslDifferences();
     return `
     vec4 ${funcName}(int index) {
       vec2 uv = packedUVfrom1D(
@@ -2979,7 +2684,7 @@ function getPackedSampler1D(inputInfo, enableShapeUniforms) {
     }
   `;
 }
-function getSampler1D(inputInfo, enableShapeUniforms) {
+function getSampler1D(inputInfo) {
     const texName = inputInfo.name;
     const funcName = 'get' + texName.charAt(0).toUpperCase() + texName.slice(1);
     if (inputInfo.shapeInfo.isUniform) {
@@ -3002,14 +2707,6 @@ function getSampler1D(inputInfo, enableShapeUniforms) {
     }
     const offset = getFlatOffsetUniformName(texName);
     if (tNumC === 1) {
-        if (enableShapeUniforms) {
-            return `
-      float ${funcName}(int index) {
-        vec2 uv = vec2(0.5, (float(index + ${offset}) + 0.5) / float(${texName}TexShape[0]));
-        return sampleTexture(${texName}, uv);
-      }
-    `;
-        }
         return `
       float ${funcName}(int index) {
         vec2 uv = vec2(0.5, (float(index + ${offset}) + 0.5) / ${tNumR}.0);
@@ -3018,28 +2715,12 @@ function getSampler1D(inputInfo, enableShapeUniforms) {
     `;
     }
     if (tNumR === 1) {
-        if (enableShapeUniforms) {
-            return `
-      float ${funcName}(int index) {
-        vec2 uv = vec2((float(index + ${offset}) + 0.5) / float(${texName}TexShape[1]), 0.5);
-        return sampleTexture(${texName}, uv);
-      }
-    `;
-        }
         return `
       float ${funcName}(int index) {
         vec2 uv = vec2((float(index + ${offset}) + 0.5) / ${tNumC}.0, 0.5);
         return sampleTexture(${texName}, uv);
       }
     `;
-    }
-    if (enableShapeUniforms) {
-        return `
-    float ${funcName}(int index) {
-      vec2 uv = uvFromFlat(${texName}TexShape[0], ${texName}TexShape[1], index + ${offset});
-      return sampleTexture(${texName}, uv);
-    }
-  `;
     }
     return `
     float ${funcName}(int index) {
@@ -3048,7 +2729,7 @@ function getSampler1D(inputInfo, enableShapeUniforms) {
     }
   `;
 }
-function getPackedSampler2D(inputInfo, enableShapeUniforms) {
+function getPackedSampler2D(inputInfo) {
     const shape = inputInfo.shapeInfo.logicalShape;
     const texName = inputInfo.name;
     const funcName = 'get' + texName.charAt(0).toUpperCase() + texName.slice(1);
@@ -3057,15 +2738,6 @@ function getPackedSampler2D(inputInfo, enableShapeUniforms) {
     const texNumC = texShape[1];
     const glsl = getGlslDifferences();
     if (texShape != null && arraysEqual(shape, texShape)) {
-        if (enableShapeUniforms) {
-            return `
-      vec4 ${funcName}(int row, int col) {
-        vec2 uv = (vec2(col, row) + halfCR) / vec2(${texName}TexShape[1], ${texName}TexShape[0]);
-
-        return ${glsl.texture2D}(${texName}, uv);
-      }
-    `;
-        }
         return `
       vec4 ${funcName}(int row, int col) {
         vec2 uv = (vec2(col, row) + halfCR) / vec2(${texNumC}.0, ${texNumR}.0);
@@ -3073,16 +2745,6 @@ function getPackedSampler2D(inputInfo, enableShapeUniforms) {
         return ${glsl.texture2D}(${texName}, uv);
       }
     `;
-    }
-    if (enableShapeUniforms) {
-        return `
-    vec4 ${funcName}(int row, int col) {
-      ivec2 packedTexShape = ivec2(ceil(float(${texName}TexShape[0]) / 2.0), ceil(float(${texName}TexShape[1]) / 2.0));
-      int valuesPerRow = int(ceil(float(${texName}Shape[1]) / 2.0));
-      vec2 uv = packedUVfrom2D(valuesPerRow, packedTexShape[0], packedTexShape[1], row, col);
-      return ${glsl.texture2D}(${texName}, uv);
-    }
-  `;
     }
     const packedTexShape = [Math.ceil(texShape[0] / 2), Math.ceil(texShape[1] / 2)];
     const valuesPerRow = Math.ceil(shape[1] / 2);
@@ -3093,20 +2755,12 @@ function getPackedSampler2D(inputInfo, enableShapeUniforms) {
     }
   `;
 }
-function getSampler2D(inputInfo, enableShapeUniforms) {
+function getSampler2D(inputInfo) {
     const shape = inputInfo.shapeInfo.logicalShape;
     const texName = inputInfo.name;
     const funcName = 'get' + texName.charAt(0).toUpperCase() + texName.slice(1);
     const texShape = inputInfo.shapeInfo.texShape;
     if (texShape != null && arraysEqual(shape, texShape)) {
-        if (enableShapeUniforms) {
-            return `
-      float ${funcName}(int row, int col) {
-        vec2 uv = (vec2(col, row) + halfCR) / vec2(${texName}TexShape[1], ${texName}TexShape[0]);
-        return sampleTexture(${texName}, uv);
-      }
-    `;
-        }
         const texNumR = texShape[0];
         const texNumC = texShape[1];
         return `
@@ -3122,7 +2776,7 @@ function getSampler2D(inputInfo, enableShapeUniforms) {
         const newInputInfo = squeezeInputInfo(inputInfo, squeezedShape);
         const params = ['row', 'col'];
         return `
-      ${getSamplerFromInInfo(newInputInfo, enableShapeUniforms)}
+      ${getSamplerFromInInfo(newInputInfo)}
       float ${funcName}(int row, int col) {
         return ${funcName}(${getSqueezedParams(params, keptDims)});
       }
@@ -3142,15 +2796,6 @@ function getSampler2D(inputInfo, enableShapeUniforms) {
     const offset = getFlatOffsetUniformName(texName);
     if (texNumC === 1) {
         // index is used directly as physical (no risk of float16 overflow).
-        if (enableShapeUniforms) {
-            return `
-      float ${funcName}(int row, int col) {
-        float index = dot(vec3(row, col, ${offset}), vec3(${texName}Shape[1], 1, 1));
-        vec2 uv = vec2(0.5, (index + 0.5) / float(${texName}TexShape[0]));
-        return sampleTexture(${texName}, uv);
-      }
-    `;
-        }
         return `
     float ${funcName}(int row, int col) {
       float index = dot(vec3(row, col, ${offset}), vec3(${shape[1]}, 1, 1));
@@ -3161,15 +2806,6 @@ function getSampler2D(inputInfo, enableShapeUniforms) {
     }
     if (texNumR === 1) {
         // index is used directly as physical (no risk of float16 overflow).
-        if (enableShapeUniforms) {
-            return `
-      float ${funcName}(int row, int col) {
-        float index = dot(vec3(row, col, ${offset}), vec3(${texName}Shape[1], 1, 1));
-        vec2 uv = vec2((index + 0.5) / float(${texName}TexShape[1]), 0.5);
-        return sampleTexture(${texName}, uv);
-      }
-    `;
-        }
         return `
     float ${funcName}(int row, int col) {
       float index = dot(vec3(row, col, ${offset}), vec3(${shape[1]}, 1, 1));
@@ -3177,16 +2813,6 @@ function getSampler2D(inputInfo, enableShapeUniforms) {
       return sampleTexture(${texName}, uv);
     }
   `;
-    }
-    if (enableShapeUniforms) {
-        return `
-      float ${funcName}(int row, int col) {
-        // Explicitly use integer operations as dot() only works on floats.
-        int index = row * ${texName}Shape[1] + col + ${offset};
-        vec2 uv = uvFromFlat(${texName}TexShape[0], ${texName}TexShape[1], index);
-        return sampleTexture(${texName}, uv);
-      }
-    `;
     }
     return `
   float ${funcName}(int row, int col) {
@@ -3197,7 +2823,7 @@ function getSampler2D(inputInfo, enableShapeUniforms) {
   }
 `;
 }
-function getPackedSampler3D(inputInfo, enableShapeUniforms) {
+function getPackedSampler3D(inputInfo) {
     const shape = inputInfo.shapeInfo.logicalShape;
     const texName = inputInfo.name;
     const funcName = 'get' + texName.charAt(0).toUpperCase() + texName.slice(1);
@@ -3209,29 +2835,17 @@ function getPackedSampler3D(inputInfo, enableShapeUniforms) {
         const newInputInfo = squeezeInputInfo(inputInfo, squeezedShape);
         const params = ['b', 'row', 'col'];
         return `
-        ${getPackedSamplerFromInInfo(newInputInfo, enableShapeUniforms)}
+        ${getPackedSamplerFromInInfo(newInputInfo)}
         vec4 ${funcName}(int b, int row, int col) {
           return ${funcName}(${getSqueezedParams(params, keptDims)});
         }
       `;
     }
-    const glsl = getGlslDifferences();
-    if (enableShapeUniforms) {
-        return `
-    vec4 ${funcName}(int b, int row, int col) {
-      ivec2 packedTexShape = ivec2(ceil(float(${texName}TexShape[0]) / 2.0), ceil(float(${texName}TexShape[1]) / 2.0));
-      int valuesPerRow = int(ceil(float(${texName}Shape[2]) / 2.0));
-      int texelsInBatch = valuesPerRow * int(ceil(float(${texName}Shape[1]) / 2.0));
-      vec2 uv = packedUVfrom3D(
-        packedTexShape[0], packedTexShape[1], texelsInBatch, valuesPerRow, b, row, col);
-      return ${glsl.texture2D}(${texName}, uv);
-    }
-  `;
-    }
     const texNumR = packedTexShape[0];
     const texNumC = packedTexShape[1];
     const valuesPerRow = Math.ceil(shape[2] / 2);
     const texelsInBatch = valuesPerRow * Math.ceil(shape[1] / 2);
+    const glsl = getGlslDifferences();
     return `
     vec4 ${funcName}(int b, int row, int col) {
       vec2 uv = packedUVfrom3D(
@@ -3240,7 +2854,7 @@ function getPackedSampler3D(inputInfo, enableShapeUniforms) {
     }
   `;
 }
-function getSampler3D(inputInfo, enableShapeUniforms) {
+function getSampler3D(inputInfo) {
     const shape = inputInfo.shapeInfo.logicalShape;
     const texName = inputInfo.name;
     const funcName = 'get' + texName.charAt(0).toUpperCase() + texName.slice(1);
@@ -3252,7 +2866,7 @@ function getSampler3D(inputInfo, enableShapeUniforms) {
         const newInputInfo = squeezeInputInfo(inputInfo, squeezedShape);
         const params = ['row', 'col', 'depth'];
         return `
-        ${getSamplerFromInInfo(newInputInfo, enableShapeUniforms)}
+        ${getSamplerFromInInfo(newInputInfo)}
         float ${funcName}(int row, int col, int depth) {
           return ${funcName}(${getSqueezedParams(params, keptDims)});
         }
@@ -3274,18 +2888,6 @@ function getSampler3D(inputInfo, enableShapeUniforms) {
     const flatOffset = inputInfo.shapeInfo.flatOffset;
     if (texNumC === stride0 && flatOffset == null) {
         // texC is used directly as physical (no risk of float16 overflow).
-        if (enableShapeUniforms) {
-            return `
-      float ${funcName}(int row, int col, int depth) {
-        int stride1 = ${texName}Shape[2];
-        float texR = float(row);
-        float texC = dot(vec2(col, depth), vec2(stride1, 1));
-        vec2 uv = (vec2(texC, texR) + halfCR) /
-                   vec2(${texName}TexShape[1], ${texName}TexShape[0]);
-        return sampleTexture(${texName}, uv);
-      }
-    `;
-        }
         return `
         float ${funcName}(int row, int col, int depth) {
           float texR = float(row);
@@ -3298,16 +2900,6 @@ function getSampler3D(inputInfo, enableShapeUniforms) {
     }
     if (texNumC === stride1 && flatOffset == null) {
         // texR is used directly as physical (no risk of float16 overflow).
-        if (enableShapeUniforms) {
-            return `
-      float ${funcName}(int row, int col, int depth) {
-        float texR = dot(vec2(row, col), vec2(${texName}Shape[1], 1));
-        float texC = float(depth);
-        vec2 uv = (vec2(texC, texR) + halfCR) / vec2(${texName}TexShape[1], ${texName}TexShape[0]);
-        return sampleTexture(${texName}, uv);
-      }
-    `;
-        }
         return `
     float ${funcName}(int row, int col, int depth) {
       float texR = dot(vec2(row, col), vec2(${shape[1]}, 1));
@@ -3318,18 +2910,6 @@ function getSampler3D(inputInfo, enableShapeUniforms) {
   `;
     }
     const offset = getFlatOffsetUniformName(texName);
-    if (enableShapeUniforms) {
-        return `
-    float ${funcName}(int row, int col, int depth) {
-      // Explicitly use integer operations as dot() only works on floats.
-      int stride0 = ${texName}Shape[1] * ${texName}Shape[2];
-      int stride1 = ${texName}Shape[2];
-      int index = row * ${stride0} + col * ${stride1} + depth + ${offset};
-      vec2 uv = uvFromFlat(${texName}TexShape[0], ${texName}TexShape[1], index);
-      return sampleTexture(${texName}, uv);
-    }
-    `;
-    }
     return `
       float ${funcName}(int row, int col, int depth) {
         // Explicitly use integer operations as dot() only works on floats.
@@ -3339,28 +2919,11 @@ function getSampler3D(inputInfo, enableShapeUniforms) {
       }
   `;
 }
-function getPackedSamplerND(inputInfo, enableShapeUniforms) {
-    const texName = inputInfo.name;
-    const funcName = 'get' + texName.charAt(0).toUpperCase() + texName.slice(1);
-    const glsl = getGlslDifferences();
-    if (enableShapeUniforms) {
-        // TODO: support 5d and 6d
-        return `
-    vec4 ${funcName}(int b2, int b, int row, int col) {
-      int valuesPerRow = int(ceil(float(${texName}Shape[3]) / 2.0));
-      int texelsInBatch = valuesPerRow * int(ceil(float(${texName}Shape[2]) / 2.0));
-      int index = b * texelsInBatch + (row / 2) * valuesPerRow + (col / 2);
-      texelsInBatch *= ${texName}Shape[1];
-      index = b2 * texelsInBatch + index;
-      ivec2 packedTexShape = ivec2(ceil(float(${texName}TexShape[0]) / 2.0), ceil(float(${texName}TexShape[1]) / 2.0));
-      int texR = index / packedTexShape[1];
-      int texC = index - texR * packedTexShape[1];
-      vec2 uv = (vec2(texC, texR) + halfCR) / vec2(packedTexShape[1], packedTexShape[0]); return ${glsl.texture2D}(${texName}, uv);
-    }
-  `;
-    }
+function getPackedSamplerND(inputInfo) {
     const shape = inputInfo.shapeInfo.logicalShape;
     const rank = shape.length;
+    const texName = inputInfo.name;
+    const funcName = 'get' + texName.charAt(0).toUpperCase() + texName.slice(1);
     const texShape = inputInfo.shapeInfo.texShape;
     const packedTexShape = [Math.ceil(texShape[0] / 2), Math.ceil(texShape[1] / 2)];
     const texNumR = packedTexShape[0];
@@ -3374,6 +2937,7 @@ function getPackedSamplerND(inputInfo, enableShapeUniforms) {
         texelsInBatch *= shape[rank - b - 1];
         index = `b${b} * ${texelsInBatch} + ` + index;
     }
+    const glsl = getGlslDifferences();
     return `
     vec4 ${funcName}(${params}) {
       int index = ${index};
@@ -3384,7 +2948,7 @@ function getPackedSamplerND(inputInfo, enableShapeUniforms) {
     }
   `;
 }
-function getSampler4D(inputInfo, enableShapeUniforms) {
+function getSampler4D(inputInfo) {
     const shape = inputInfo.shapeInfo.logicalShape;
     const texName = inputInfo.name;
     const funcName = 'get' + texName.charAt(0).toUpperCase() + texName.slice(1);
@@ -3396,7 +2960,7 @@ function getSampler4D(inputInfo, enableShapeUniforms) {
         const newInputInfo = squeezeInputInfo(inputInfo, newShape);
         const params = ['row', 'col', 'depth', 'depth2'];
         return `
-      ${getSamplerFromInInfo(newInputInfo, enableShapeUniforms)}
+      ${getSamplerFromInInfo(newInputInfo)}
       float ${funcName}(int row, int col, int depth, int depth2) {
         return ${funcName}(${getSqueezedParams(params, keptDims)});
       }
@@ -3416,26 +2980,8 @@ function getSampler4D(inputInfo, enableShapeUniforms) {
     const texShape = inputInfo.shapeInfo.texShape;
     const texNumR = texShape[0];
     const texNumC = texShape[1];
-    const stride2Str = `int stride2 = ${texName}Shape[3];`;
-    const stride1Str = `int stride1 = ${texName}Shape[2] * stride2;`;
-    const stride0Str = `int stride0 = ${texName}Shape[1] * stride1;`;
     if (texNumC === stride0 && flatOffset == null) {
         // texC is used directly as physical (no risk of float16 overflow).
-        if (enableShapeUniforms) {
-            return `
-      float ${funcName}(int row, int col, int depth, int depth2) {
-        ${stride2Str}
-        ${stride1Str}
-        float texR = float(row);
-        float texC =
-            dot(vec3(col, depth, depth2),
-                vec3(stride1, stride2, 1));
-        vec2 uv = (vec2(texC, texR) + halfCR) /
-                   vec2(${texName}TexShape[1], ${texName}TexShape[0]);
-        return sampleTexture(${texName}, uv);
-      }
-    `;
-        }
         return `
       float ${funcName}(int row, int col, int depth, int depth2) {
         float texR = float(row);
@@ -3450,18 +2996,6 @@ function getSampler4D(inputInfo, enableShapeUniforms) {
     }
     if (texNumC === stride2 && flatOffset == null) {
         // texR is used directly as physical (no risk of float16 overflow).
-        if (enableShapeUniforms) {
-            return `
-      float ${funcName}(int row, int col, int depth, int depth2) {
-        float texR = dot(vec3(row, col, depth),
-                         vec3(${texName}Shape[1] * ${texName}Shape[2], ${texName}Shape[2], 1));
-        float texC = float(depth2);
-        vec2 uv = (vec2(texC, texR) + halfCR) /
-                  vec2(${texName}TexShape[1], ${texName}TexShape[0]);
-        return sampleTexture(${texName}, uv);
-      }
-    `;
-        }
         return `
       float ${funcName}(int row, int col, int depth, int depth2) {
         float texR = dot(vec3(row, col, depth),
@@ -3474,20 +3008,6 @@ function getSampler4D(inputInfo, enableShapeUniforms) {
     `;
     }
     const offset = getFlatOffsetUniformName(texName);
-    if (enableShapeUniforms) {
-        return `
-    float ${funcName}(int row, int col, int depth, int depth2) {
-      // Explicitly use integer operations as dot() only works on floats.
-      ${stride2Str}
-      ${stride1Str}
-      ${stride0Str}
-      int index = row * stride0 + col * stride1 +
-          depth * stride2 + depth2;
-      vec2 uv = uvFromFlat(${texName}TexShape[0], ${texName}TexShape[1], index + ${offset});
-      return sampleTexture(${texName}, uv);
-    }
-  `;
-    }
     return `
     float ${funcName}(int row, int col, int depth, int depth2) {
       // Explicitly use integer operations as dot() only works on floats.
@@ -3819,17 +3339,6 @@ function getCoordsDataType(rank) {
         throw Error(`GPU for rank ${rank} is not yet supported`);
     }
 }
-function getUniformInfoFromShape(isPacked, shape, texShape) {
-    const { newShape } = squeezeShape(shape);
-    const rank = shape.length;
-    const useSqueezePackedShape = isPacked && rank === 3 && shape[0] === 1;
-    const squeezeShape$1 = useSqueezePackedShape ? shape.slice(1) : newShape;
-    const useSqueezeShape = (!isPacked && rank > 1 && !arraysEqual(shape, texShape) &&
-        newShape.length < rank) ||
-        useSqueezePackedShape;
-    const uniformShape = useSqueezeShape ? squeezeShape$1 : shape;
-    return { useSqueezeShape, uniformShape };
-}
 /** Returns a new input info (a copy) that has a squeezed logical shape. */
 function squeezeInputInfo(inInfo, squeezedShape) {
     // Deep copy.
@@ -3858,6 +3367,7 @@ function getSqueezedParams(params, keptDims) {
  * =============================================================================
  */
 function compileProgram(gpgpu, program, inputs, output) {
+    const userCode = program.userCode;
     const inputInfos = inputs.map((input, i) => {
         const shapeInfo = {
             logicalShape: input.shape,
@@ -3880,7 +3390,7 @@ function compileProgram(gpgpu, program, inputs, output) {
         isPacked: output.texData.isPacked,
         flatOffset: null
     };
-    const source = makeShader(inputInfos, outShapeInfo, program);
+    const source = makeShader(inputInfos, outShapeInfo, userCode, program.packedInputs);
     const webGLProgram = gpgpu.createProgram(source);
     // Add special uniforms (NAN, INFINITY)
     let infLoc = null;
@@ -3889,54 +3399,24 @@ function compileProgram(gpgpu, program, inputs, output) {
         infLoc = gpgpu.getUniformLocation(webGLProgram, 'INFINITY', false);
     }
     // Add user-defined uniforms
-    const shouldThrow = false;
     const uniformLocations = {};
-    const inShapesLocations = {};
-    const inTexShapesLocations = {};
     for (let i = 0; i < program.variableNames.length; i++) {
         const varName = program.variableNames[i];
+        const shouldThrow = false;
         uniformLocations[varName] =
             gpgpu.getUniformLocation(webGLProgram, varName, shouldThrow);
         uniformLocations[`offset${varName}`] =
             gpgpu.getUniformLocation(webGLProgram, `offset${varName}`, shouldThrow);
-        if (program.enableShapeUniforms) {
-            inShapesLocations[`${varName}Shape`] = gpgpu.getUniformLocation(webGLProgram, `${varName}Shape`, shouldThrow);
-            inTexShapesLocations[`${varName}TexShape`] = gpgpu.getUniformLocation(webGLProgram, `${varName}TexShape`, shouldThrow);
-        }
-    }
-    let outShapeLocation;
-    let outTexShapeLocation;
-    let outShapeStridesLocation;
-    if (program.enableShapeUniforms) {
-        outShapeLocation =
-            gpgpu.getUniformLocation(webGLProgram, 'outShape', shouldThrow);
-        outShapeStridesLocation =
-            gpgpu.getUniformLocation(webGLProgram, 'outShapeStrides', shouldThrow);
-        outTexShapeLocation =
-            gpgpu.getUniformLocation(webGLProgram, 'outTexShape', shouldThrow);
-    }
-    const customUniformLocations = [];
-    if (program.customUniforms) {
-        program.customUniforms.forEach((d, i) => {
-            customUniformLocations[i] =
-                gpgpu.getUniformLocation(webGLProgram, d.name, shouldThrow);
-        });
     }
     return {
         program,
         source,
         webGLProgram,
         uniformLocations,
-        customUniformLocations,
         inShapeInfos,
         outShapeInfo,
         infLoc,
         nanLoc,
-        inShapesLocations,
-        inTexShapesLocations,
-        outShapeLocation,
-        outShapeStridesLocation,
-        outTexShapeLocation
     };
 }
 function validateBinaryAndProgram(shapeInfos, inputs) {
@@ -3964,11 +3444,9 @@ function validateBinaryAndProgram(shapeInfos, inputs) {
         }
     });
 }
-function runProgram(gpgpu, binary, inputs, output, customUniformValues) {
-    if (!binary.program.enableShapeUniforms) {
-        validateBinaryAndProgram(binary.inShapeInfos, inputs);
-        validateBinaryAndProgram([binary.outShapeInfo], [output]);
-    }
+function runProgram(gpgpu, binary, inputs, output, customSetup) {
+    validateBinaryAndProgram(binary.inShapeInfos, inputs);
+    validateBinaryAndProgram([binary.outShapeInfo], [output]);
     const outTex = output.texData.texture;
     const outTexShape = output.texData.texShape;
     if (output.texData.isPacked) {
@@ -3992,28 +3470,6 @@ function runProgram(gpgpu, binary, inputs, output, customUniformValues) {
         const varName = binary.program.variableNames[i];
         const varLoc = binary.uniformLocations[varName];
         const varOffsetLoc = binary.uniformLocations[`offset${varName}`];
-        const varShapeLoc = binary.inShapesLocations[`${varName}Shape`];
-        const varTexShapeLoc = binary.inTexShapesLocations[`${varName}TexShape`];
-        if (varShapeLoc) {
-            const { uniformShape } = getUniformInfoFromShape(binary.program.packedInputs, input.shape, input.texData.texShape);
-            switch (uniformShape.length) {
-                case 1:
-                    gpgpu.gl.uniform1iv(varShapeLoc, new Int32Array(uniformShape));
-                    break;
-                case 2:
-                    gpgpu.gl.uniform2iv(varShapeLoc, new Int32Array(uniformShape));
-                    break;
-                case 3:
-                    gpgpu.gl.uniform3iv(varShapeLoc, new Int32Array(uniformShape));
-                    break;
-                case 4:
-                    gpgpu.gl.uniform4iv(varShapeLoc, new Int32Array(uniformShape));
-                    break;
-            }
-        }
-        if (varTexShapeLoc) {
-            gpgpu.gl.uniform2i(varTexShapeLoc, input.texData.texShape[0], input.texData.texShape[1]);
-        }
         if (varLoc == null) {
             // The compiler inferred that this variable is not used in this shader.
             return;
@@ -4038,72 +3494,8 @@ function runProgram(gpgpu, binary, inputs, output, customUniformValues) {
         }
         gpgpu.setInputMatrixTexture(input.texData.texture, varLoc, i);
     });
-    const outShapeLoc = binary.outShapeLocation;
-    if (outShapeLoc) {
-        switch (output.shape.length) {
-            case 1:
-                gpgpu.gl.uniform1iv(outShapeLoc, new Int32Array(output.shape));
-                break;
-            case 2:
-                gpgpu.gl.uniform2iv(outShapeLoc, new Int32Array(output.shape));
-                break;
-            case 3:
-                gpgpu.gl.uniform3iv(outShapeLoc, new Int32Array(output.shape));
-                break;
-            case 4:
-                gpgpu.gl.uniform4iv(outShapeLoc, new Int32Array(output.shape));
-                break;
-        }
-    }
-    if (binary.outShapeStridesLocation) {
-        const strides = computeStrides(output.shape);
-        switch (output.shape.length) {
-            case 2:
-                gpgpu.gl.uniform1iv(binary.outShapeStridesLocation, new Int32Array(strides));
-                break;
-            case 3:
-                gpgpu.gl.uniform2iv(binary.outShapeStridesLocation, new Int32Array(strides));
-                break;
-            case 4:
-                gpgpu.gl.uniform3iv(binary.outShapeStridesLocation, new Int32Array(strides));
-                break;
-        }
-    }
-    if (binary.outTexShapeLocation) {
-        gpgpu.gl.uniform2i(binary.outTexShapeLocation, output.texData.texShape[0], output.texData.texShape[1]);
-    }
-    if (binary.program.customUniforms && customUniformValues) {
-        binary.program.customUniforms.forEach((d, i) => {
-            const customLoc = binary.customUniformLocations[i];
-            const customValue = customUniformValues[i];
-            if (d.type === 'float') {
-                gpgpu.gl.uniform1fv(customLoc, customValue);
-            }
-            else if (d.type === 'vec2') {
-                gpgpu.gl.uniform2fv(customLoc, customValue);
-            }
-            else if (d.type === 'vec3') {
-                gpgpu.gl.uniform3fv(customLoc, customValue);
-            }
-            else if (d.type === 'vec4') {
-                gpgpu.gl.uniform4fv(customLoc, customValue);
-            }
-            else if (d.type === 'int') {
-                gpgpu.gl.uniform1iv(customLoc, customValue);
-            }
-            else if (d.type === 'ivec2') {
-                gpgpu.gl.uniform2iv(customLoc, customValue);
-            }
-            else if (d.type === 'ivec3') {
-                gpgpu.gl.uniform3iv(customLoc, customValue);
-            }
-            else if (d.type === 'ivec4') {
-                gpgpu.gl.uniform4iv(customLoc, customValue);
-            }
-            else {
-                throw Error(`uniform type ${d.type} is not supported yet.`);
-            }
-        });
+    if (customSetup != null) {
+        customSetup(gpgpu, binary.webGLProgram);
     }
     gpgpu.executeProgram();
 }
@@ -4112,67 +3504,14 @@ function makeShaderKey(program, inputs, output) {
     inputs.concat(output).forEach(x => {
         const hasOffset = x.texData != null && x.texData.slice != null &&
             x.texData.slice.flatOffset > 0;
-        // TODO: Remove the condition of !x.isUniform.
-        if (program.enableShapeUniforms && !x.isUniform) {
-            const xTexShape = x.texData.texShape;
-            const { useSqueezeShape, uniformShape } = getUniformInfoFromShape(program.packedInputs, x.shape, xTexShape);
-            let rank1 = '', rank2 = '', rank34 = '';
-            if (uniformShape.length === 1 && program.packedInputs) {
-                const packedTexShape = [Math.ceil(xTexShape[0] / 2), Math.ceil(xTexShape[1] / 2)];
-                rank1 = `${packedTexShape[0] > 1}_${packedTexShape[1] > 1}`;
-            }
-            else if (uniformShape.length === 2 && !program.packedInputs) {
-                rank2 = `${uniformShape[0] > 1}_${uniformShape[1] > 1}`;
-            }
-            else if (uniformShape.length > 2 && !program.packedInputs) {
-                const strides = computeStrides(uniformShape);
-                rank34 = `${strides[0] === xTexShape[1]}_${strides[strides.length - 1] === xTexShape[1]}`;
-            }
-            const xRank = x.shape.length;
-            const isLogicalShapTexShapeEqual = xRank === 2 && arraysEqual(x.shape, xTexShape);
-            const isScalar = sizeFromShape(x.shape) === 1;
-            const broadcastDims = getBroadcastDims$1(x.shape, output.shape);
-            const isInOutTexShapeEqual = !program.packedInputs &&
-                xRank === output.shape.length &&
-                arraysEqual(xTexShape, output.texData.texShape);
-            const isTexShapeGreaterThanOne = program.packedInputs || xRank > 2 ?
-                '' :
-                `${xTexShape[0] > 1}_${xTexShape[1] > 1}`;
-            // These key components are needed due to shader_compiler is embedding
-            // them in the shader.
-            // |xRank| is used to determine the coords length. See
-            // get[Packed]SamplerAtOutputCoords.
-            // |isInOutTexShapeEqual| is used to determine whether going to an
-            // optimization path in getSamplerAtOutputCoords.
-            // |useSqueezeShape| is extracted from squeezeInputInfo of
-            // getSampler[2|3|4]D/getPackedSampler3D.
-            // |isScalar| is extracted from isInputScalar/isOutputScalar in
-            // getPackedSamplerAtOutputCoords.
-            // |broadcastDims| is extracted from get[Packed]SamplerAtOutputCoords.
-            // |isLogicalShapTexShapeEqual| is used in
-            // getOutput[Packed]2DCoords/get[Packed]Sampler2D.
-            // |rank1| is used in getOutputPacked1DCoords.
-            // |rank2| is used in getOutput2DCoords.
-            // |rank34| is used in getSampler3D/getSampler4D.
-            // |isTexShapeGreaterThanOne| are used in
-            // getSampler[Scalar|1D|2D]/getOutput1DCoords.
-            keyInputs += `${xRank}_${isInOutTexShapeEqual}_${useSqueezeShape}_${uniformShape.length}_${isScalar}_${broadcastDims}_${isLogicalShapTexShapeEqual}_${rank1}_${rank2}_${rank34}_${isTexShapeGreaterThanOne}_${hasOffset}`;
-        }
-        else {
-            const texShape = x.isUniform ? 'uniform' : x.texData.texShape;
-            keyInputs += `${x.shape}_${texShape}_${hasOffset}`;
-        }
+        const texShape = x.isUniform ? 'uniform' : x.texData.texShape;
+        keyInputs += `${x.shape}_${texShape}_${hasOffset}`;
     });
     const keyUserCode = program.userCode;
     let key = program.constructor.name;
     // Fast string concat. See https://jsperf.com/string-concatenation/14.
-    key += '_' + keyInputs + '_' + keyUserCode +
-        `${env().getNumber('WEBGL_VERSION')}`;
+    key += '_' + keyInputs + '_' + keyUserCode;
     return key;
-}
-function useShapeUniforms(rank) {
-    // TODO: Remove the limitaion of rank <= 4.
-    return env().getBool('WEBGL_USE_SHAPES_UNIFORMS') && rank <= 4;
 }
 
 /**
@@ -4431,24 +3770,6 @@ function concatImpl(inputs, outShape, dtype, simplyConcat) {
 /**
  * @license
  * Copyright 2020 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-const equalImpl = createSimpleBinaryKernelImpl((a, b) => (a === b) ? 1 : 0);
-
-/**
- * @license
- * Copyright 2020 Google LLC. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the License);
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -4499,43 +3820,6 @@ const expm1Impl = createSimpleUnaryImpl((xi) => Math.expm1(xi));
  * =============================================================================
  */
 const floorImpl = createSimpleUnaryImpl((xi) => Math.floor(xi));
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-function gatherNdImpl(indicesData, paramsBuf, dtype, numSlices, sliceRank, sliceSize, strides, paramsShape, paramsSize) {
-    const outBuf = buffer([numSlices, sliceSize], dtype);
-    for (let i = 0; i < numSlices; i++) {
-        const index = [];
-        let flattenIndex = 0;
-        for (let j = 0; j < sliceRank; j++) {
-            const dim = indicesData[i * sliceRank + j];
-            flattenIndex += dim * strides[j];
-            index.push(dim);
-        }
-        if (flattenIndex < 0 || flattenIndex >= paramsSize / sliceSize) {
-            throw new Error(`Invalid indices: ${index} does not index into ${paramsShape}`);
-        }
-        for (let k = 0; k < sliceSize; k++) {
-            outBuf.values[i * sliceSize + k] =
-                paramsBuf.get(...paramsBuf.indexToLoc(flattenIndex * sliceSize + k));
-        }
-    }
-    return outBuf;
-}
 
 /**
  * @license
@@ -4602,43 +3886,7 @@ const greaterImpl = createSimpleBinaryKernelImpl((a, b) => (a > b) ? 1 : 0);
  * limitations under the License.
  * =============================================================================
  */
-const greaterEqualImpl = createSimpleBinaryKernelImpl((a, b) => (a >= b) ? 1 : 0);
-
-/**
- * @license
- * Copyright 2020 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
 const lessImpl = createSimpleBinaryKernelImpl((a, b) => (a < b) ? 1 : 0);
-
-/**
- * @license
- * Copyright 2020 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-const lessEqualImpl = createSimpleBinaryKernelImpl((a, b) => (a <= b) ? 1 : 0);
 
 /**
  * @license
@@ -4707,8 +3955,7 @@ function maxImpl(aVals, reduceSize, outShape, dtype) {
         let max = aVals[offset];
         for (let j = 0; j < reduceSize; ++j) {
             const value = aVals[offset + j];
-            if (Number.isNaN(value) ||
-                value > max) { // comparison with NaN always return false
+            if (value > max) {
                 max = value;
             }
         }
@@ -4978,318 +4225,6 @@ function sliceImpl(vals, begin, size, shape, dtype) {
 
 /**
  * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-function sparseFillEmptyRowsImpl(indices, indicesShape, indicesDType, values, valuesDType, denseShape, defaultValue) {
-    const indicesCount = indicesShape[0];
-    const denseRows = denseShape[0];
-    const emptyRowIndicator = new Array(denseRows);
-    const reverseIndexMap = new Array(indicesCount);
-    const rank = indicesShape[1];
-    if (denseRows === 0) {
-        if (indicesCount !== 0) {
-            throw new Error(`Received SparseTensor with denseShape[0] = 0 but
-         indices.shape[0] = ${indicesCount}`);
-        }
-        const outputIndices = getArrayFromDType(indicesDType, 0);
-        const outputValues = getArrayFromDType(valuesDType, 0);
-        return [
-            outputIndices, [0, rank], outputValues, emptyRowIndicator, reverseIndexMap
-        ];
-    }
-    let rowsAreOrdered = true;
-    let lastIndicesRow = 0;
-    const csrOffset = new Array(denseRows).fill(0);
-    for (let i = 0; i < indicesCount; ++i) {
-        // indices is a 2d tensor with shape of [N, rank]
-        const row = indices[i * rank];
-        if (row < 0) {
-            throw new Error(`indices(${i}, 0) is invalid: ${row} < 0`);
-        }
-        if (row >= denseRows) {
-            throw new Error(`indices(${i}, 0) is invalid: ${row} >= ${denseRows}`);
-        }
-        ++csrOffset[row];
-        rowsAreOrdered = rowsAreOrdered && (row >= lastIndicesRow);
-        lastIndicesRow = row;
-    }
-    let allRowsFull = true;
-    for (let row = 0; row < denseRows; ++row) {
-        // csrOffset here describes the number of elements in this dense row
-        const rowEmpty = (csrOffset[row] === 0);
-        emptyRowIndicator[row] = rowEmpty;
-        allRowsFull = allRowsFull && !rowEmpty;
-        // In filled version, each row has at least one element.
-        csrOffset[row] = Math.max(csrOffset[row], 1);
-        // Update csrOffset to represent the number of elements up to and
-        // including denseRows + 1:
-        //  csrOffset[0] == #{elements of row 0}
-        //  csrOffset[1] == #{elements of row 1} + #{elements of row 0}
-        //  ..
-        //  csrOffset[i] == starting index for elements in row i + 1.
-        if (row > 0) {
-            csrOffset[row] += csrOffset[row - 1];
-        }
-    }
-    if (allRowsFull && rowsAreOrdered) {
-        const outputIndices = indices;
-        const outputValues = values;
-        for (let i = 0; i < indicesCount; ++i) {
-            reverseIndexMap[i] = i;
-        }
-        return [
-            outputIndices, [indicesCount, rank], outputValues, emptyRowIndicator,
-            reverseIndexMap
-        ];
-    }
-    else {
-        const fullIndicesCount = csrOffset[denseRows - 1];
-        const outputIndices = getArrayFromDType(indicesDType, fullIndicesCount * rank);
-        const outputValues = getArrayFromDType(valuesDType, fullIndicesCount);
-        const filledCount = new Array(denseRows).fill(0);
-        // Fill in values for rows that are not missing
-        for (let i = 0; i < indicesCount; ++i) {
-            // indices is a 2d tensor with shape of [N, rank]
-            const row = indices[i * rank];
-            const offset = filledCount[row];
-            const outputI = ((row === 0) ? 0 : csrOffset[row - 1]) + offset;
-            filledCount[row]++; // Increment the filled count for this row.
-            for (let j = 0; j < rank; ++j) {
-                // indices and outputIndices are 2d tensors with shape of [N, rank]
-                outputIndices[outputI * rank + j] = indices[i * rank + j];
-            }
-            outputValues[outputI] = values[i];
-            // We'll need this reverse index map to backprop correctly.
-            reverseIndexMap[i] = outputI;
-        }
-        // Fill in values for rows that are missing
-        for (let row = 0; row < denseRows; ++row) {
-            const rowCount = filledCount[row];
-            if (rowCount === 0) { // We haven't filled this row
-                const startingIndex = (row === 0) ? 0 : csrOffset[row - 1];
-                // Remaining index values were set to zero already.
-                // Just need to set the row index in the right location.
-                // outputIndices is a 2d tensor with shape of [N, rank]
-                outputIndices[startingIndex * rank + 0] = row;
-                for (let col = 1; col < rank; ++col) {
-                    outputIndices[startingIndex * rank + col] = 0;
-                }
-                outputValues[startingIndex] = defaultValue;
-            }
-        }
-        return [
-            outputIndices, [fullIndicesCount, rank], outputValues, emptyRowIndicator,
-            reverseIndexMap
-        ];
-    }
-}
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-function sparseReshapeImpl(inputIndices, inputIndicesShape, inputDType, inputShape, targetShape) {
-    const denseSize = sizeFromShape(inputShape);
-    const nnz = inputIndicesShape[0];
-    const outputRank = targetShape.length;
-    // Compute the output shape. Determine product of specified dimensions, and
-    // find the index of the unspecified one.
-    const outputShape = [];
-    let product = 1;
-    let unknownIndex = -1;
-    for (let d = 0; d < outputRank; ++d) {
-        const size = targetShape[d];
-        if (size === -1) {
-            if (unknownIndex !== -1) {
-                throw new Error(`only one output dimension may be -1, not both ${unknownIndex} and ${d}`);
-            }
-            unknownIndex = d;
-            outputShape.push(1);
-        }
-        else {
-            if (size < 0) {
-                throw new Error(`size ${d} must be non-negative, not ${size}`);
-            }
-            product *= size;
-            outputShape.push(size);
-        }
-    }
-    if (unknownIndex !== -1) {
-        if (product <= 0) {
-            throw new Error('reshape cannot infer the missing ' +
-                'input size for an empty tensor unless all ' +
-                'specified input sizes are non-zero');
-        }
-        const missing = Math.trunc(denseSize / product);
-        if (product * missing !== denseSize) {
-            throw new Error(`Input to reshape is a SparseTensor with ${denseSize}
-          dense values, but the requested shape requires a multiple of ${product}. inputShape=${inputShape} outputShape= ${outputShape}`);
-        }
-        outputShape[unknownIndex] = missing;
-    }
-    const outputSize = sizeFromShape(outputShape);
-    if (outputSize !== denseSize) {
-        throw new Error(`Input to reshape is a tensor with ${denseSize} dense values, but the requested shape has ${outputSize}. inputShape=${inputShape} outputShape=${outputShape}`);
-    }
-    const inputRank = inputShape.length;
-    const inputStrides = [];
-    if (inputRank > 0) {
-        inputStrides[inputRank - 1] = 1;
-        for (let d = inputRank - 2; d >= 0; --d) {
-            inputStrides[d] = inputStrides[d + 1] * inputShape[d + 1];
-        }
-    }
-    const outputStrides = [];
-    if (outputRank > 0) {
-        outputStrides[outputRank - 1] = 1;
-        for (let d = outputRank - 2; d >= 0; --d) {
-            outputStrides[d] = outputStrides[d + 1] * outputShape[d + 1];
-        }
-    }
-    const newIndices = getArrayFromDType(inputDType, nnz * outputRank);
-    for (let i = 0; i < nnz; ++i) {
-        let id = 0;
-        for (let j = 0; j < inputRank; ++j) {
-            // inputIndices is a 2d tensor with shape of [nnz, inputRank]
-            id += inputIndices[i * inputRank + j] * inputStrides[j];
-        }
-        for (let j = 0; j < outputRank; ++j) {
-            // newIndices is a 2d tensor with shape of [nnz, outputRank]
-            newIndices[i * outputRank + j] = Math.trunc(id / outputStrides[j]);
-            id %= outputStrides[j];
-        }
-    }
-    return [newIndices, [nnz, outputRank], outputShape];
-}
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-function sparseSegmentReductionImpl(input, inputShape, inputDType, indices, segmentIds, isMean = false, defaultValue = 0) {
-    const numIndices = indices.length;
-    if (numIndices !== segmentIds.length) {
-        throw new Error(`segmentIds and indices should have same size.`);
-    }
-    // Flatten the array to two dimensions
-    const inputFlat = [inputShape[0], input.length / inputShape[0]];
-    const numCol = inputFlat[1];
-    // Note that the current implementation assumes that segmentIds values are
-    // sorted.
-    const lastSegmentIdPlusOne = numIndices > 0 ? segmentIds[numIndices - 1] + 1 : 0;
-    const outputRows = lastSegmentIdPlusOne;
-    if (outputRows < 0) {
-        throw new Error(`segment ids must be >= 0`);
-    }
-    const outputShape = inputShape.slice();
-    outputShape[0] = outputRows;
-    const outputLength = outputShape.reduce((product, value) => product * value, 1);
-    // Output array is initialized with the value 0 by default.
-    const output = getArrayFromDType(inputDType, outputLength);
-    // Note that we do not initialize the output buffer with a default value, so
-    // we need to explicitly set missing indices to the default value.
-    if (numIndices === 0) {
-        if (outputRows > 0) {
-            output.fill(defaultValue);
-        }
-        return [output, outputShape];
-    }
-    if (outputRows <= 0) {
-        throw new Error(`segment ids must be >= 0`);
-    }
-    let start = 0, end = 1;
-    // Index from which the output is not initialized.
-    let uninitializedIndex = 0;
-    let outIndex = segmentIds[start];
-    while (true) {
-        // We initialize nextIndex to 0 to avoid may be uninitialized warning
-        let nextIndex = 0;
-        if (end < numIndices) {
-            nextIndex = segmentIds[end];
-            if (outIndex === nextIndex) {
-                ++end;
-                continue;
-            }
-            // We have a new segment here.  Verify that the segment ids are growing.
-            if (outIndex >= nextIndex) {
-                throw new Error(`segment ids are not increasing`);
-            }
-        }
-        if (outIndex < 0 || outIndex >= outputRows) {
-            throw new Error(`Segment id ${outIndex} out of range [0, ${outputRows}), possibly because segmentIds input is not sorted.`);
-        }
-        // If there is a gap between two indices, we need to set that gap to the
-        // default value.
-        if (outIndex > uninitializedIndex) {
-            output.fill(defaultValue, uninitializedIndex * numCol, outIndex * numCol);
-        }
-        for (let i = start; i < end; ++i) {
-            const index = indices[i];
-            if (index < 0 || index >= inputFlat[0]) {
-                throw new Error(`Bad: indices[${i}] == ${indices[i]} out of range [0, ${inputFlat[0]})`);
-            }
-            for (let j = 0; j < numCol; j++) {
-                output[outIndex * numCol + j] += input[index * numCol + j];
-            }
-        }
-        if (isMean) {
-            for (let j = 0; j < numCol; j++) {
-                output[outIndex * numCol + j] /= end - start;
-            }
-        }
-        start = end;
-        ++end;
-        uninitializedIndex = outIndex + 1;
-        outIndex = nextIndex;
-        if (end > numIndices) {
-            break;
-        }
-    }
-    // Fill the gap at the end with the default value.
-    if (uninitializedIndex < outputRows) {
-        output.fill(defaultValue, uninitializedIndex * numCol, outputRows * numCol);
-    }
-    return [output, outputShape];
-}
-
-/**
- * @license
  * Copyright 2020 Google LLC. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -5336,309 +4271,6 @@ function stridedSliceImpl(outShape, xBuf, strides, begin) {
         outBuf.set(xBuf.get(...newLoc), ...loc);
     }
     return outBuf;
-}
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-/**
- * The StringNGramsOp class creates ngrams from ragged string data.
- * The constructor contains all attributes related to the operation such as
- * padding widths and strings, and the compute function can be used to
- * compute the ngrams for different ragged tensor inputs.
- */
-class StringNGramsOp {
-    constructor(separator, nGramWidths, leftPad, rightPad, padWidth, preserveShortSequences) {
-        this.separator = encodeString(separator);
-        this.nGramWidths = nGramWidths;
-        this.leftPad = encodeString(leftPad);
-        this.rightPad = encodeString(rightPad);
-        this.padWidth = padWidth;
-        this.preserveShort = preserveShortSequences;
-    }
-    getPadWidth(nGramWidth) {
-        // Ngrams can be padded with either a fixed pad width or a dynamic pad
-        // width depending on the 'padWidth' arg, but in no case should the padding
-        // ever be wider than 'nGramWidth' - 1.
-        return Math.min(this.padWidth < 0 ? nGramWidth - 1 : this.padWidth, nGramWidth - 1);
-    }
-    getNumNGrams(length, nGramWidth) {
-        const padWidth = this.getPadWidth(nGramWidth);
-        return Math.max(0, ((length + 2 * padWidth) - nGramWidth) + 1);
-    }
-    createNGrams(data, splitIndex, output, outputStartIndex, numNGrams, nGramWidth) {
-        for (let nGramIndex = 0; nGramIndex < numNGrams; ++nGramIndex) {
-            const padWidth = this.getPadWidth(nGramWidth);
-            const leftPadding = Math.max(0, padWidth - nGramIndex);
-            const rightPadding = Math.max(0, padWidth - (numNGrams - (nGramIndex + 1)));
-            const numTokens = nGramWidth - (leftPadding + rightPadding);
-            const dataStartIndex = splitIndex + (leftPadding > 0 ? 0 : nGramIndex - padWidth);
-            // Calculate the total expected size of the nGram so we can reserve the
-            // correct amount of space in the string.
-            let nGramSize = 0;
-            // Size of the left padding.
-            nGramSize += leftPadding * this.leftPad.length;
-            // Size of the tokens.
-            for (let n = 0; n < numTokens; ++n) {
-                nGramSize += data[dataStartIndex + n].length;
-            }
-            // Size of the right padding.
-            nGramSize += rightPadding * this.rightPad.length;
-            // Size of the separators.
-            const numSeparators = leftPadding + rightPadding + numTokens - 1;
-            nGramSize += numSeparators * this.separator.length;
-            // Build the nGram.
-            output[outputStartIndex + nGramIndex] = new Uint8Array(nGramSize);
-            const nGram = output[outputStartIndex + nGramIndex];
-            let nextNGramIndex = 0;
-            const appendToNGram = (str) => str.forEach((value) => nGram[nextNGramIndex++] = value);
-            for (let n = 0; n < leftPadding; ++n) {
-                appendToNGram(this.leftPad);
-                appendToNGram(this.separator);
-            }
-            // Only output first numTokens - 1 pairs of data and separator
-            for (let n = 0; n < numTokens - 1; ++n) {
-                appendToNGram(data[dataStartIndex + n]);
-                appendToNGram(this.separator);
-            }
-            // Handle case when there are no tokens or no right padding as these
-            // can result in consecutive separators.
-            if (numTokens > 0) {
-                // If we have tokens, then output last and then pair each separator
-                // with the right padding that follows, to ensure nGram ends either with
-                // the token or with the right pad.
-                appendToNGram(data[dataStartIndex + numTokens - 1]);
-                for (let n = 0; n < rightPadding; ++n) {
-                    appendToNGram(this.separator);
-                    appendToNGram(this.rightPad);
-                }
-            }
-            else {
-                // If we don't have tokens, then the last item inserted into the nGram
-                // has been the separator from the left padding loop above. Hence,
-                // output right pad and separator and make sure to finish with a
-                // padding, not a separator.
-                for (let n = 0; n < rightPadding - 1; ++n) {
-                    appendToNGram(this.rightPad);
-                    appendToNGram(this.separator);
-                }
-                appendToNGram(this.rightPad);
-            }
-        }
-    }
-    // Data and splits together form the definition of the ragged tensor,
-    // where data is 1 dimensional and contains the values of the tensor
-    // and splits denotes the indices at which each row starts.
-    compute(data, splits) {
-        // Validate that the splits are valid indices into data, only if there are
-        // splits specified.
-        const inputDataSize = data.length;
-        const splitsSize = splits.length;
-        if (splitsSize > 0) {
-            let prevSplit = splits[0];
-            if (prevSplit !== 0) {
-                throw new Error(`First split value must be 0, got ${prevSplit}`);
-            }
-            for (let i = 1; i < splitsSize; ++i) {
-                let validSplits = splits[i] >= prevSplit;
-                validSplits = validSplits && (splits[i] <= inputDataSize);
-                if (!validSplits) {
-                    throw new Error(`Invalid split value ${splits[i]}, must be in [${prevSplit}, ${inputDataSize}]`);
-                }
-                prevSplit = splits[i];
-            }
-            if (prevSplit !== inputDataSize) {
-                throw new Error(`Last split value must be data size. Expected ${inputDataSize}, got ${prevSplit}`);
-            }
-        }
-        const numBatchItems = splitsSize - 1;
-        const nGramsSplits = getArrayFromDType('int32', splitsSize);
-        // If there is no data or size, return an empty ragged tensor.
-        if (inputDataSize === 0 || splitsSize === 0) {
-            const empty = new Array(inputDataSize);
-            for (let i = 0; i <= numBatchItems; ++i) {
-                nGramsSplits[i] = 0;
-            }
-            return [empty, nGramsSplits];
-        }
-        nGramsSplits[0] = 0;
-        for (let i = 1; i <= numBatchItems; ++i) {
-            const length = splits[i] - splits[i - 1];
-            let numNGrams = 0;
-            this.nGramWidths.forEach((nGramWidth) => {
-                numNGrams += this.getNumNGrams(length, nGramWidth);
-            });
-            if (this.preserveShort && length > 0 && numNGrams === 0) {
-                numNGrams = 1;
-            }
-            nGramsSplits[i] = nGramsSplits[i - 1] + numNGrams;
-        }
-        const nGrams = new Array(nGramsSplits[numBatchItems]);
-        for (let i = 0; i < numBatchItems; ++i) {
-            const splitIndex = splits[i];
-            let outputStartIdx = nGramsSplits[i];
-            this.nGramWidths.forEach((nGramWidth) => {
-                const length = splits[i + 1] - splits[i];
-                const numNGrams = this.getNumNGrams(length, nGramWidth);
-                this.createNGrams(data, splitIndex, nGrams, outputStartIdx, numNGrams, nGramWidth);
-                outputStartIdx += numNGrams;
-            });
-            // If we're preserving short sequences, check to see if no sequence was
-            // generated by comparing the current output start idx to the original
-            // one (nGramSplitsdata). If no ngrams were generated, then they will
-            // be equal (since we increment outputStartIdx by numNGrams every
-            // time we create a set of ngrams.)
-            if (this.preserveShort && outputStartIdx === nGramsSplits[i]) {
-                const dataLength = splits[i + 1] - splits[i];
-                // One legitimate reason to not have any ngrams when this.preserveShort
-                // is true is if the sequence itself is empty. In that case, move on.
-                if (dataLength === 0) {
-                    continue;
-                }
-                // We don't have to worry about dynamic padding sizes here: if padding
-                // was dynamic, every sequence would have had sufficient padding to
-                // generate at least one nGram.
-                const nGramWidth = dataLength + 2 * this.padWidth;
-                const numNGrams = 1;
-                this.createNGrams(data, splitIndex, nGrams, outputStartIdx, numNGrams, nGramWidth);
-            }
-        }
-        return [nGrams, nGramsSplits];
-    }
-}
-function stringNGramsImpl(data, dataSplits, separator, nGramWidths, leftPad, rightPad, padWidth, preserveShortSequences) {
-    return new StringNGramsOp(separator, nGramWidths, leftPad, rightPad, padWidth, preserveShortSequences)
-        .compute(data, dataSplits);
-}
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-function split(str, delimiters, skipEmpty) {
-    if (!str.length) {
-        return [];
-    }
-    // When the delimiter is empty, the input is split into individual characters.
-    if (delimiters.length === 0) {
-        const result = new Array(str.length);
-        for (let i = 0; i < str.length; ++i) {
-            result[i] = str.subarray(i, i + 1);
-        }
-        return result;
-    }
-    // When there is one delimiter, the input is split only at that delimiter.
-    if (delimiters.length === 1) {
-        const delimiter = delimiters[0];
-        const result = [];
-        let f = str.indexOf(delimiter);
-        while (f !== -1) {
-            const token = str.subarray(0, f);
-            if (!skipEmpty || token.length !== 0) {
-                result.push(token);
-            }
-            str = str.subarray(f + 1);
-            f = str.indexOf(delimiter);
-        }
-        if (!skipEmpty || str.length !== 0) {
-            result.push(str);
-        }
-        return result;
-    }
-    // When there are multiple delimiters, the input is split at every instance
-    // one of the delimiters appears.
-    const result = [];
-    let tokenStart = 0;
-    for (let i = 0; i < str.length + 1; i++) {
-        if ((i === str.length) || (delimiters.indexOf(str[i]) !== -1)) {
-            const token = str.subarray(tokenStart, i);
-            if (!skipEmpty || token.length !== 0) {
-                result.push(token);
-            }
-            tokenStart = i + 1;
-        }
-    }
-    return result;
-}
-function stringSplitImpl(input, delimiter, skipEmpty) {
-    const batchSize = input.length;
-    // Empty delimiter means split the input character by character.
-    const tokens = [];
-    let outputSize = 0;
-    let maxNumEntries = 0;
-    const numIndices = new Array(batchSize);
-    for (let i = 0; i < batchSize; ++i) {
-        const parts = split(input[i], delimiter, skipEmpty);
-        const nEntries = parts.length;
-        numIndices[i] = nEntries;
-        outputSize += nEntries;
-        maxNumEntries = Math.max(maxNumEntries, nEntries);
-        tokens.push(...parts);
-    }
-    const indices = getArrayFromDType('int32', outputSize * 2);
-    const values = new Array(outputSize);
-    const shape = [batchSize, maxNumEntries];
-    let c = 0;
-    for (let i = 0; i < batchSize; ++i) {
-        for (let j = 0; j < numIndices[i]; ++j) {
-            // indices is a 2d tensor with shape of [outputSize, 2]
-            indices[c * 2] = i;
-            indices[c * 2 + 1] = j;
-            values[c] = tokens[c];
-            ++c;
-        }
-    }
-    return [indices, values, shape];
-}
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-function stringToHashBucketFastImpl(input, numBuckets) {
-    const output = getArrayFromDType('int32', input.length);
-    for (let i = 0; i < input.length; ++i) {
-        output[i] =
-            fingerPrint64(input[i]).modulo(numBuckets).getLowBitsUnsigned();
-    }
-    return output;
 }
 
 /**
@@ -5713,72 +4345,6 @@ function tileImpl(xBuf, reps) {
  * limitations under the License.
  * =============================================================================
  */
-const comparePair = (a, b) => {
-    const valueDiff = b.value - a.value;
-    return valueDiff === 0 ? a.index - b.index : valueDiff;
-};
-/**
- * Partitions array where all elements smaller than the (k+1) smallest element
- * are found to the left of it, and all larger to the right of it.
- * Based on the Floyd-Rivest Algorithm, ref:
- * https://en.wikipedia.org/wiki/Floyd%E2%80%93Rivest_algorithm
- * @param array: Array to partition
- * @param left: Left index for the interval
- * @param right: Right index for the interval
- * @param k: Desired index value, where array[k] is the (k+1)th smallest element
- *           when left = 0
- */
-function select(array, k, left = 0, right = array.length - 1) {
-    while (right > left) {
-        // Use select recursively to sample a smaller set of size s
-        // the arbitrary constants 600 and 0.5 are used in the original
-        // version to minimize execution time.
-        if (right - left > 600) {
-            const n = right - left + 1;
-            const i = k - left + 1;
-            const z = Math.log(n);
-            const s = 0.5 * Math.exp(2 * z / 3);
-            const sd = 0.5 * Math.sqrt(z * s * (n - s) / n) * Math.sign(i - n / 2);
-            const newLeft = Math.max(left, Math.floor(k - i * s / n + sd));
-            const newRight = Math.min(right, Math.floor(k + (n - i) * s / n + sd));
-            select(array, k, newLeft, newRight);
-        }
-        // partition the elements between left and right around t
-        const t = array[k];
-        let i = left;
-        let j = right;
-        swap(array, left, k);
-        if (comparePair(array[right], t) > 0) {
-            swap(array, left, right);
-        }
-        while (i < j) {
-            swap(array, i, j);
-            i++;
-            j--;
-            while (comparePair(array[i], t) < 0) {
-                i = i + 1;
-            }
-            while (comparePair(array[j], t) > 0) {
-                j = j - 1;
-            }
-        }
-        if (comparePair(array[left], t) === 0) {
-            swap(array, left, j);
-        }
-        else {
-            j = j + 1;
-            swap(array, j, right);
-        }
-        // Adjust left and right towards the boundaries of the subset
-        // containing the (k - left + 1)th smallest element.
-        if (j <= k) {
-            left = j + 1;
-        }
-        if (k <= j) {
-            right = j - 1;
-        }
-    }
-}
 function topKImpl(x, xShape, xDtype, k, sorted) {
     // Reshape into a 2d tensor [batch, lastDim] and compute topk along lastDim.
     const lastDim = xShape[xShape.length - 1];
@@ -5788,15 +4354,11 @@ function topKImpl(x, xShape, xDtype, k, sorted) {
     for (let b = 0; b < batch; b++) {
         const offset = b * size;
         const vals = x.subarray(offset, offset + size);
-        let valAndInd = new Array(vals.length);
-        vals.forEach((value, index) => valAndInd[index] = { value, index });
-        if (k < valAndInd.length) {
-            select(valAndInd, k);
-            valAndInd = valAndInd.slice(0, k);
+        const valAndInd = [];
+        for (let i = 0; i < vals.length; i++) {
+            valAndInd.push({ value: vals[i], index: i });
         }
-        if (sorted) {
-            valAndInd.sort(comparePair);
-        }
+        valAndInd.sort((a, b) => b.value - a.value);
         const outOffset = b * k;
         const topKVals = allTopKVals.subarray(outOffset, outOffset + k);
         const topKIndices = allTopKIndices.subarray(outOffset, outOffset + k);
@@ -5985,16 +4547,12 @@ var shared = /*#__PURE__*/Object.freeze({
     bincountReduceImpl: bincountReduceImpl,
     ceilImpl: ceilImpl,
     concatImpl: concatImpl,
-    equalImpl: equalImpl,
     expImpl: expImpl,
     expm1Impl: expm1Impl,
     floorImpl: floorImpl,
-    gatherNdImpl: gatherNdImpl,
     gatherV2Impl: gatherV2Impl,
     greaterImpl: greaterImpl,
-    greaterEqualImpl: greaterEqualImpl,
     lessImpl: lessImpl,
-    lessEqualImpl: lessEqualImpl,
     linSpaceImpl: linSpaceImpl,
     logImpl: logImpl,
     maxImpl: maxImpl,
@@ -6007,14 +4565,8 @@ var shared = /*#__PURE__*/Object.freeze({
     rangeImpl: rangeImpl,
     rsqrtImpl: rsqrtImpl,
     sliceImpl: sliceImpl,
-    sparseFillEmptyRowsImpl: sparseFillEmptyRowsImpl,
-    sparseReshapeImpl: sparseReshapeImpl,
-    sparseSegmentReductionImpl: sparseSegmentReductionImpl,
     squaredDifferenceImpl: squaredDifferenceImpl,
     stridedSliceImpl: stridedSliceImpl,
-    stringNGramsImpl: stringNGramsImpl,
-    stringSplitImpl: stringSplitImpl,
-    stringToHashBucketFastImpl: stringToHashBucketFastImpl,
     subImpl: subImpl,
     tileImpl: tileImpl,
     topKImpl: topKImpl,
@@ -6038,7 +4590,7 @@ var shared = /*#__PURE__*/Object.freeze({
  * limitations under the License.
  * =============================================================================
  */
-const { addImpl: addImplCPU, bincountImpl: bincountImplCPU, bincountReduceImpl: bincountReduceImplCPU, ceilImpl: ceilImplCPU, concatImpl: concatImplCPU, equalImpl: equalImplCPU, expImpl: expImplCPU, expm1Impl: expm1ImplCPU, floorImpl: floorImplCPU, gatherNdImpl: gatherNdImplCPU, gatherV2Impl: gatherV2ImplCPU, greaterImpl: greaterImplCPU, greaterEqualImpl: greaterEqualImplCPU, lessImpl: lessImplCPU, lessEqualImpl: lessEqualImplCPU, linSpaceImpl: linSpaceImplCPU, logImpl: logImplCPU, maxImpl: maxImplCPU, maximumImpl: maximumImplCPU, minimumImpl: minimumImplCPU, multiplyImpl: multiplyImplCPU, negImpl: negImplCPU, notEqualImpl: notEqualImplCPU, prodImpl: prodImplCPU, rangeImpl: rangeImplCPU, rsqrtImpl: rsqrtImplCPU, simpleAbsImpl: simpleAbsImplCPU, sliceImpl: sliceImplCPU, sparseFillEmptyRowsImpl: sparseFillEmptyRowsImplCPU, sparseReshapeImpl: sparseReshapeImplCPU, sparseSegmentReductionImpl: sparseSegmentReductionImplCPU, stridedSliceImpl: stridedSliceImplCPU, stringNGramsImpl: stringNGramsImplCPU, stringSplitImpl: stringSplitImplCPU, stringToHashBucketFastImpl: stringToHashBucketFastImplCPU, subImpl: subImplCPU, tileImpl: tileImplCPU, topKImpl: topKImplCPU, transposeImpl: transposeImplCPU, uniqueImpl: uniqueImplCPU, } = shared;
+const { addImpl: addImplCPU, bincountImpl: bincountImplCPU, bincountReduceImpl: bincountReduceImplCPU, ceilImpl: ceilImplCPU, concatImpl: concatImplCPU, expImpl: expImplCPU, expm1Impl: expm1ImplCPU, floorImpl: floorImplCPU, gatherV2Impl: gatherV2ImplCPU, greaterImpl: greaterImplCPU, lessImpl: lessImplCPU, linSpaceImpl: linSpaceImplCPU, logImpl: logImplCPU, maxImpl: maxImplCPU, maximumImpl: maximumImplCPU, minimumImpl: minimumImplCPU, multiplyImpl: multiplyImplCPU, negImpl: negImplCPU, prodImpl: prodImplCPU, rangeImpl: rangeImplCPU, rsqrtImpl: rsqrtImplCPU, simpleAbsImpl: simpleAbsImplCPU, sliceImpl: sliceImplCPU, stridedSliceImpl: stridedSliceImplCPU, subImpl: subImplCPU, tileImpl: tileImplCPU, topKImpl: topKImplCPU, transposeImpl: transposeImplCPU, uniqueImpl: uniqueImplCPU, } = shared;
 
 /**
  * @license
@@ -6515,7 +5067,6 @@ class UnaryOpProgram {
     constructor(aShape, opSnippet) {
         this.variableNames = ['A'];
         this.outputShape = aShape;
-        this.enableShapeUniforms = useShapeUniforms(this.outputShape.length);
         this.userCode = `
       float unaryOperation(float x) {
         ${opSnippet}
@@ -6541,7 +5092,6 @@ const RELU6 = CHECK_NAN_SNIPPET + `
   return (x < 0.0) ? 0.0 : min(6.0, x);
 `;
 const CLONE = 'return x;';
-const SIGMOID = `return 1.0 / (1.0 + exp(-1.0 * x));`;
 
 /**
  * @license
@@ -6592,14 +5142,12 @@ const RELU6$1 = `
 
   return result;
 `;
-const SIGMOID$1 = `return 1.0 / (1.0 + exp(-1.0 * x));`;
 class UnaryOpPackedProgram {
     constructor(aShape, opSnippet) {
         this.variableNames = ['A'];
         this.packedInputs = true;
         this.packedOutput = true;
         this.outputShape = aShape;
-        this.enableShapeUniforms = useShapeUniforms(this.outputShape.length);
         this.userCode = `
       vec4 unaryOperation(vec4 x) {
         ${opSnippet}
@@ -6683,7 +5231,7 @@ function getBinaryCache(webGLVersion) {
 }
 // Empirically determined constant used to determine size threshold for handing
 // off execution to the CPU.
-const CPU_HANDOFF_SIZE_THRESHOLD = env().getNumber('CPU_HANDOFF_SIZE_THRESHOLD');
+const CPU_HANDOFF_SIZE_THRESHOLD = 128;
 // Empirically determined constant used to decide the number of MB on GPU
 // before we warn about high memory use. The MB are this constant * screen area
 // * dpi / 1024 / 1024.
@@ -6712,9 +5260,8 @@ class MathBackendWebGL extends KernelBackend {
         this.uploadWaitMs = 0;
         // Accumulated time spent (including blocking in downloading data from webgl.
         this.downloadWaitMs = 0;
-        // record the last manual GL Flush time.
-        this.lastGlFlushTime = 0;
         this.warnedAboutMemory = false;
+        this.warnedAboutCPUBackend = false;
         this.pendingDeletes = 0;
         this.disposed = false;
         if (!env().getBool('HAS_WEBGL')) {
@@ -6737,11 +5284,10 @@ class MathBackendWebGL extends KernelBackend {
         this.numMBBeforeWarning = numMBBeforeWarning();
         this.texData = new DataStorage(this, engine());
     }
-    nextDataId() {
-        return MathBackendWebGL.nextDataId++;
-    }
     numDataIds() {
-        return this.texData.numDataIds() - this.pendingDeletes;
+        return this.texData.numDataIds() +
+            (this.cpuBackend ? this.cpuBackend.numDataIds() : 0) -
+            this.pendingDeletes;
     }
     write(values, shape, dtype) {
         if (env().getBool('WEBGL_CHECK_NUMERICAL_PROBLEMS') ||
@@ -6752,17 +5298,16 @@ class MathBackendWebGL extends KernelBackend {
             throw new Error(`Cannot write to a complex64 dtype. ` +
                 `Please use tf.complex(real, imag).`);
         }
-        const dataId = { id: this.nextDataId() };
-        this.texData.set(dataId, { shape, dtype, values, usage: TextureUsage.UPLOAD, refCount: 1 });
+        const dataId = {};
+        this.texData.set(dataId, {
+            shape,
+            dtype,
+            values,
+            usage: TextureUsage.UPLOAD,
+            refCount: 1,
+            complexParentRefCount: 0
+        });
         return dataId;
-    }
-    /** Return refCount of a `TensorData`. */
-    refCount(dataId) {
-        if (this.texData.has(dataId)) {
-            const tensorData = this.texData.get(dataId);
-            return tensorData.refCount;
-        }
-        return 0;
     }
     /** Increase refCount of a `TextureData`. */
     incRef(dataId) {
@@ -6776,7 +5321,19 @@ class MathBackendWebGL extends KernelBackend {
             texData.refCount--;
         }
     }
-    move(dataId, values, shape, dtype, refCount) {
+    /**
+     * Decrease refCount of a `TextureData` if it is a component of complex
+     * tensor.
+     */
+    decComplexRef(dataId) {
+        if (this.texData.has(dataId)) {
+            const texData = this.texData.get(dataId);
+            if (texData.complexParentRefCount > 0) {
+                texData.refCount--;
+            }
+        }
+    }
+    move(dataId, values, shape, dtype) {
         if (env().getBool('DEBUG')) {
             this.checkNumericalProblems(values);
         }
@@ -6784,10 +5341,24 @@ class MathBackendWebGL extends KernelBackend {
             throw new Error(`Cannot write to a complex64 dtype. ` +
                 `Please use tf.complex(real, imag).`);
         }
-        this.texData.set(dataId, { shape, dtype, values, usage: TextureUsage.UPLOAD, refCount });
+        this.texData.set(dataId, {
+            shape,
+            dtype,
+            values,
+            usage: TextureUsage.UPLOAD,
+            refCount: 1,
+            complexParentRefCount: 0
+        });
     }
     disposeIntermediateTensorInfo(tensorInfo) {
-        this.disposeData(tensorInfo.dataId);
+        const dataId = tensorInfo.dataId;
+        if (this.texData.has(dataId)) {
+            const textureData = this.texData.get(dataId);
+            textureData.refCount--;
+            if (textureData.refCount < 1) {
+                this.disposeData(dataId);
+            }
+        }
     }
     readSync(dataId) {
         const texData = this.texData.get(dataId);
@@ -6898,10 +5469,6 @@ class MathBackendWebGL extends KernelBackend {
         if (tmpDownloadTarget != null) {
             this.disposeIntermediateTensorInfo(tmpDownloadTarget);
         }
-        if (buffer != null) {
-            const gl = this.gpgpu.gl;
-            callAndCheck(gl, () => gl.deleteBuffer(buffer));
-        }
         const dTypeVals = this.convertAndCacheOnCPU(dataId, vals);
         const subscribers = this.pendingRead.get(dataId);
         this.pendingRead.delete(dataId);
@@ -6909,9 +5476,7 @@ class MathBackendWebGL extends KernelBackend {
         subscribers.forEach(resolve => resolve(dTypeVals));
         if (this.pendingDisposal.has(dataId)) {
             this.pendingDisposal.delete(dataId);
-            if (this.disposeData(dataId)) {
-                engine().removeDataId(dataId, this);
-            }
+            this.disposeData(dataId);
             this.pendingDeletes--;
         }
         return dTypeVals;
@@ -6970,9 +5535,6 @@ class MathBackendWebGL extends KernelBackend {
             .subarray(0, size);
         this.disposeIntermediateTensorInfo(output);
         return vals;
-    }
-    timerAvailable() {
-        return env().getNumber('WEBGL_DISJOINT_QUERY_TIMER_EXTENSION_RELIABLE') > 0;
     }
     async time(f) {
         const oldActiveTimers = this.activeTimers;
@@ -7047,49 +5609,36 @@ class MathBackendWebGL extends KernelBackend {
         const timerQuery = query;
         return timerQuery.endMs - timerQuery.startMs;
     }
-    /**
-     * Decrease the RefCount on the dataId and dispose the memory if the dataId
-     * has 0 refCount. If there are pending read on the data, the disposal would
-     * added to the pending delete queue. Return true if the dataId is removed
-     * from backend or the backend does not contain the dataId, false if the
-     * dataId is not removed. Memory may or may not be released even when dataId
-     * is removed, which also depends on dataRefCount, see `releaseGPU`.
-     * @param dataId
-     * @oaram force Optional, remove the data regardless of refCount
-     */
-    disposeData(dataId, force = false) {
+    disposeData(dataId) {
         if (this.pendingDisposal.has(dataId)) {
-            return false;
-        }
-        // No-op if already disposed.
-        if (!this.texData.has(dataId)) {
-            return true;
-        }
-        // if force flag is set, change refCount to 0, this would ensure disposal
-        // when added to the pendingDisposal queue. Memory may or may not be
-        // released, which also depends on dataRefCount, see `releaseGPU`.
-        if (force) {
-            this.texData.get(dataId).refCount = 0;
-        }
-        else {
-            this.texData.get(dataId).refCount--;
-        }
-        if (!force && this.texData.get(dataId).refCount > 0) {
-            return false;
+            return;
         }
         if (this.pendingRead.has(dataId)) {
             this.pendingDisposal.add(dataId);
             this.pendingDeletes++;
-            return false;
+            return;
+        }
+        // No-op if already disposed.
+        if (!this.texData.has(dataId)) {
+            return;
+        }
+        // Trying to dispose a textureData that has a 'kept' refCount, e.g. trying
+        // to dispose a tensor whose data bucket is shared with a complex tensor. In
+        // this case we are removing a reference to the textureData, but we
+        // shouldn't actually dispose the texture.
+        if (this.texData.get(dataId).complexParentRefCount > 0) {
+            this.texData.get(dataId).refCount--;
+            return;
         }
         this.releaseGPUData(dataId);
         const { complexTensorInfos } = this.texData.get(dataId);
         if (complexTensorInfos != null) {
-            this.disposeData(complexTensorInfos.real.dataId, force);
-            this.disposeData(complexTensorInfos.imag.dataId, force);
+            this.texData.get(complexTensorInfos.real.dataId).complexParentRefCount--;
+            this.disposeIntermediateTensorInfo(complexTensorInfos.real);
+            this.texData.get(complexTensorInfos.imag.dataId).complexParentRefCount--;
+            this.disposeIntermediateTensorInfo(complexTensorInfos.imag);
         }
         this.texData.delete(dataId);
-        return true;
     }
     releaseGPUData(dataId) {
         const { texture, dtype, texShape, usage, isPacked, slice } = this.texData.get(dataId);
@@ -7122,6 +5671,15 @@ class MathBackendWebGL extends KernelBackend {
     getDataInfo(dataId) {
         return this.texData.get(dataId);
     }
+    getCPUBackend() {
+        if (!env().getBool('WEBGL_CPU_FORWARD')) {
+            return null;
+        }
+        if (this.cpuBackend == null) {
+            this.cpuBackend = engine().findBackend('cpu');
+        }
+        return this.cpuBackend;
+    }
     /*
     Tests whether all the inputs to an op are small and on the CPU. This heuristic
     determines when it would be faster to execute a kernel on the CPU. WebGL
@@ -7130,7 +5688,16 @@ class MathBackendWebGL extends KernelBackend {
     sustainable strategy for optimizing backend execution of ops.
      */
     shouldExecuteOnCPU(inputs, sizeThreshold = CPU_HANDOFF_SIZE_THRESHOLD) {
-        return env().getBool('WEBGL_CPU_FORWARD') &&
+        const cpuBackend = this.getCPUBackend();
+        if (!env().getBool('IS_TEST') && !this.warnedAboutCPUBackend &&
+            cpuBackend == null) {
+            console.warn('Your application contains ops that are small enough to be ' +
+                'executed on the CPU backend, however the CPU backend cannot ' +
+                'be found. Consider importing the CPU backend ' +
+                '(@tensorflow/tfjs-backend-cpu) for better performance.');
+            this.warnedAboutCPUBackend = true;
+        }
+        return cpuBackend != null &&
             inputs.every(input => this.texData.get(input.dataId).texture == null &&
                 sizeFromShape(input.shape) < sizeThreshold);
     }
@@ -7145,8 +5712,7 @@ class MathBackendWebGL extends KernelBackend {
     }
     packedUnaryOp(x, op, dtype) {
         const program = new UnaryOpPackedProgram(x.shape, op);
-        const outInfo = this.compileAndRun(program, [x], dtype);
-        return engine().makeTensorFromDataId(outInfo.dataId, outInfo.shape, outInfo.dtype);
+        return this.compileAndRun(program, [x], dtype);
     }
     // TODO(msoulanille) remove this once the backend has been modularized
     // a copy is needed here to break a circular dependency.
@@ -7161,8 +5727,7 @@ class MathBackendWebGL extends KernelBackend {
             return this.packedUnaryOp(x, ABS, x.dtype);
         }
         const program = new UnaryOpProgram(x.shape, ABS);
-        const outInfo = this.compileAndRun(program, [x]);
-        return engine().makeTensorFromDataId(outInfo.dataId, outInfo.shape, outInfo.dtype);
+        return this.compileAndRun(program, [x]);
     }
     makeTensorInfo(shape, dtype, values) {
         let dataId;
@@ -7188,7 +5753,7 @@ class MathBackendWebGL extends KernelBackend {
     packTensor(input) {
         const program = new PackProgram(input.shape);
         const preventEagerUnpackingOutput = true;
-        return this.runWebGLProgram(program, [input], input.dtype, null /* customUniformValues */, preventEagerUnpackingOutput);
+        return this.runWebGLProgram(program, [input], input.dtype, null /* customSetup */, preventEagerUnpackingOutput);
     }
     packedReshape(input, afterShape) {
         const input3DShape = [
@@ -7205,7 +5770,7 @@ class MathBackendWebGL extends KernelBackend {
         ];
         const program = new ReshapePackedProgram(afterShapeAs3D, input3DShape);
         const preventEagerUnpackingOfOutput = true;
-        const output = this.runWebGLProgram(program, [input3D], input.dtype, null /* customUniformValues */, preventEagerUnpackingOfOutput);
+        const output = this.runWebGLProgram(program, [input3D], input.dtype, null /* customSetup */, preventEagerUnpackingOfOutput);
         return { dataId: output.dataId, shape: afterShape, dtype: output.dtype };
     }
     decode(dataId) {
@@ -7220,10 +5785,10 @@ class MathBackendWebGL extends KernelBackend {
             program = new DecodeMatrixProgram(shapeAs3D);
         }
         const preventEagerUnpackingOfOutput = true;
-        const out = this.runWebGLProgram(program, [{ shape: shapeAs3D, dtype, dataId }], dtype, null /* customUniformValues */, preventEagerUnpackingOfOutput);
+        const out = this.runWebGLProgram(program, [{ shape: shapeAs3D, dtype, dataId }], dtype, null /* customSetup */, preventEagerUnpackingOfOutput);
         return { dtype, shape, dataId: out.dataId };
     }
-    runWebGLProgram(program, inputs, outputDtype, customUniformValues, preventEagerUnpackingOfOutput = false) {
+    runWebGLProgram(program, inputs, outputDtype, customSetup, preventEagerUnpackingOfOutput = false) {
         const output = this.makeTensorInfo(program.outputShape, outputDtype);
         const outData = this.texData.get(output.dataId);
         if (program.packedOutput) {
@@ -7314,20 +5879,11 @@ class MathBackendWebGL extends KernelBackend {
         if (shouldTimeProgram) {
             query = this.startTimer();
         }
-        runProgram(this.gpgpu, binary, inputsData, outputData, customUniformValues);
+        runProgram(this.gpgpu, binary, inputsData, outputData, customSetup);
         dataToDispose.forEach(info => this.disposeIntermediateTensorInfo(info));
         if (shouldTimeProgram) {
             query = this.endTimer(query);
             this.activeTimers.push({ name: program.constructor.name, query: this.getQueryTime(query) });
-        }
-        const glFlushThreshold = env().get('WEBGL_FLUSH_THRESHOLD');
-        // Manually GL flush requested
-        if (glFlushThreshold > 0) {
-            const time = now();
-            if ((time - this.lastGlFlushTime) > glFlushThreshold) {
-                this.gpgpu.gl.flush();
-                this.lastGlFlushTime = time;
-            }
         }
         if (!env().getBool('WEBGL_LAZILY_UNPACK') && outData.isPacked &&
             preventEagerUnpackingOfOutput === false) {
@@ -7337,10 +5893,10 @@ class MathBackendWebGL extends KernelBackend {
         }
         return output;
     }
-    compileAndRun(program, inputs, outputDtype, customUniformValues, preventEagerUnpackingOfOutput = false) {
+    compileAndRun(program, inputs, outputDtype, customSetup, preventEagerUnpackingOfOutput = false) {
         outputDtype = outputDtype || inputs[0].dtype;
-        const outInfo = this.runWebGLProgram(program, inputs, outputDtype, customUniformValues, preventEagerUnpackingOfOutput);
-        return outInfo;
+        const outInfo = this.runWebGLProgram(program, inputs, outputDtype, customSetup, preventEagerUnpackingOfOutput);
+        return engine().makeTensorFromDataId(outInfo.dataId, outInfo.shape, outInfo.dtype);
     }
     getAndSaveBinary(key, getBinary) {
         if (!(key in this.binaryCache)) {
@@ -7489,7 +6045,6 @@ class MathBackendWebGL extends KernelBackend {
         return shape[0] * shape[1] * bytesPerElement(dtype);
     }
 }
-MathBackendWebGL.nextDataId = 0;
 function float32ToTypedArray(a, dtype) {
     if (dtype === 'float32' || dtype === 'complex64') {
         return a;
@@ -7509,7 +6064,7 @@ function float32ToTypedArray(a, dtype) {
 
 /** @license See the LICENSE file. */
 // This code is auto-generated, do not modify this file!
-const version = '3.8.0';
+const version = '2.8.6';
 
 /**
  * @license
@@ -7581,7 +6136,6 @@ class BinaryOpProgram {
     constructor(op, aShape, bShape) {
         this.variableNames = ['A', 'B'];
         this.outputShape = assertAndGetBroadcastShape(aShape, bShape);
-        this.enableShapeUniforms = useShapeUniforms(this.outputShape.length);
         this.userCode = `
       float binaryOperation(float a, float b) {
         ${op}
@@ -7626,7 +6180,6 @@ class BinaryOpPackedProgram {
         this.packedOutput = true;
         this.outputShape = assertAndGetBroadcastShape(aShape, bShape);
         const rank = this.outputShape.length;
-        this.enableShapeUniforms = useShapeUniforms(rank);
         let checkOutOfBoundsString = '';
         if (checkOutOfBounds) {
             if (rank === 0 || sizeFromShape(this.outputShape) === 1) {
@@ -7642,36 +6195,15 @@ class BinaryOpPackedProgram {
           ${dtype} coords = getOutputCoords();
         `;
                 if (rank === 1) {
-                    if (this.enableShapeUniforms) {
-                        checkOutOfBoundsString += `
-            result.y = (coords + 1) >= outShape ? 0. : result.y;
-            result.z = 0.;
-            result.w = 0.;
-          `;
-                    }
-                    else {
-                        checkOutOfBoundsString += `
+                    checkOutOfBoundsString += `
             result.y = (coords + 1) >= ${this.outputShape[0]} ? 0. : result.y;
             result.z = 0.;
             result.w = 0.;
           `;
-                    }
                 }
                 else {
                     const channels = getChannels('coords', rank);
-                    if (this.enableShapeUniforms) {
-                        checkOutOfBoundsString += `
-            bool nextRowOutOfBounds =
-              (${channels[rank - 2]} + 1) >= outShape[${rank} - 2];
-            bool nextColOutOfBounds =
-              (${channels[rank - 1]} + 1) >= outShape[${rank} - 1];
-            result.y = nextColOutOfBounds ? 0. : result.y;
-            result.z = nextRowOutOfBounds ? 0. : result.z;
-            result.w = nextColOutOfBounds || nextRowOutOfBounds ? 0. : result.w;
-          `;
-                    }
-                    else {
-                        checkOutOfBoundsString += `
+                    checkOutOfBoundsString += `
             bool nextRowOutOfBounds =
               (${channels[rank - 2]} + 1) >= ${this.outputShape[rank - 2]};
             bool nextColOutOfBounds =
@@ -7680,7 +6212,6 @@ class BinaryOpPackedProgram {
             result.z = nextRowOutOfBounds ? 0. : result.z;
             result.w = nextColOutOfBounds || nextRowOutOfBounds ? 0. : result.w;
           `;
-                    }
                 }
             }
         }
@@ -7749,11 +6280,12 @@ const identityConfig = {
 /**
  * In WebGL data is stored in GPU textures which can't be efficiently copied, so
  * complex tensors share data with their real and imaginary components. Complex
- * tensors' reference to the components is tracked by refCount on the individual
- * component. The refCounts are increased by the identity call.
+ * tensors increment the `complexParentRefCount` properties of the underlying
+ * data buckets to prevent them from being disposed, as the engine's disposal
+ * logic does not account for data sharing by complex tensors.
  *
- * When a complex tensor is disposed, it will reduce the refCount on the
- * components by calling disposeData on each.
+ * When a complex tensor is disposed, it will explicitly decrease the
+ * `complexParentRefCount` properties of its underlying components.
  */
 function complex(args) {
     const { inputs, backend } = args;
@@ -7761,7 +6293,11 @@ function complex(args) {
     const complexInfo = backend.makeTensorInfo(real.shape, 'complex64');
     const complex = backend.texData.get(complexInfo.dataId);
     const realTensorInfo = identity({ inputs: { x: real }, backend });
+    const realData = backend.texData.get(realTensorInfo.dataId);
+    realData.complexParentRefCount++;
     const imagTensorInfo = identity({ inputs: { x: imag }, backend });
+    const imagData = backend.texData.get(imagTensorInfo.dataId);
+    imagData.complexParentRefCount++;
     complex.complexTensorInfos = { real: realTensorInfo, imag: imagTensorInfo };
     return complexInfo;
 }
@@ -7943,20 +6479,10 @@ function binaryKernelFunc({ opSnippet, packedOpSnippet, checkOutOfBounds = false
             return complexOutput;
         }
         const $dtype = dtype || upcastType(a.dtype, b.dtype);
-        if ((a.dtype === 'string' || b.dtype === 'string' ||
-            webglBackend.shouldExecuteOnCPU([a, b])) &&
-            cpuKernelImpl != null) {
-            const aVals = webglBackend.texData.get(a.dataId).values;
-            const bVals = webglBackend.texData.get(b.dataId).values;
-            const decodedAVals = a.dtype === 'string' ?
-                // tslint:disable-next-line: no-any
-                fromUint8ToStringArray(aVals) :
-                aVals;
-            const decodedBVals = a.dtype === 'string' ?
-                // tslint:disable-next-line: no-any
-                fromUint8ToStringArray(bVals) :
-                bVals;
-            const [outValues, outShape] = cpuKernelImpl(a.shape, b.shape, decodedAVals, decodedBVals, $dtype);
+        if (webglBackend.shouldExecuteOnCPU([a, b]) && cpuKernelImpl != null) {
+            const aData = webglBackend.texData.get(a.dataId);
+            const bData = webglBackend.texData.get(b.dataId);
+            const [outValues, outShape] = cpuKernelImpl(a.shape, b.shape, aData.values, bData.values, $dtype);
             const out = webglBackend.makeTensorInfo(outShape, $dtype);
             const outData = webglBackend.texData.get(out.dataId);
             outData.values = outValues;
@@ -8010,12 +6536,6 @@ function mapActivationToShaderProgram(activation, packed = false) {
             return LEAKYRELU_PACKED;
         }
         return LEAKYRELU;
-    }
-    else if (activation === 'sigmoid') {
-        if (packed) {
-            return SIGMOID$1;
-        }
-        return SIGMOID;
     }
     throw new Error(`Activation ${activation} has not been implemented for the WebGL backend.`);
 }
@@ -8470,13 +6990,6 @@ class ReduceProgram {
         prodValue *= tmp[0] * tmp[1];
       } else {
         minMaxValue = ${compareOp}(values, minMaxValue);
-        if (${reduceType === 'min'} || ${reduceType === 'max'}) {
-          minMaxValue = ${compareOp}(values, minMaxValue);
-          bvec4 isNaN = isnan(values);
-          if (isNaN.r || isNaN.g || isNaN.b || isNaN.a) {
-            minMaxValue = vec4(NAN);
-          }
-        }
       }
     `;
         let vecType = `vec4`;
@@ -10784,7 +9297,7 @@ class SliceProgram {
         this.outputShape = destSize;
         this.rank = destSize.length;
         const dtype = getCoordsDataType(this.rank);
-        this.customUniforms = [{ name: 'start', arrayIndex: this.rank, type: 'int' }];
+        const uniformPart = `uniform int start[${this.rank}];`;
         const sourceCoords = getCoords(this.rank);
         let body;
         const coordSum = destSize.map((_, i) => {
@@ -10796,11 +9309,29 @@ class SliceProgram {
         ${coordSum.join('\n')}
       `;
         this.userCode = `
+      ${uniformPart}
       void main() {
         ${body}
         setOutput(getSource(${sourceCoords}));
       }
     `;
+    }
+    getCustomSetupFunc(start) {
+        if (start.length !== this.rank) {
+            throw Error(`The rank (${this.rank}) of the program must match the ` +
+                `length of start (${start.length})`);
+        }
+        return (gpgpu, webGLProgram) => {
+            if (this.startLoc == null) {
+                this.startLoc = gpgpu.getUniformLocationNoThrow(webGLProgram, 'start');
+                if (this.startLoc == null) {
+                    // This means the compiler has optimized and realized it doesn't need
+                    // the uniform.
+                    return;
+                }
+            }
+            gpgpu.gl.uniform1iv(this.startLoc, start);
+        };
     }
 }
 const coords = ['x', 'y', 'z', 'w', 'u', 'v'];
@@ -10839,7 +9370,6 @@ class SlicePackedProgram {
         this.packedOutput = true;
         this.outputShape = destSize;
         this.rank = destSize.length;
-        this.customUniforms = [{ name: 'start', arrayIndex: this.rank, type: 'int' }];
         const dtype = getCoordsDataType(this.rank);
         const coords = getChannels('coords', this.rank);
         const sourceLoc = getChannels('sourceLoc', this.rank);
@@ -10870,6 +9400,7 @@ class SlicePackedProgram {
             destSize.map((_, i) => `${sourceLoc[i]} = ${coords[i]} + start[${i}];`)
                 .join('\n');
         this.userCode = `
+      uniform int start[${this.rank}];
       void main() {
         ${dtype} coords = getOutputCoords();
         ${dtype} sourceLoc;
@@ -10880,6 +9411,23 @@ class SlicePackedProgram {
         setOutput(result);
       }
     `;
+    }
+    getCustomSetupFunc(start) {
+        if (start.length !== this.rank) {
+            throw Error(`The rank (${this.rank}) of the program must match the ` +
+                `length of start (${start.length})`);
+        }
+        return (gpgpu, webGLProgram) => {
+            if (this.startLoc == null) {
+                this.startLoc = gpgpu.getUniformLocationNoThrow(webGLProgram, 'start');
+                if (this.startLoc == null) {
+                    // This means the compiler has optimized and realized it doesn't need
+                    // the uniform.
+                    return;
+                }
+            }
+            gpgpu.gl.uniform1iv(this.startLoc, start);
+        };
     }
 }
 
@@ -10905,6 +9453,7 @@ function shallowSlice(x, begin, size, backend) {
     const newTexData = backend.texData.get(t.dataId);
     // Copy texture data from the original tensor.
     Object.assign(newTexData, xTexData);
+    newTexData.complexParentRefCount = 0;
     newTexData.refCount = 1;
     newTexData.shape = size;
     newTexData.dtype = x.dtype;
@@ -10950,8 +9499,8 @@ function slice(args) {
         const program = env().getBool('WEBGL_PACK_ARRAY_OPERATIONS') ?
             new SlicePackedProgram($size) :
             new SliceProgram($size);
-        const customValues = [$begin];
-        return backend.runWebGLProgram(program, [x], x.dtype, customValues);
+        const customSetup = program.getCustomSetupFunc($begin);
+        return backend.runWebGLProgram(program, [x], x.dtype, customSetup);
     }
     backend.uploadToGPU(x.dataId);
     return shallowSlice(x, $begin, $size, backend);
@@ -11063,7 +9612,7 @@ const bincountConfig = {
  * =============================================================================
  */
 const NOT_EQUAL = `return float(a != b);`;
-const notEqual = binaryKernelFunc({ opSnippet: NOT_EQUAL, cpuKernelImpl: notEqualImplCPU, dtype: 'bool' });
+const notEqual = binaryKernelFunc({ opSnippet: NOT_EQUAL, dtype: 'bool' });
 const notEqualConfig = {
     kernelName: NotEqual,
     backendName: 'webgl',
@@ -11228,12 +9777,10 @@ const ceilConfig = {
 class ClipProgram {
     constructor(aShape) {
         this.variableNames = ['A'];
-        this.customUniforms = [
-            { name: 'minVal', type: 'float' },
-            { name: 'maxVal', type: 'float' }
-        ];
         this.outputShape = aShape;
         this.userCode = `
+      uniform float minVal;
+      uniform float maxVal;
 
       void main() {
         float value = getAAtOutCoords();
@@ -11245,6 +9792,16 @@ class ClipProgram {
         setOutput(clamp(value, minVal, maxVal));
       }
     `;
+    }
+    getCustomSetupFunc(min, max) {
+        return (gpgpu, webGLProgram) => {
+            if (this.minLoc == null) {
+                this.minLoc = gpgpu.getUniformLocationNoThrow(webGLProgram, 'minVal');
+                this.maxLoc = gpgpu.getUniformLocationNoThrow(webGLProgram, 'maxVal');
+            }
+            gpgpu.gl.uniform1f(this.minLoc, min);
+            gpgpu.gl.uniform1f(this.maxLoc, max);
+        };
     }
 }
 
@@ -11269,12 +9826,11 @@ class ClipPackedProgram {
         this.variableNames = ['A'];
         this.packedInputs = true;
         this.packedOutput = true;
-        this.customUniforms = [
-            { name: 'minVal', type: 'float' },
-            { name: 'maxVal', type: 'float' }
-        ];
         this.outputShape = aShape;
         this.userCode = `
+      uniform float minVal;
+      uniform float maxVal;
+
       void main() {
         vec4 value = getAAtOutCoords();
 
@@ -11286,6 +9842,16 @@ class ClipPackedProgram {
         setOutput(clamp(value, vec4(minVal), vec4(maxVal)));
       }
     `;
+    }
+    getCustomSetupFunc(min, max) {
+        return (gpgpu, webGLProgram) => {
+            if (this.minLoc == null) {
+                this.minLoc = gpgpu.getUniformLocationNoThrow(webGLProgram, 'minVal');
+                this.maxLoc = gpgpu.getUniformLocationNoThrow(webGLProgram, 'maxVal');
+            }
+            gpgpu.gl.uniform1f(this.minLoc, min);
+            gpgpu.gl.uniform1f(this.maxLoc, max);
+        };
     }
 }
 
@@ -11316,8 +9882,8 @@ function clipByValue(args) {
     else {
         program = new ClipProgram(x.shape);
     }
-    const customValues = [[clipValueMin], [clipValueMax]];
-    return backend.runWebGLProgram(program, [x], x.dtype, customValues);
+    const customSetup = program.getCustomSetupFunc(clipValueMin, clipValueMax);
+    return backend.runWebGLProgram(program, [x], x.dtype, customSetup);
 }
 const clipByValueConfig = {
     kernelName: ClipByValue,
@@ -11623,7 +10189,6 @@ function concatImpl$1(inputs, axis, backend) {
         backend.disposeIntermediateTensorInfo(imagConcated);
         return result;
     }
-    let runOnCpu = backend.shouldExecuteOnCPU(inputs);
     // Run on cpu if dtype is string. For string, the backend represents it
     // as Uint8Array[], where each Uint8Array is a character. Given that the
     // computation is only on the outer array, uploading the whole data onto
@@ -11631,26 +10196,10 @@ function concatImpl$1(inputs, axis, backend) {
     // upload and retrieve Uint8Array[] between cpu and gpu. Therefore, we
     // just run the kernel on cpu if dtype is string.
     if (dtype === 'string') {
-        runOnCpu = true;
-    }
-    if (runOnCpu) {
-        // Any concat of n-dimensional tensors across any axis can be reduced to
-        // a concatenation of two-dimensional tensors across the axis 1 by first
-        // partitioning the axes of the original tensors into those less than the
-        // axis to be concatenated and the rest. Then reshape the tensors
-        // into a two-dimensional tensor by collapsing these two sets of axes and
-        // concatenate the resulting matrices across the axis 1, finally reshaping
-        // the result to have the proper shape.
-        const tensors2D = inputs.map(t => {
-            const innerSize = sizeFromShape(t.shape.slice(axis));
-            const shape = [-1, innerSize];
-            return reshape({ inputs: { x: t }, backend, attrs: { shape } });
-        });
+        const { tensors2D, outShape } = computeTensors2D(inputs, axis, backend);
         const inputsValShapes = tensors2D.map(t => {
             return { vals: backend.readSync(t.dataId), shape: t.shape };
         });
-        // Concats 2d tensors along axis=1.
-        const outShape = computeOutShape(tensors2D.map(t => t.shape), 1 /* axis */);
         const simplyConcat = tensors2D[0].shape[0] === 1;
         const outVals = concatImplCPU(inputsValShapes, outShape, dtype, simplyConcat);
         const finalOutShape = computeOutShape(inputs.map(t => t.shape), axis);
@@ -12984,7 +11533,6 @@ const cropAndResizeConfig = {
 class CumSumProgram {
     constructor(shape, exclusive, reverse) {
         this.variableNames = ['x'];
-        this.customUniforms = [{ name: 'index', type: 'float' }];
         this.outputShape = shape;
         const rank = shape.length;
         const val = exclusive ? '0.0' : `getX(${getCoords$1(rank, 'coords')})`;
@@ -13003,6 +11551,7 @@ class CumSumProgram {
             idxString = (reverse ? 'end + pow2' : 'end - pow2');
         }
         this.userCode = `
+      uniform float index;
       void main() {
         ${getCoordsDataType(rank)} coords = getOutputCoords();
         int end = ${getFinalCoord(rank, 'coords')};
@@ -13016,6 +11565,14 @@ class CumSumProgram {
         setOutput(val);
       }
     `;
+    }
+    getCustomSetupFunc(index) {
+        return (gpgpu, webGLProgram) => {
+            if (this.index == null) {
+                this.index = gpgpu.getUniformLocation(webGLProgram, 'index');
+            }
+            gpgpu.gl.uniform1f(this.index, index);
+        };
     }
 }
 function getCoords$1(rank, name) {
@@ -13090,10 +11647,10 @@ function cumsum(args) {
     // https://developer.nvidia.com/gpugems/gpugems3/part-vi-gpu-computing/chapter-39-parallel-prefix-sum-scan-cuda
     for (let i = 0; i <= Math.ceil(Math.log2(size)) - 1; i++) {
         const program = new CumSumProgram(permutedX.shape, false, reverse);
-        const customValues = [[i]];
+        const customSetup = program.getCustomSetupFunc(i);
         const prevResult = result;
         result =
-            backend.runWebGLProgram(program, [result], result.dtype, customValues);
+            backend.runWebGLProgram(program, [result], result.dtype, customSetup);
         backend.disposeIntermediateTensorInfo(prevResult);
     }
     // For exclusive cumsum, shift the end result in the direction of sum
@@ -13422,7 +11979,6 @@ class DepthwiseConvPacked2DProgram {
         this.packedInputs = true;
         this.packedOutput = true;
         this.outputShape = convInfo.outShape;
-        const channelMul = convInfo.outChannels / convInfo.inChannels;
         const xNumRows = convInfo.inHeight;
         const xNumCols = convInfo.inWidth;
         const padTop = convInfo.padInfo.top;
@@ -13434,16 +11990,14 @@ class DepthwiseConvPacked2DProgram {
         const filterHeight = convInfo.filterHeight;
         const filterWidth = convInfo.filterWidth;
         const texelsAcross = filterWidth;
-        let mainLoop = `
-      int xR; int xC; int xCOffset;
-      vec4 wTexel; vec4 previous; vec4 final;`;
-        for (let c = 0; c < filterWidth; c++) {
-            mainLoop += `
-          vec4 xTexelC${c * 2};
-          int xTexelC${c * 2}Ready;
-          vec4 xTexelC${c * 2 + 1};
-          int xTexelC${c * 2 + 1}Ready;
-          vec4 xC${c};`;
+        let mainLoop = `int xR; int xC; int xCOffset;`;
+        for (let r = 0; r < filterHeight; r++) {
+            for (let c = 0; c < filterWidth; c++) {
+                mainLoop += `
+          vec4 xTexelR${r}C${c * 2} = vec4(0.);
+          vec4 wR${r}C${c} = vec4(0.);
+          vec4 xR${r}C${c} = vec4(0.);`;
+            }
         }
         /**
          * This vectorized implementation works by gathering the values needed for
@@ -13454,26 +12008,14 @@ class DepthwiseConvPacked2DProgram {
          * values from a texture2D call at once.
          */
         for (let r = 0; r < filterHeight; r++) {
-            for (let c = 0; c < filterWidth; c++) {
+            for (let texelC = 0; texelC < texelsAcross; texelC++) {
+                const c = texelC * 2;
                 mainLoop += `
-          xTexelC${c * 2} = vec4(0.0);
-          xTexelC${c * 2}Ready = 0;
-          xTexelC${c * 2 + 1} = vec4(0.0);
-          xTexelC${c * 2 + 1}Ready = 0;
-          xC${c} = vec4(0.0);`;
-            }
-            mainLoop += `
-        xR = xRCorner + ${r * dilationHeight};
-        if (xR >=0 && xR < ${xNumRows}) {
-      `;
-            for (let texelC = 0; texelC < (texelsAcross + 1) / 2; texelC++) {
-                const colIndex = texelC * 2;
-                const c = colIndex * dilationWidth;
-                mainLoop += `
-          xC = xCCorner + ${c};
-          `;
+          xR = xRCorner + ${r * dilationHeight};
+          xC = xCCorner + ${c * dilationWidth};
+        `;
                 if (strideWidth === 1) {
-                    if (colIndex < filterWidth) {
+                    if (c < filterWidth) {
                         // If padding is odd, the outer texels have to be composed.
                         if (padLeft % 2 === 1) {
                             // TODO: Ensure vec4 previous does not result in redundant sample,
@@ -13485,57 +12027,45 @@ class DepthwiseConvPacked2DProgram {
                             // - We subtract 2 to access the previous texel.
                             mainLoop += `
                 xCOffset = xC + 1;
-                if (xCOffset >= 0 && xCOffset < ${xNumCols} && xTexelC${colIndex}Ready == 0) {
-                  xTexelC${colIndex} = getX(batch, xR, xCOffset, d1);
+                if(xR >= 0 && xR < ${xNumRows} && xCOffset >= 0 && xCOffset < ${xNumCols}) {
+                  xTexelR${r}C${c} = getX(batch, xR, xCOffset, d1);
 
                   // Need to manually clear unused channels in case
                   // we're reading from recycled texture.
-                  if (xCOffset + 1 >= ${xNumCols}) {
-                    xTexelC${colIndex}.zw = vec2(0.0);
+                  if(xCOffset + 1 >= ${xNumCols}) {
+                    xTexelR${r}C${c}.zw = vec2(0.);
                   }
-                  xTexelC${colIndex}Ready = 1;
+                } else {
+                  xTexelR${r}C${c} = vec4(0.);
+                }
+
+                xCOffset = xC + 1 - 2;
+                if(xR >= 0 && xR < ${xNumRows} && xCOffset >= 0 && xCOffset < ${xNumCols}) {
+                  vec4 previous = getX(batch, xR, xCOffset, d1);
+
+                  // Need to manually clear unused channels in case
+                  // we're reading from recycled texture.
+                  if(xCOffset + 1 >= ${xNumCols}) {
+                    previous.zw = vec2(0.);
+                  }
+
+                  xR${r}C${c} = vec4(previous.zw, xTexelR${r}C${c}.xy);
+                } else {
+                  xR${r}C${c} = vec4(0, 0, xTexelR${r}C${c}.xy);
                 }
               `;
-                            // This texel has been read in previous iteration if the dilation
-                            // is 1.
-                            if (dilationWidth === 1 && c > 0) {
-                                mainLoop += `
-                xC${colIndex} = vec4(xTexelC${colIndex - 2}.zw, xTexelC${colIndex}.xy);
-                `;
-                            }
-                            else {
-                                mainLoop += `
-                  xCOffset = xC + 1 - 2;
-
-                  if (xCOffset >= 0 && xCOffset < ${xNumCols}) {
-                    previous = getX(batch, xR, xCOffset, d1);
-
-                    // Need to manually clear unused channels in case
-                    // we're reading from recycled texture.
-                    if (xCOffset + 1 >= ${xNumCols}) {
-                      previous.zw = vec2(0.0);
-                    }
-
-                    xC${colIndex} = vec4(previous.zw, xTexelC${colIndex}.xy);
-                  } else {
-                    xC${colIndex} = vec4(0.0, 0.0, xTexelC${colIndex}.xy);
-                  }
-                  `;
-                            }
                         }
                         else {
                             // Padding is even, so xRC corresponds to a single texel.
                             mainLoop += `
-                if (xC >= 0 && xC < ${xNumCols} && xTexelC${colIndex}Ready == 0) {
-                  xTexelC${colIndex} = getX(batch, xR, xC, d1);
-                  if (xC + 1 >= ${xNumCols}) {
-                    xTexelC${colIndex}.zw = vec2(0.0);
-                  }
-                  xTexelC${colIndex}Ready = 1;
+                if(xR >= 0 && xR < ${xNumRows} && xC >= 0 && xC < ${xNumCols}) {
+                  xTexelR${r}C${c} = getX(batch, xR, xC, d1);
+                } else {
+                  xTexelR${r}C${c} = vec4(0.);
                 }
 
-                xC${colIndex} = xTexelC${colIndex};
-                `;
+                xR${r}C${c} = xTexelR${r}C${c};
+              `;
                         }
                         if (c + 1 < filterWidth) {
                             // If dilation is even, the second entry should match the first
@@ -13551,155 +12081,130 @@ class DepthwiseConvPacked2DProgram {
                                 mainLoop += `
                   xCOffset = xC + ${padLeft % 2} + ${nextTexelOffset};
 
-                  if (xCOffset >= 0 && xCOffset < ${xNumCols} && xTexelC${colIndex + 1}Ready == 0) {
-                    xTexelC${colIndex + 1} = getX(batch, xR, xCOffset, d1);
-
-                    // Need to manually clear unused channels in case
-                    // we're reading from recycled texture.
-                    if (xCOffset + 1 >= ${xNumCols}) {
-                      xTexelC${colIndex + 1}.zw = vec2(0.0);
-                    }
-                    xTexelC${colIndex + 1}Ready = 1;
+                  if(xR >= 0 && xR < ${xNumRows} &&
+                    xCOffset >= 0 && xCOffset < ${xNumCols}) {
+                    xTexelR${r}C${c + 2} = getX(batch, xR, xCOffset, d1);
                   }
-                  `;
+                `;
                                 // If dilation > 1 then the xRC's will not be able to share any
                                 // values, so each xRC will require two unique calls to getX.
                                 if (dilationWidth > 1) {
                                     mainLoop += `
                     xCOffset -= 2;
-                    if (xCOffset >= 0 && xCOffset < ${xNumCols} && xTexelC${colIndex}Ready == 0) {
-                      xTexelC${colIndex} = getX(batch, xR, xCOffset, d1);
-                      xTexelC${colIndex}Ready = 1;
+                    if(xR >= 0 && xR < ${xNumRows} &&
+                      xCOffset >= 0 && xCOffset < ${xNumCols}) {
+                      xTexelR${r}C${c} = getX(batch, xR, xCOffset, d1);
+                    } else {
+                      xTexelR${r}C${c} = vec4(0.);
                     }
-                    `;
+                  `;
                                 }
                                 mainLoop += `
-                  xC${colIndex + 1} = vec4(xTexelC${colIndex}.zw, xTexelC${colIndex + 1}.xy);
-                  `;
+                  xR${r}C${c + 1} = vec4(
+                    xTexelR${r}C${c}.zw, xTexelR${r}C${c + 2}.xy);
+                `;
                             }
                             else {
-                                // If dilation is 1 and padding is odd, we have already read the
-                                // texel when constructing the previous x value. Here we can
-                                // simply skip the texture read.
-                                if (nextTexelOffset === 1) {
-                                    mainLoop += `
-                    xC${colIndex + 1} = xTexelC${colIndex};
-                    `;
-                                }
-                                else {
-                                    mainLoop += `
-                    xCOffset = xC + ${nextTexelOffset};
+                                mainLoop += `
+                  xCOffset = xC + ${nextTexelOffset};
 
-                    if (xCOffset >= 0 && xCOffset < ${xNumCols} && xTexelC${colIndex + 1}Ready == 0) {
-                      xTexelC${colIndex + 1} = getX(batch, xR, xCOffset, d1);
-                      if (xCOffset + 1 >= ${xNumCols}) {
-                        xTexelC${colIndex + 1}.zw = vec2(0.0);
-                      }
-                      xTexelC${colIndex + 1}Ready = 1;
-                    }
+                  if(xR >= 0 && xR < ${xNumRows} &&
+                    xCOffset >= 0 && xCOffset < ${xNumCols}) {
+                    xTexelR${r}C${c + 2} = getX(batch, xR, xCOffset, d1);
+                  }
 
-                    xC${colIndex + 1} = xTexelC${colIndex + 1};
-                    `;
-                                }
+                  xR${r}C${c + 1} = xTexelR${r}C${c + 2};
+                `;
                             }
                         }
                     }
                 }
-                else { // stride === 2
+                else { // stride > 1
                     if (c < filterWidth) {
+                        mainLoop += `
+              if(xR >= 0 && xR < ${xNumRows}) {
+            `;
                         // Depending on whether padLeft is even or odd, we want either the
-                        // xy or zw channels from X texels for xC${colIndex}. If padLeft is
-                        // even, xC${colIndex +1} is simply the zw channels of texels we've
-                        // already sampled. But if padLeft is odd, xC{$c + 1}.zw will
-                        // need to come from the xy channels of a new texel, hence the `
-                        // vec4
+                        // xy or zw channels from X texels for xR${r}C${c}. If padLeft is
+                        // even, xR${r}C${c + 1} is simply the zw channels of texels we've
+                        // already sampled. But if padLeft is odd, xR${r}C{$c + 1}.zw will
+                        // need to come from the xy channels of a new texel, hence the `vec4
                         // final` initialized below.
                         if (padLeft % 2 === 1) {
                             mainLoop += `
                 xCOffset = xC + 1 - ${strideWidth};
-                if(xCOffset >= 0 && xCOffset < ${xNumCols} && xTexelC${colIndex}Ready == 0) {
-                  xTexelC${colIndex} = getX(batch, xR, xCOffset, d1);
-                  // Need to manually clear unused channels in case
-                  // we're reading from recycled texture.
-                  if (xCOffset + 1 >= ${xNumCols}) {
-                    xTexelC${colIndex}.zw = vec2(0.0);
-                  }
-                  xTexelC${colIndex}Ready = 1;
+                if(xCOffset >= 0 && xCOffset < ${xNumCols}) {
+                  xTexelR${r}C${c} = getX(batch, xR, xCOffset, d1);
+                } else {
+                  xTexelR${r}C${c} = vec4(0.);
                 }
 
-                if(xC + 1 >= 0 && xC + 1 < ${xNumCols} && xTexelC${colIndex + 1}Ready == 0) {
-                  xTexelC${colIndex + 1} = getX(batch, xR, xC + 1, d1);
-                  // Need to manually clear unused channels in case
-                  // we're reading from recycled texture.
-                  if (xC + 2 >= ${xNumCols}) {
-                    xTexelC${colIndex + 1}.zw = vec2(0.0);
-                  }
-                  xTexelC${colIndex + 1}Ready = 1;
+                if(xC + 1 >= 0 && xC + 1 < ${xNumCols}) {
+                  xTexelR${r}C${c + 2} = getX(batch, xR, xC + 1, d1);
+                } else {
+                  xTexelR${r}C${c + 2} = vec4(0.);
                 }
 
-                xC${colIndex} = vec4(xTexelC${colIndex}.zw, xTexelC${colIndex + 1}.zw);
+                xR${r}C${c} = vec4(
+                  xTexelR${r}C${c}.zw, xTexelR${r}C${c + 2}.zw);
               `;
                             if (c + 1 < filterWidth) {
                                 mainLoop += `
-                  final = vec4(0.0);
+                  vec4 final = vec4(0.);
                   xCOffset = xC + 1 + ${strideWidth};
                   if(xCOffset >= 0 && xCOffset < ${xNumCols}) {
                     final = getX(batch, xR, xCOffset, d1);
                   }
-                  xC${colIndex + 1} = vec4(xTexelC${colIndex + 1}.xy, final.xy);
+                  xR${r}C${c + 1} = vec4(xTexelR${r}C${c + 2}.xy, final.xy);
                 `;
                             }
                         }
                         else {
                             mainLoop += `
-                if(xC >= 0 && xC < ${xNumCols} && xTexelC${colIndex}Ready == 0) {
-                  xTexelC${colIndex} = getX(batch, xR, xC, d1);
-                  if (xC + 1 >= ${xNumCols}) {
-                    xTexelC${colIndex}.zw = vec2(0.0);
-                  }
-                  xTexelC${colIndex}Ready = 1;
+                if(xC >= 0 && xC < ${xNumCols}) {
+                  xTexelR${r}C${c} = getX(batch, xR, xC, d1);
+                } else {
+                  xTexelR${r}C${c} = vec4(0.);
                 }
 
                 xCOffset = xC + ${strideWidth};
-                if(xCOffset >= 0 && xCOffset < ${xNumCols} && xTexelC${colIndex + 1}Ready == 0) {
-                  xTexelC${colIndex + 1} = getX(batch, xR, xCOffset, d1);
-                  if (xCOffset + 1 >= ${xNumCols}) {
-                    xTexelC${colIndex + 1}.zw = vec2(0.);
-                  }
-                  xTexelC${colIndex + 1}Ready = 1;
+                if(xCOffset >= 0 && xCOffset < ${xNumCols}) {
+                  xTexelR${r}C${c + 2} = getX(batch, xR, xCOffset, d1);
+                } else {
+                  xTexelR${r}C${c + 2} = vec4(0.);
                 }
 
-                xC${colIndex} = vec4(
-                  xTexelC${colIndex}.xy, xTexelC${colIndex + 1}.xy);
+                xR${r}C${c} = vec4(
+                  xTexelR${r}C${c}.xy, xTexelR${r}C${c + 2}.xy);
               `;
                             if (c + 1 < filterWidth) {
                                 mainLoop += `
-                  xC${colIndex + 1} = vec4(xTexelC${colIndex}.zw, xTexelC${colIndex + 1}.zw);
+                  xR${r}C${c + 1} = vec4(
+                    xTexelR${r}C${c}.zw, xTexelR${r}C${c + 2}.zw);
                 `;
                             }
                         }
+                        mainLoop += `}`;
                     }
                 }
-                // localize the dotProd accumulation within the loop, the theory is for
-                // GPU with limited cache, accumulate sum across large amount of
-                // veriables will cause lots of cache misses. (i.e. 5x5 filter will have
-                // 50 variables)
-                if (colIndex < filterWidth) {
+                if (c < filterWidth) {
                     mainLoop += `
-            wTexel = getW(${r}, ${c}, d1, q);
-            dotProd += xC${colIndex} * vec4(wTexel.xz, wTexel.xz);
+            vec4 wTexelR${r}C${c} = getW(${r}, ${c}, d1, q);
+            wR${r}C${c} = vec4(wTexelR${r}C${c}.xz, wTexelR${r}C${c}.xz);
           `;
                     if (c + 1 < filterWidth) {
                         mainLoop += `
-              wTexel = getW(${r}, ${c + 1}, d1, q);
-              dotProd += xC${colIndex + 1} * vec4(wTexel.xz, wTexel.xz);
-            `;
+              vec4 wTexelR${r}C${c + 1} = getW(${r}, ${c + 1}, d1, q);
+              wR${r}C${c + 1} =
+                vec4(wTexelR${r}C${c + 1}.xz, wTexelR${r}C${c + 1}.xz);`;
                     }
                 }
             }
-            mainLoop += `
         }
-      `;
+        for (let r = 0; r < filterHeight; r++) {
+            for (let c = 0; c < filterWidth; c++) {
+                mainLoop += `dotProd += xR${r}C${c} * wR${r}C${c};`;
+            }
         }
         let activationSnippet = '', applyActivationSnippet = '';
         if (activation) {
@@ -13744,17 +12249,16 @@ class DepthwiseConvPacked2DProgram {
         int batch = coords.x;
         ivec2 xRCCorner = coords.yz * strides - pads;
         int d2 = coords.w;
-        int d1 = d2 / ${channelMul};
-        int q = d2 - d1 * ${channelMul};
+        int d1 = d2;
+        int q = 0;
         int xRCorner = xRCCorner.x;
         int xCCorner = xRCCorner.y;
 
-        //intialize dotProd with a small epsilon seems to reduce GPU accuracy loss.
-        vec4 dotProd = vec4(0.000000000000001);
+        vec4 dotProd = vec4(0.);
 
         ${mainLoop}
 
-        vec4 result = dotProd - vec4(0.000000000000001);
+        vec4 result = dotProd;
         ${addBiasSnippet}
         ${applyActivationSnippet}
         setOutput(result);
@@ -14154,91 +12658,6 @@ const dilation2DConfig = {
 
 /**
  * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-function einsum(args) {
-    const { inputs, backend, attrs } = args;
-    const { equation } = attrs;
-    const tensors = inputs;
-    const { allDims, summedDims, idDims } = decodeEinsumEquation(equation, tensors.length);
-    checkEinsumDimSizes(allDims.length, idDims, tensors);
-    const { path, steps } = getEinsumComputePath(summedDims, idDims);
-    const nSteps = steps.length;
-    let out = null;
-    let numDimsRemaining = allDims.length;
-    const tensorsToDispose = [];
-    for (let i = 0; i < nSteps; ++i) {
-        for (const idTerm of steps[i]) {
-            const { permutationIndices: perm, expandDims: dimsToExpand } = getEinsumPermutation(numDimsRemaining, idDims[idTerm]);
-            let x;
-            if (isIdentityPermutation(perm)) {
-                x = tensors[idTerm];
-            }
-            else {
-                x = transpose({ inputs: { x: tensors[idTerm] }, backend, attrs: { perm } });
-                tensorsToDispose.push(x);
-            }
-            const targetShape = x.shape.slice();
-            for (let k = 0; k < dimsToExpand.length; ++k) {
-                targetShape.splice(dimsToExpand[k], 0, 1);
-            }
-            if (!arraysEqual(x.shape, targetShape)) {
-                x = reshape({ inputs: { x }, backend, attrs: { shape: targetShape } });
-                tensorsToDispose.push(x);
-            }
-            if (out === null) {
-                out = x;
-            }
-            else {
-                // tslint:disable-next-line: no-unnecessary-type-assertion
-                out = multiply({ inputs: { a: x, b: out }, backend });
-                tensorsToDispose.push(out);
-            }
-        }
-        if (i < nSteps - 1) {
-            if (path[i] >= 0) {
-                out = sum({
-                    inputs: { x: out },
-                    backend,
-                    attrs: {
-                        axis: path[i] - (allDims.length - numDimsRemaining),
-                        keepDims: false
-                    }
-                });
-                tensorsToDispose.push(out);
-            }
-            numDimsRemaining--;
-        }
-    }
-    // Clean up intermediate tensors.
-    for (const tensorInfo of tensorsToDispose) {
-        if (tensorInfo === out) {
-            continue;
-        }
-        backend.disposeIntermediateTensorInfo(tensorInfo);
-    }
-    return out;
-}
-const einsumConfig = {
-    kernelName: Einsum,
-    backendName: 'webgl',
-    kernelFunc: einsum
-};
-
-/**
- * @license
  * Copyright 2020 Google LLC. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14326,12 +12745,7 @@ const PACKED_EQUAL = `
   return vec4(equal(a, b));
 `;
 const EQUAL = `return float(a == b);`;
-const equal = binaryKernelFunc({
-    opSnippet: EQUAL,
-    packedOpSnippet: PACKED_EQUAL,
-    dtype: 'bool',
-    cpuKernelImpl: equalImplCPU,
-});
+const equal = binaryKernelFunc({ opSnippet: EQUAL, packedOpSnippet: PACKED_EQUAL, dtype: 'bool' });
 const equalConfig = {
     kernelName: Equal,
     backendName: 'webgl',
@@ -14627,15 +13041,23 @@ const fftConfig = {
 class FillProgram {
     constructor(shape, value) {
         this.outputShape = [];
-        this.customUniforms = [{ name: 'value', type: 'float' }];
         this.variableNames = ['x'];
         this.outputShape = shape;
         this.userCode = `
+      uniform float value;
       void main() {
         // Input can be obtained from uniform value.
         setOutput(value);
       }
     `;
+    }
+    getCustomSetupFunc(value) {
+        return (gpgpu, webGLProgram) => {
+            if (this.valueLoc == null) {
+                this.valueLoc = gpgpu.getUniformLocationNoThrow(webGLProgram, 'value');
+            }
+            gpgpu.gl.uniform1f(this.valueLoc, value);
+        };
     }
 }
 
@@ -14668,8 +13090,8 @@ function fill(args) {
     }
     else {
         const program = new FillProgram(shape, value);
-        const customValues = [[value]];
-        return backend.runWebGLProgram(program, [], dtype, customValues);
+        const customSetup = program.getCustomSetupFunc(value);
+        return backend.runWebGLProgram(program, [], dtype, customSetup);
     }
 }
 const fillConfig = {
@@ -14705,7 +13127,7 @@ class FlipLeftRightProgram {
           ivec4 coords = getOutputCoords();
           int x = coords[2];
 
-          int coordX = ${imageWidth} - x - 1;
+          int coordX = ${imageWidth} - x;
           float outputValue;
           if(coordX >= 0 && coordX < ${imageWidth}) {
             outputValue = getImage(coords[0], coords[1], coordX, coords[3]);
@@ -14970,6 +13392,8 @@ function fromPixels(args) {
         pixels instanceof HTMLVideoElement;
     const isImage = typeof (HTMLImageElement) !== 'undefined' &&
         pixels instanceof HTMLImageElement;
+    const isImageBitmap = typeof (ImageBitmap) !== 'undefined' &&
+        pixels instanceof ImageBitmap;
     const [width, height] = isVideo ?
         [
             pixels.videoWidth,
@@ -14978,7 +13402,7 @@ function fromPixels(args) {
         [pixels.width, pixels.height];
     const texShape = [height, width];
     const outShape = [height, width, numChannels];
-    if (isImage || isVideo) {
+    if (isImage || isVideo || isImageBitmap) {
         if (fromPixels2DContext == null) {
             fromPixels2DContext = document.createElement('canvas').getContext('2d');
         }
@@ -15192,7 +13616,6 @@ function gatherNd(args) {
     const { params, indices } = inputs;
     const indicesShape = indices.shape;
     const sliceRank = indicesShape[indicesShape.length - 1];
-    const paramsSize = sizeFromShape(params.shape);
     const [resultShape, numSlices, sliceSize, strides] = prepareAndValidate(params, indices);
     const flattenIndices = reshape({ inputs: { x: indices }, backend, attrs: { shape: [numSlices, sliceRank] } });
     const flattenX = reshape({
@@ -15200,13 +13623,6 @@ function gatherNd(args) {
         backend,
         attrs: { shape: [(sizeFromShape(params.shape) / sliceSize), sliceSize] }
     });
-    if (backend.shouldExecuteOnCPU([params, indices]) ||
-        params.dtype === 'string') {
-        const indicesData = backend.readSync(indices.dataId);
-        const paramsBuf = backend.bufferSync(params);
-        const outValue = gatherNdImplCPU(indicesData, paramsBuf, params.dtype, numSlices, sliceRank, sliceSize, strides, params.shape, paramsSize);
-        return backend.makeTensorInfo(resultShape, params.dtype, outValue.values);
-    }
     const program = new GatherNDProgram(sliceRank, strides, [numSlices, sliceSize]);
     const res = backend.runWebGLProgram(program, [flattenX, flattenIndices], flattenX.dtype);
     const reshaped = reshape({ inputs: { x: res }, backend, attrs: { shape: resultShape } });
@@ -15387,8 +13803,7 @@ const GREATER_EQUAL_PACKED = `
 const greaterEqual = binaryKernelFunc({
     opSnippet: GREATER_EQUAL,
     packedOpSnippet: GREATER_EQUAL_PACKED,
-    dtype: 'bool',
-    cpuKernelImpl: greaterEqualImplCPU
+    dtype: 'bool'
 });
 const greaterEqualConfig = {
     kernelName: GreaterEqual,
@@ -15547,12 +13962,7 @@ const LESS_EQUAL = `return float(a <= b);`;
 const LESS_EQUAL_PACKED = `
   return vec4(lessThanEqual(a, b));
 `;
-const lessEqual = binaryKernelFunc({
-    opSnippet: LESS_EQUAL,
-    packedOpSnippet: LESS_EQUAL_PACKED,
-    cpuKernelImpl: lessEqualImplCPU,
-    dtype: 'bool'
-});
+const lessEqual = binaryKernelFunc({ opSnippet: LESS_EQUAL, packedOpSnippet: LESS_EQUAL_PACKED, dtype: 'bool' });
 const lessEqualConfig = {
     kernelName: LessEqual,
     backendName: 'webgl',
@@ -17021,9 +15431,10 @@ const modConfig = {
 class MultinomialProgram {
     constructor(batchSize, numOutcomes, numSamples) {
         this.variableNames = ['probs'];
-        this.customUniforms = [{ name: 'seed', type: 'float' }];
         this.outputShape = [batchSize, numSamples];
         this.userCode = `
+      uniform float seed;
+
       void main() {
         ivec2 coords = getOutputCoords();
         int batch = coords[0];
@@ -17044,6 +15455,14 @@ class MultinomialProgram {
         setOutput(float(${numOutcomes - 1}));
       }
     `;
+    }
+    getCustomSetupFunc(seed) {
+        return (gpgpu, webGLProgram) => {
+            if (this.seedLoc == null) {
+                this.seedLoc = gpgpu.getUniformLocation(webGLProgram, 'seed');
+            }
+            gpgpu.gl.uniform1f(this.seedLoc, seed);
+        };
     }
 }
 
@@ -17200,8 +15619,8 @@ function multinomial(args) {
     const batchSize = probs.shape[0];
     const numOutcomes = probs.shape[1];
     const program = new MultinomialProgram(batchSize, numOutcomes, numSamples);
-    const customValues = [[seed]];
-    const res = backend.runWebGLProgram(program, [probs], 'int32', customValues);
+    const customSetup = program.getCustomSetupFunc(seed);
+    const res = backend.runWebGLProgram(program, [probs], 'int32', customSetup);
     if (!normalized) {
         backend.disposeIntermediateTensorInfo(probs);
     }
@@ -17591,7 +16010,6 @@ const packConfig = {
 class PadProgram {
     constructor(xShape, paddings, constantValue) {
         this.variableNames = ['x'];
-        this.customUniforms = [{ name: 'value', type: 'float' }];
         this.outputShape = paddings.map((p, i) => p[0] /* beforePad */ + xShape[i] + p[1] /* afterPad */);
         const rank = xShape.length;
         const type = getCoordsDataType(rank);
@@ -17606,7 +16024,7 @@ class PadProgram {
         void main() {
           int outC = getOutputCoords();
           if (outC < start || outC >= end) {
-            setOutput(value);
+            setOutput(float(${constantValue}));
           } else {
             setOutput(getX(outC - start));
           }
@@ -17621,7 +16039,7 @@ class PadProgram {
       void main() {
         ${type} outC = getOutputCoords();
         if (any(lessThan(outC, start)) || any(greaterThanEqual(outC, end))) {
-          setOutput(value);
+          setOutput(float(${constantValue}));
         } else {
           ${type} coords = outC - start;
           setOutput(getX(${unpackedCoords}));
@@ -17652,7 +16070,6 @@ class PadPackedProgram {
         this.variableNames = ['x'];
         this.packedInputs = true;
         this.packedOutput = true;
-        this.customUniforms = [{ name: 'value', type: 'float' }];
         this.outputShape = paddings.map((p, i) => p[0] /* beforePad */ + xShape[i] + p[1] /* afterPad */);
         const rank = xShape.length;
         const dtype = getCoordsDataType(rank);
@@ -17681,7 +16098,7 @@ class PadPackedProgram {
             mainLoop += `
         ${componentSetup[i]}
         if (${paddingArea}) {
-          result[${i}] = float(value);
+          result[${i}] = float(${constantValue});
         } else {
           ${dtype} source = rc - start;
           result[${i}] = getChannel(getX(${source.join()}), ${innerDims});
@@ -17726,8 +16143,7 @@ const padV2 = (args) => {
     const program = env().getBool('WEBGL_PACK_ARRAY_OPERATIONS') ?
         new PadPackedProgram(x.shape, paddings, constantValue) :
         new PadProgram(x.shape, paddings, constantValue);
-    const customValues = [[constantValue]];
-    return backend.runWebGLProgram(program, [x], x.dtype, customValues);
+    return backend.runWebGLProgram(program, [x], x.dtype);
 };
 const padV2Config = {
     kernelName: PadV2,
@@ -18428,93 +16844,6 @@ class ResizeNearestNeighborProgram {
 
 /**
  * @license
- * Copyright 2019 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-class ResizeNearestNeighborPackedProgram {
-    constructor(inputShape, newHeight, newWidth, alignCorners, halfPixelCenters) {
-        this.variableNames = ['A'];
-        this.packedInputs = true;
-        this.packedOutput = true;
-        this.outputShape = [];
-        const [batch, oldHeight, oldWidth, depth] = inputShape;
-        this.outputShape = [batch, newHeight, newWidth, depth];
-        const effectiveInSize = [
-            (alignCorners && newHeight > 1) ? oldHeight - 1 : oldHeight,
-            (alignCorners && newWidth > 1) ? oldWidth - 1 : oldWidth
-        ];
-        const effectiveOutSize = [
-            (alignCorners && newHeight > 1) ? newHeight - 1 : newHeight,
-            (alignCorners && newWidth > 1) ? newWidth - 1 : newWidth
-        ];
-        // When align corners is false, we rounds the value with floor.
-        const roundBase = alignCorners ? '0.5' : '0.0';
-        let sourceFracIndexRC;
-        if (halfPixelCenters) {
-            sourceFracIndexRC = `max((vec3(yRC) + vec3(0.5)) * ` +
-                `effectiveInputOverOutputRatioRC, vec3(0.0))`;
-        }
-        else {
-            sourceFracIndexRC = `vec3(yRC) * effectiveInputOverOutputRatioRC`;
-        }
-        this.userCode = `
-      const vec3 effectiveInputOverOutputRatioRC = vec3(
-          ${effectiveInSize[0] / effectiveOutSize[0]},
-          ${effectiveInSize[1] / effectiveOutSize[1]},
-          ${effectiveInSize[1] / effectiveOutSize[1]});
-      const vec3 inputShapeRC = vec3(${oldHeight}.0, ${oldWidth}.0,
-                                     ${oldWidth}.0);
-
-      float getAValue(int b, int r, int c, int d) {
-        return getChannel(getA(b, r, c, d), vec2(c, d));
-      }
-
-      void main() {
-        ivec4 coords = getOutputCoords();
-        int b = coords[0];
-        int d = coords[3];
-        // Calculate values for next column in yRC.z.
-        ivec3 yRC = coords.yzz + ivec3(0, 0, 1);
-
-        // Fractional source index.
-        vec3 sourceFracIndexRC = ${sourceFracIndexRC};
-
-        // Compute the coordinators of nearest neighbor point.
-        ivec3 sourceNearestRC = ivec3(
-          min(inputShapeRC - 1.0, floor(sourceFracIndexRC + ${roundBase})));
-
-        // Should we calculate next column and row elements in 2x2 packed cell.
-        bool hasNextCol = d < ${depth - 1};
-        bool hasNextRow = coords.z < ${newWidth - 1};
-
-        vec4 newValue = vec4(
-          getAValue(b, sourceNearestRC.x, sourceNearestRC.y, d),
-          hasNextCol ? getAValue(b, sourceNearestRC.x, sourceNearestRC.y, d + 1)
-                     : 0.0,
-          hasNextRow ? getAValue(b, sourceNearestRC.x, sourceNearestRC.z, d)
-                     : 0.0,
-          (hasNextRow && hasNextCol) ?
-            getAValue(b, sourceNearestRC.x, sourceNearestRC.z, d + 1) : 0.0);
-
-        setOutput(newValue);
-      }
-    `;
-    }
-}
-
-/**
- * @license
  * Copyright 2020 Google LLC. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18534,9 +16863,7 @@ function resizeNearestNeighbor(args) {
     const { images } = inputs;
     const { alignCorners, halfPixelCenters, size } = attrs;
     const [newHeight, newWidth] = size;
-    const program = env().getBool('WEBGL_PACK_IMAGE_OPERATIONS') ?
-        new ResizeNearestNeighborPackedProgram(images.shape, newHeight, newWidth, alignCorners, halfPixelCenters) :
-        new ResizeNearestNeighborProgram(images.shape, newHeight, newWidth, alignCorners, halfPixelCenters);
+    const program = new ResizeNearestNeighborProgram(images.shape, newHeight, newWidth, alignCorners, halfPixelCenters);
     return backend.runWebGLProgram(program, [images], images.dtype);
 }
 const resizeNearestNeighborConfig = {
@@ -18890,13 +17217,17 @@ const reverseConfig = {
  * =============================================================================
  */
 class RotateProgram {
-    constructor(imageShape, fillValue) {
+    constructor(imageShape, radians, fillValue, center) {
         this.variableNames = ['Image'];
         this.outputShape = [];
-        this.customUniforms = [{ name: 'params', type: 'vec4' }];
         const imageHeight = imageShape[1];
         const imageWidth = imageShape[2];
+        const sinFactor = Math.sin(radians).toFixed(3);
+        const cosFactor = Math.cos(radians).toFixed(3);
         this.outputShape = imageShape;
+        const [centerX, centerY] = getImageCenter(center, imageHeight, imageWidth);
+        const centerXString = centerX.toFixed(3);
+        const centerYString = centerY.toFixed(3);
         let fillSnippet = '';
         if (typeof fillValue === 'number') {
             fillSnippet = `float outputValue = ${fillValue.toFixed(2)};`;
@@ -18911,12 +17242,10 @@ class RotateProgram {
           ivec4 coords = getOutputCoords();
           int x = coords[2];
           int y = coords[1];
-          float coordXFloat = (float(x) - params[0]) * params[3] -
-            (float(y) - params[1]) * params[2];
-          float coordYFloat = (float(x) - params[0]) * params[2] +
-            (float(y) - params[1]) * params[3];
-          int coordX = int(round(coordXFloat + params[0]));
-          int coordY = int(round(coordYFloat + params[1]));
+          float coordXFloat = (float(x) - ${centerXString}) * ${cosFactor} - (float(y) - ${centerYString}) * ${sinFactor};
+          float coordYFloat = (float(x) - ${centerXString}) * ${sinFactor} + (float(y) - ${centerYString}) * ${cosFactor};
+          int coordX = int(round(coordXFloat + ${centerXString}));
+          int coordY = int(round(coordYFloat + ${centerYString}));
           ${fillSnippet}
           if(coordX >= 0 && coordX < ${imageWidth} && coordY >= 0 && coordY < ${imageHeight}) {
             outputValue = getImage(coords[0], coordY, coordX, coords[3]);
@@ -18950,10 +17279,8 @@ const rotateWithOffsetConfig = {
         const { image } = inputs;
         const { radians, fillValue, center } = attrs;
         const webglBackend = backend;
-        const program = new RotateProgram(image.shape, fillValue);
-        const [centerX, centerY] = getImageCenter(center, image.shape[1], image.shape[2]);
-        const customValues = [[centerX, centerY, Math.sin(radians), Math.cos(radians)]];
-        const output = webglBackend.runWebGLProgram(program, [image], image.dtype, customValues);
+        const program = new RotateProgram(image.shape, radians, fillValue, center);
+        const output = webglBackend.runWebGLProgram(program, [image], image.dtype);
         return output;
     }
 };
@@ -19200,7 +17527,7 @@ class SelectProgram {
  * limitations under the License.
  * =============================================================================
  */
-function select$1(args) {
+function select(args) {
     const { inputs, backend } = args;
     const { condition, t, e } = inputs;
     const program = new SelectProgram(condition.shape.length, t.shape, t.shape.length);
@@ -19209,7 +17536,7 @@ function select$1(args) {
 const selectConfig = {
     kernelName: Select,
     backendName: 'webgl',
-    kernelFunc: select$1
+    kernelFunc: select
 };
 
 /**
@@ -19258,8 +17585,8 @@ const seluConfig = {
  * limitations under the License.
  * =============================================================================
  */
-const SIGMOID$2 = `return 1.0 / (1.0 + exp(-1.0 * x));`;
-const sigmoid = unaryKernelFunc({ opSnippet: SIGMOID$2 });
+const SIGMOID = `return 1.0 / (1.0 + exp(-1.0 * x));`;
+const sigmoid = unaryKernelFunc({ opSnippet: SIGMOID });
 const sigmoidConfig = {
     kernelName: Sigmoid,
     backendName: 'webgl',
@@ -19445,186 +17772,6 @@ const spaceToBatchNDConfig = {
     kernelName: SpaceToBatchND,
     backendName: 'webgl',
     kernelFunc: spaceToBatchND
-};
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-function sparseFillEmptyRows(args) {
-    const { inputs, backend } = args;
-    const { indices, values, denseShape, defaultValue } = inputs;
-    if (denseShape.shape.length !== 1) {
-        throw new Error(`Dense shape must be a vector, saw:
-         ${denseShape.shape}`);
-    }
-    if (indices.shape.length !== 2) {
-        throw new Error(`Indices must be a matrix, saw:
-         ${indices.shape}`);
-    }
-    if (values.shape.length !== 1) {
-        throw new Error(`Values must be a vector, saw:
-         ${values.shape}`);
-    }
-    if (defaultValue.shape.length !== 0) {
-        throw new Error(`Default value must be a scalar, saw:
-        ${defaultValue.shape}`);
-    }
-    const $indices = backend.readSync(indices.dataId);
-    const $values = backend.readSync(values.dataId);
-    const $denseShape = backend.readSync(denseShape.dataId);
-    const $defaultValue = backend.readSync(defaultValue.dataId)[0];
-    const [outputIndices, outputIndicesShape, outputValues, emptyRowIndicator, reverseIndexMap] = sparseFillEmptyRowsImplCPU($indices, indices.shape, indices.dtype, $values, values.dtype, $denseShape, $defaultValue);
-    return [
-        backend.makeTensorInfo(outputIndicesShape, indices.dtype, outputIndices),
-        backend.makeTensorInfo([outputIndicesShape[0]], values.dtype, outputValues),
-        backend.makeTensorInfo([emptyRowIndicator.length], 'bool', new Uint8Array(emptyRowIndicator.map((value) => Number(value)))),
-        backend.makeTensorInfo([reverseIndexMap.length], indices.dtype, new Int32Array(reverseIndexMap)),
-    ];
-}
-const sparseFillEmptyRowsConfig = {
-    kernelName: SparseFillEmptyRows,
-    backendName: 'webgl',
-    kernelFunc: sparseFillEmptyRows,
-};
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-function sparseReshape(args) {
-    const { inputs, backend } = args;
-    const { inputIndices, inputShape, newShape } = inputs;
-    if (inputIndices.shape.length !== 2) {
-        throw new Error(`Input indices should be a matrix but received shape ${inputIndices.shape}`);
-    }
-    if (inputShape.shape.length !== 1) {
-        throw new Error(`Input shape should be a vector but received shape ${inputShape.shape}`);
-    }
-    if (newShape.shape.length !== 1) {
-        throw new Error(`Target shape should be a vector but received shape ${newShape.shape}`);
-    }
-    const $inputShape = Array.from(backend.readSync(inputShape.dataId));
-    const $inputIndices = backend.readSync(inputIndices.dataId);
-    const targetShape = Array.from(backend.readSync(newShape.dataId));
-    const [newIndices, indicesShape, outputShape] = sparseReshapeImplCPU($inputIndices, inputIndices.shape, inputIndices.dtype, $inputShape, targetShape);
-    return [
-        backend.makeTensorInfo(indicesShape, inputIndices.dtype, newIndices),
-        backend.makeTensorInfo([outputShape.length], newShape.dtype, new Int32Array(outputShape)),
-    ];
-}
-const sparseReshapeConfig = {
-    kernelName: SparseReshape,
-    backendName: 'webgl',
-    kernelFunc: sparseReshape,
-};
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-function sparseSegmentMean(args) {
-    const { inputs, backend } = args;
-    const { data, indices, segmentIds } = inputs;
-    if (data.shape.length < 1) {
-        throw new Error(`Data should be at least 1 dimensional but received scalar`);
-    }
-    if (indices.shape.length !== 1) {
-        throw new Error(`Indices should be a vector but received shape
-              ${indices.shape}`);
-    }
-    if (segmentIds.shape.length !== 1) {
-        throw new Error(`Segment ids should be a vector but received shape
-              ${segmentIds.shape}`);
-    }
-    const $data = backend.readSync(data.dataId);
-    const $indices = backend.readSync(indices.dataId);
-    const $segmentIds = backend.readSync(segmentIds.dataId);
-    const [outputData, outputDataShape] = sparseSegmentReductionImplCPU($data, data.shape, data.dtype, $indices, $segmentIds, true);
-    return backend.makeTensorInfo(outputDataShape, data.dtype, outputData);
-}
-const sparseSegmentMeanConfig = {
-    kernelName: SparseSegmentMean,
-    backendName: 'webgl',
-    kernelFunc: sparseSegmentMean,
-};
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-function sparseSegmentSum(args) {
-    const { inputs, backend } = args;
-    const { data, indices, segmentIds } = inputs;
-    if (data.shape.length < 1) {
-        throw new Error(`Data should be at least 1 dimensional but received scalar`);
-    }
-    if (indices.shape.length !== 1) {
-        throw new Error(`Indices should be a vector but received shape
-             ${indices.shape}`);
-    }
-    if (segmentIds.shape.length !== 1) {
-        throw new Error(`Segment ids should be a vector but received shape
-             ${segmentIds.shape}`);
-    }
-    const $data = backend.readSync(data.dataId);
-    const $indices = backend.readSync(indices.dataId);
-    const $segmentIds = backend.readSync(segmentIds.dataId);
-    const [outputData, outputDataShape] = sparseSegmentReductionImplCPU($data, data.shape, data.dtype, $indices, $segmentIds);
-    return backend.makeTensorInfo(outputDataShape, data.dtype, outputData);
-}
-const sparseSegmentSumConfig = {
-    kernelName: SparseSegmentSum,
-    backendName: 'webgl',
-    kernelFunc: sparseSegmentSum,
 };
 
 /**
@@ -19910,121 +18057,6 @@ const stridedSliceConfig = {
 
 /**
  * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-function stringNGrams(args) {
-    const { inputs, backend, attrs } = args;
-    const { separator, nGramWidths, leftPad, rightPad, padWidth, preserveShortSequences } = attrs;
-    const { data, dataSplits } = inputs;
-    const $data = backend.readSync(data.dataId);
-    const $dataSplits = backend.readSync(dataSplits.dataId);
-    const [nGrams, nGramsSplits] = stringNGramsImplCPU($data, $dataSplits, separator, nGramWidths, leftPad, rightPad, padWidth, preserveShortSequences);
-    return [
-        backend.makeTensorInfo([nGrams.length], 'string', nGrams),
-        backend.makeTensorInfo(dataSplits.shape, 'int32', nGramsSplits),
-    ];
-}
-const stringNGramsConfig = {
-    kernelName: StringNGrams,
-    backendName: 'webgl',
-    kernelFunc: stringNGrams,
-};
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-function stringSplit(args) {
-    const { inputs, backend, attrs } = args;
-    const { skipEmpty } = attrs;
-    const { input, delimiter } = inputs;
-    if (input.dtype !== 'string') {
-        throw new Error('Input must be of datatype string');
-    }
-    if (input.shape.length !== 1) {
-        throw new Error(`Input must be a vector, got shape: ${input.shape}`);
-    }
-    if (delimiter.shape.length !== 0) {
-        throw new Error(`Delimiter must be a scalar, got shape: ${delimiter.shape}`);
-    }
-    const $input = backend.readSync(input.dataId);
-    const $delimiter = backend.readSync(delimiter.dataId)[0];
-    const [indices, values, shape] = stringSplitImplCPU($input, $delimiter, skipEmpty);
-    const outputSize = values.length;
-    return [
-        backend.makeTensorInfo([outputSize, 2], 'int32', indices),
-        backend.makeTensorInfo([outputSize], 'string', values),
-        backend.makeTensorInfo([2], 'int32', new Int32Array(shape))
-    ];
-}
-const stringSplitConfig = {
-    kernelName: StringSplit,
-    backendName: 'webgl',
-    kernelFunc: stringSplit,
-};
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-function stringToHashBucketFast(args) {
-    const { inputs, backend, attrs } = args;
-    const { numBuckets } = attrs;
-    const { input } = inputs;
-    if (input.dtype !== 'string') {
-        throw new Error('Input must be of datatype string');
-    }
-    if (numBuckets <= 0) {
-        throw new Error(`Number of buckets must be at least 1`);
-    }
-    const $input = backend.readSync(input.dataId);
-    const output = stringToHashBucketFastImplCPU($input, numBuckets);
-    return backend.makeTensorInfo(input.shape, 'int32', output);
-}
-const stringToHashBucketFastConfig = {
-    kernelName: StringToHashBucketFast,
-    backendName: 'webgl',
-    kernelFunc: stringToHashBucketFast,
-};
-
-/**
- * @license
  * Copyright 2020 Google LLC. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20145,15 +18177,12 @@ function tile(params) {
     const { inputs, backend, attrs } = params;
     const { x } = inputs;
     const { reps } = attrs;
-    // tile gpu program cannot handle rank > 5 case.
-    if (x.dtype === 'string' || x.shape.length > 5) {
+    if (x.dtype === 'string') {
         // Even thought string tensor is always on CPU, just to be consistent on how
         // to access tensor data.
         const data = backend.readSync(x.dataId);
-        const value = x.dtype === 'string' ?
-            data.map(d => decodeString(d)) :
-            data;
-        const buf = buffer(x.shape, x.dtype, value);
+        const decodedData = data.map(d => decodeString(d));
+        const buf = buffer(x.shape, x.dtype, decodedData);
         const outBuf = tileImplCPU(buf, reps);
         return backend.makeTensorInfo(outBuf.shape, outBuf.dtype, outBuf.values);
     }
@@ -20166,131 +18195,6 @@ const tileConfig = {
     backendName: 'webgl',
     kernelFunc: tile,
 };
-
-// Based on Algorithm 2 of Bitonic Top K, ref:
-// https://anilshanbhag.in/static/papers/gputopk_sigmod18.pdf
-// The original algorithm is based on computing the top K only, however
-// since for TFJS we require the indices of the top K values as well then the
-// algorithm found here is a bit modified. Rather than producing the values
-// at each step, the indices containing the top K are generated instead.
-// The output values are not generated to reduce the number of outputs in the
-// GPU, the values can easily be retrieved from the indices using a gather
-// op.
-class SwapProgram {
-    /**
-     * @param shape desired output shape (can be larger than input shape, output
-     *                                    will be padded with -Infinity)
-     */
-    constructor(shape) {
-        this.variableNames = ['x', 'indices'];
-        // |n| Size of the original input of TopK.
-        // |firstPass|indicates if this is the first time swap is being used which
-        // means no indices input containing the top K is present yet.
-        // |inc| Swaps pairs of indices (0, inc), (1, inc + 1), (2, inc + 2) ...
-        this.customUniforms = [
-            { name: 'n', type: 'int' },
-            { name: 'firstPass', type: 'int' },
-            { name: 'negativeInf', type: 'float' },
-            { name: 'dir', type: 'int' },
-            { name: 'inc', type: 'int' }
-        ];
-        this.outputShape = shape;
-        this.userCode = `
-       void main() {
-         ivec2 coords = getOutputCoords();
-         int batch = coords[0];
-         int elemIdx = coords[1];
-
-         // We compare elements pair-wise within a group of size 2 * inc.
-         // The comparing rule for each group alternates between ascending
-         // and descending. Within each group, we compare each pair at
-         // positions i and i+inc. To decide whether an element at position i
-         // is x0 or x1, we mod it by 2 * inc, if the result is smaller than
-         // inc, it is in the first half of the group, we denote it as x0,
-         // otherwise we denote it as x1.
-         // For example, as shown in the Bitonic top K paper referenced above,
-         // Figure5(a) shows that element[1] is in the
-         // second half of the group when group size is 2, but it is in the
-         // first half of the group when group size is 4.
-
-         bool isFirstInPair = imod(elemIdx, 2 * inc) < inc;
-         int i = isFirstInPair ? elemIdx : elemIdx - inc;
-
-         int i0 = firstPass == 1 ? i : int(getIndices(batch, i));
-         int i1 = firstPass == 1 ? i + inc : int(getIndices(batch, i + inc));
-         float x0 = i0 < n ? getX(batch, i0) : negativeInf;
-         float x1 = i1 < n ? getX(batch, i1) : negativeInf;
-
-         // Denotes which direction indices are in (ascending or descending).
-         bool reverse = imod(elemIdx, 2 * dir) >= dir;
-         bool isGreater = x0 > x1 || (x0 == x1 && i1 > i0);
-         if (reverse == isGreater) { // Elements in opposite order of direction
-           int iTemp = i0;
-           i0 = i1;
-           i1 = iTemp;
-         }
-         if (isFirstInPair) {
-            setOutput(float(i0));
-         } else {
-            setOutput(float(i1));
-         }
-       }
-     `;
-    }
-}
-class MergeProgram {
-    /**
-     * @param shape desired output shape (must be half of the input size)
-     */
-    constructor(shape) {
-        this.variableNames = ['x', 'indices'];
-        // |n| Size of the original input of TopK
-        // |firstPass| indicates if this is the first time swap is being used which
-        // means no indices input containing the top K is present yet.
-        // |k| Top k elements desired
-        this.customUniforms = [
-            { name: 'n', type: 'int' },
-            { name: 'firstPass', type: 'int' },
-            { name: 'k', type: 'int' }
-        ];
-        this.outputShape = shape;
-        this.userCode = `
-    void main() {
-         // Takes max of indices (0, k), (1, k + 1), (2, k + 2) ...
-         ivec2 coords = getOutputCoords();
-         int batch = coords[0];
-         int elemIdx = coords[1];
-
-         // The output size is half of the previous size.
-         // If the previous sequence is | | | | _ _ _ _  | | | |  _ _ _ _ (k=4),
-         // we only need to output the indices at positions |, the indices at
-         // positions _ can be thrown away, see Figure5(b) After Phase 2
-         // (Merge phase) in the Bitonic Top K paper referenced above.
-         // For example, the paper shows we only need to output the orange bars.
-         // The output sequence should look like this | | | | | | | |.
-         // Because the sequence is halved, to map the output index back
-         // to the previous sequence to find the corresponding value,
-         // we need to double the index. When we double the index,
-         // we basically interpolate a position, so 2i looks like
-         // | _ | _ | _ | _ | _ | _ | _. We move the | to the first k position
-         // of each 2k positions by - elemIdx % k. E.g. for output at
-         // index 4,5,6,7, we want to get the corresponding element at
-         // original index 8,9,10,11, for output at index 8,9,10,11,
-         // we want to get the corresponding element at original index
-         // 16,17,18,19, so on and so forth.
-
-         int i = elemIdx < k ? elemIdx : (elemIdx * 2 - imod(elemIdx, k));
-         int i0 = firstPass == 1 ? i : int(getIndices(batch, i));
-         int i1 = firstPass == 1 ? i + k : int(getIndices(batch, i + k));
-
-         float x0 = getX(batch, i0);
-         float x1 = i1 < n ? getX(batch, i1) : x0;
-
-         setOutput(x0 >= x1 ? float(i0) : float(i1));
-       }
-     `;
-    }
-}
 
 /**
  * @license
@@ -20308,321 +18212,21 @@ class MergeProgram {
  * limitations under the License.
  * =============================================================================
  */
-function disposeIntermediateTensorInfoOrNull(backend, tensorInfo) {
-    if (tensorInfo !== null) {
-        backend.disposeIntermediateTensorInfo(tensorInfo);
-    }
-}
-function roundUpToPow2(num) {
-    let pow2 = 1;
-    while (pow2 < num) {
-        pow2 *= 2;
-    }
-    return pow2;
-}
-// Based on Algorithm 2 of Bitonic Top K, ref:
-// https://anilshanbhag.in/static/papers/gputopk_sigmod18.pdf
 function topK(args) {
     const { inputs, backend, attrs } = args;
     const { x } = inputs;
     const { k, sorted } = attrs;
-    // Empirically determined constant used to determine last dim threshold for
-    // handing off execution to the CPU.
-    const TOPK_LAST_DIM_CPU_HANDOFF_SIZE_THRESHOLD = env().getNumber('TOPK_LAST_DIM_CPU_HANDOFF_SIZE_THRESHOLD');
-    // Empirically determined constant used to determine k threshold for handing
-    // off execution to the CPU.
-    const TOPK_K_CPU_HANDOFF_THRESHOLD = env().getNumber('TOPK_K_CPU_HANDOFF_THRESHOLD');
-    const xShape = x.shape;
-    const lastDim = xShape[xShape.length - 1];
-    if (backend.shouldExecuteOnCPU([x]) ||
-        lastDim < TOPK_LAST_DIM_CPU_HANDOFF_SIZE_THRESHOLD ||
-        k > TOPK_K_CPU_HANDOFF_THRESHOLD) {
-        const xVals = backend.readSync(x.dataId);
-        const [allTopKVals, allTopKIndices] = topKImplCPU(xVals, xShape, x.dtype, k, sorted);
-        return [
-            backend.makeTensorInfo(allTopKVals.shape, allTopKVals.dtype, allTopKVals.values),
-            backend.makeTensorInfo(allTopKIndices.shape, allTopKIndices.dtype, allTopKIndices.values)
-        ];
-    }
-    if (k === 0) {
-        xShape[xShape.length - 1] = 0;
-        return [
-            backend.makeTensorInfo(xShape, x.dtype, []),
-            backend.makeTensorInfo(xShape, 'int32', [])
-        ];
-    }
-    if (lastDim === 1 /* firstPass */) {
-        return [
-            x, fill({ attrs: { shape: xShape, dtype: 'int32', value: 0 }, backend })
-        ];
-    }
-    // Eagerly unpack x input since it is passed in to all the shaders which
-    // require unpacked inputs.
-    const xtexData = backend.texData.get(x.dataId);
-    const xIsPacked = xtexData !== null && xtexData.isPacked;
-    const xUnPacked = xIsPacked ? backend.unpackTensor(x) : x;
-    // Reshape into a 2d tensor [batch, lastDim] and compute topk along lastDim.
-    const xSize = sizeFromShape(xShape);
-    const batch = xSize / lastDim;
-    const x2D = reshape({ inputs: { x: xUnPacked }, attrs: { shape: [batch, lastDim] }, backend });
-    if (xIsPacked) {
-        disposeIntermediateTensorInfoOrNull(backend, xUnPacked);
-    }
-    const kPow2 = roundUpToPow2(k);
-    const lastDimPow2 = roundUpToPow2(lastDim);
-    // Only the indices containing the top K are kept at every step to reduce
-    // number of outputs in the GPU algorithms, so once the final set of indices
-    // is computed then gather is used to grab the corresponding values
-    // from the original input.
-    let indices = null;
-    // GPU algorithm always takes in an indices input but this input is not used
-    // on the first run of a GPU algorithm, therefore if indices is null we simply
-    // pass in x2D instead of it but the value will not actually be used
-    const getInputs = () => indices === null ? [x2D, x2D] : [x2D, indices];
-    const runSwap = (dir, inc, shape) => {
-        const inputs = getInputs();
-        const program = new SwapProgram(shape);
-        const fistPass = indices === null ? 1 : 0;
-        const customValues = [[lastDim], [fistPass], [Number.NEGATIVE_INFINITY], [dir], [inc]];
-        const prevIndices = indices;
-        indices = backend.runWebGLProgram(program, inputs, 'int32', customValues);
-        disposeIntermediateTensorInfoOrNull(backend, prevIndices);
-    };
-    // Step 1: local sort
-    for (let len = 1; len < kPow2; len *= 2) {
-        const dir = len * 2;
-        for (let inc = len; inc >= 1; inc /= 2) {
-            runSwap(dir, inc, [batch, lastDimPow2]);
-        }
-    }
-    // Step 2: merge
-    for (let indicesSize = lastDimPow2; indicesSize > kPow2; indicesSize /= 2) {
-        const inputs = getInputs();
-        const mergeProgram = new MergeProgram([batch, indicesSize / 2]);
-        const firstPass = indices === null ? 1 : 0;
-        const customValues = [[lastDim], [firstPass], [kPow2]];
-        const prevIndices = indices;
-        indices =
-            backend.runWebGLProgram(mergeProgram, inputs, 'int32', customValues);
-        disposeIntermediateTensorInfoOrNull(backend, prevIndices);
-        // Step 3: rebuild
-        const len = kPow2 / 2;
-        const dir = len * 2;
-        for (let inc = len; inc >= 1; inc /= 2) {
-            runSwap(dir, inc, indices.shape);
-        }
-    }
-    // Keep only the requested top K results instead of kPow2
-    let prevIndices = indices;
-    indices = slice({ inputs: { x: indices }, backend, attrs: { begin: 0, size: [batch, k] } });
-    disposeIntermediateTensorInfoOrNull(backend, prevIndices);
-    // Gather values on last dimension
-    let values = gatherV2({ inputs: { x: x2D, indices }, backend, attrs: { axis: 1, batchDims: 1 } });
-    disposeIntermediateTensorInfoOrNull(backend, x2D);
-    // Reshape back to the original input shape, except that the last
-    // dimension is k.
-    const newShape = xShape.slice(0, -1);
-    newShape.push(k);
-    prevIndices = indices;
-    indices = reshape({ inputs: { x: indices }, attrs: { shape: newShape }, backend });
-    disposeIntermediateTensorInfoOrNull(backend, prevIndices);
-    const prevValues = values;
-    values = reshape({ inputs: { x: values }, attrs: { shape: newShape }, backend });
-    disposeIntermediateTensorInfoOrNull(backend, prevValues);
-    return [values, indices];
+    const xVals = backend.readSync(x.dataId);
+    const [allTopKVals, allTopKIndices] = topKImplCPU(xVals, x.shape, x.dtype, k, sorted);
+    return [
+        backend.makeTensorInfo(allTopKVals.shape, allTopKVals.dtype, allTopKVals.values),
+        backend.makeTensorInfo(allTopKIndices.shape, allTopKIndices.dtype, allTopKIndices.values)
+    ];
 }
 const topKConfig = {
     kernelName: TopK,
     backendName: 'webgl',
     kernelFunc: topK
-};
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-class TransformProgram {
-    constructor(imageHeight, imageWidth, interpolation, fillMode, fillValue, outShape) {
-        this.variableNames = ['Image', 'Transforms'];
-        this.outputShape = outShape;
-        const interpolationModeId = interpolation === 'nearest' ? 1 : 2;
-        let fillModeId;
-        switch (fillMode) {
-            case 'constant':
-                fillModeId = 1;
-                break;
-            case 'reflect':
-                fillModeId = 2;
-                break;
-            case 'wrap':
-                fillModeId = 3;
-                break;
-            case 'nearest':
-                fillModeId = 4;
-                break;
-            default:
-                fillModeId = 1;
-                break;
-        }
-        this.userCode = `
-            float mapCoord(float outCoord, float len) {
-              float inCoord = outCoord;
-              if(${fillModeId} == 2) {
-                if (inCoord < 0.0) {
-                  if (len <= 1.0) {
-                    inCoord = 0.0;
-                  } else {
-                    float sz2 = 2.0 * len;
-                    if (inCoord < sz2) {
-                      inCoord = sz2 * float(int(float(-inCoord / sz2))) +
-                      inCoord;
-                    }
-                    inCoord = inCoord < -len ? inCoord + sz2 : -inCoord - 1.0;
-                  }
-                } else if (inCoord > len - 1.0) {
-                  if (len <= 1.0) {
-                    inCoord = 0.0;
-                  } else {
-                    float sz2 = 2.0 * len;
-                    inCoord -= sz2 * float(int(float(inCoord / sz2)));
-                    if (inCoord >= len) {
-                      inCoord = sz2 - inCoord - 1.0;
-                    }
-                  }
-                }
-                return clamp(inCoord, 0.0, len - 1.0);
-              } else if (${fillModeId} == 3) {
-                if (inCoord < 0.0) {
-                  if (len <= 1.0) {
-                    inCoord = 0.0;
-                  } else {
-                    float sz = len - 1.0;
-                    inCoord += len * (float(int(float(-inCoord / sz))) + 1.0);
-                  }
-                } else if (inCoord > len - 1.0) {
-                  if (len <= 1.0) {
-                    inCoord = 0.0;
-                  } else {
-                    float sz = len - 1.0;
-                    inCoord -= len * float(int(float(inCoord / sz)));
-                  }
-                }
-                return clamp(inCoord, 0.0, len - 1.0);
-              } else if (${fillModeId} == 4) {
-                return clamp(outCoord, 0.0, len - 1.0);
-              } else {
-                return outCoord;
-              }
-            }
-
-            float readWithFillValue(int batch, int coordY, int coordX,
-              int channel) {
-              float outputValue;
-              if (0 <= coordY && coordY < ${imageHeight} && 0 <= coordX && coordX < ${imageWidth}) {
-                  outputValue = getImage(batch, coordY, coordX, channel);
-              } else {
-                outputValue = float(${fillValue});
-              }
-              return outputValue;
-            }
-
-            void main() {
-              ivec4 coords = getOutputCoords();
-              float outputValue;
-              int batch = coords[0];
-              int x = coords[2];
-              int y = coords[1];
-              int channel = coords[3];
-              float xf = float(x);
-              float yf = float(y);
-              float a1 = getTransforms(batch, 0);
-              float a2 = getTransforms(batch, 1);
-              float a3 = getTransforms(batch, 2);
-              float b1 = getTransforms(batch, 3);
-              float b2 = getTransforms(batch, 4);
-              float b3 = getTransforms(batch, 5);
-              float c1 = getTransforms(batch, 6);
-              float c2 = getTransforms(batch, 7);
-              float projection = c1 * xf + c2 * yf + 1.0;
-              if (projection == 0.0) {
-                outputValue = float(${fillValue});
-              } else {
-                float inX = (a1 * xf + a2 * yf + a3) / projection;
-                float inY = (b1 * xf + b2 * yf + b3) / projection;
-                float mapX = mapCoord(inX, float(${imageWidth}));
-                float mapY = mapCoord(inY, float(${imageHeight}));
-
-                if (${interpolationModeId} == 1) {
-                  int coordY = int(round(mapY));
-                  int coordX = int(round(mapX));
-                  outputValue = readWithFillValue(batch, coordY, coordX,
-                    channel);
-                } else {
-                  float yFloor = floor(mapY);
-                  float xFloor = floor(mapX);
-                  float yCeil = yFloor + 1.0;
-                  float xCeil = xFloor + 1.0;
-                  float valueYFloor = (xCeil - mapX) *
-                  readWithFillValue(batch, int(yFloor), int(xFloor), channel) +
-                  (mapX - xFloor) *
-                  readWithFillValue(batch, int(yFloor), int(xCeil), channel);
-                  float valueYCeil = (xCeil - mapX) *
-                  readWithFillValue(batch, int(yCeil), int(xFloor), channel) +
-                  (mapX - xFloor) *
-                  readWithFillValue(batch, int(yCeil), int(xCeil), channel);
-                  outputValue = (yCeil - mapY) * valueYFloor +
-                  (mapY - yFloor) * valueYCeil;
-                }
-              }
-              setOutput(outputValue);
-            }
-        `;
-    }
-}
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-function transform(args) {
-    const { inputs, backend, attrs } = args;
-    const { image, transforms } = inputs;
-    const { interpolation, fillMode, fillValue, outputShape } = attrs;
-    const [batch, imageHeight, imageWidth, numChannels] = image.shape;
-    const [outHeight, outWidth] = outputShape != null ? outputShape : [imageHeight, imageWidth];
-    const outShape = [batch, outHeight, outWidth,
-        numChannels];
-    const program = new TransformProgram(imageHeight, imageWidth, interpolation, fillMode, fillValue, outShape);
-    return backend.runWebGLProgram(program, [image, transforms], 'float32');
-}
-const transformConfig = {
-    kernelName: Transform,
-    backendName: 'webgl',
-    kernelFunc: transform
 };
 
 /**
@@ -21007,7 +18611,6 @@ const kernelConfigs = [
     depthwiseConv2dNativeConfig,
     diagConfig,
     dilation2DConfig,
-    einsumConfig,
     eluConfig,
     eluGradConfig,
     equalConfig,
@@ -21094,10 +18697,6 @@ const kernelConfigs = [
     softmaxConfig,
     softplusConfig,
     spaceToBatchNDConfig,
-    sparseFillEmptyRowsConfig,
-    sparseReshapeConfig,
-    sparseSegmentMeanConfig,
-    sparseSegmentSumConfig,
     sparseToDenseConfig,
     splitVConfig,
     sqrtConfig,
@@ -21105,16 +18704,12 @@ const kernelConfigs = [
     squaredDifferenceConfig,
     stepConfig,
     stridedSliceConfig,
-    stringNGramsConfig,
-    stringSplitConfig,
-    stringToHashBucketFastConfig,
     subConfig,
     sumConfig,
     tanConfig,
     tanhConfig,
     tileConfig,
     topKConfig,
-    transformConfig,
     transposeConfig,
     uniqueConfig,
     unpackConfig,

@@ -1,5 +1,5 @@
-import { t as toNestedArray, c as clone, e as env, m as mul, p as prelu, l as leakyRelu, r as relu6, s as sigmoid, a as relu, b as elu, d as complex, f as assert, g as scalar, k as keep, h as tensor, i as tidy, j as reshape, z as zeros, n as cast, o as sum, q as arraysEqual, u as isPromise, v as browserHTTPRequest, w as getLoadHandlers, x as decodeWeights, y as getSaveHandlers, T as Tensor, A as getBackend } from '../common/non_max_suppression_impl-9daabd29.js';
-import { s as squaredDifference, p as pow, m as maximum, a as minimum, b as sub, f as floorDiv, d as divNoNan, c as div, e as mod, g as addN, h as add, i as isNaN, j as prod, r as rsqrt, k as clipByValue, t as tan, l as tanh, n as square, o as sqrt, q as softplus, u as sinh, v as sign, w as sin, x as selu, y as round, z as real, A as reciprocal, B as neg, C as imag, D as log1p, E as log, F as floor, G as expm1, H as exp, I as erf, J as cosh, K as cos, L as ceil, M as atanh, N as atan2, O as atan, P as asinh, Q as asin, R as acosh, S as acos, T as abs, U as stack, V as concat, W as unstack, X as slice, Y as dilation2d, Z as maxPool3d, _ as avgPool3d, $ as maxPoolWithArgmax, a0 as maxPool, a1 as avgPool, a2 as conv3d, a3 as depthwiseConv2d, a4 as conv2dTranspose, a5 as depthwiseConv2d$1, a6 as conv2d, a7 as conv2d$1, a8 as conv1d, a9 as zerosLike, aa as truncatedNormal, ab as range, ac as randomUniform, ad as onesLike, ae as ones, af as oneHot, ag as multinomial, ah as linspace, ai as fill, aj as setdiff1dAsync, ak as whereAsync, al as image$1, am as unique, an as topk, ao as tensor1d, ap as where, aq as logicalOr, ar as logicalNot, as as logicalAnd, at as lessEqual, au as less, av as greaterEqual, aw as greater, ax as notEqual, ay as equal, az as matMul, aA as transpose, aB as einsum, aC as matMul$1, aD as sparseToDense, aE as logSoftmax, aF as softmax, aG as localResponseNormalization, aH as batchNorm, aI as denseBincount, aJ as bincount, aK as cumsum, aL as argMin, aM as argMax, aN as any, aO as all, aP as min, aQ as mean, aR as max, aS as gatherND, aT as scatterND, aU as split$1, aV as tile, aW as squeeze, aX as stridedSlice, aY as reverse, aZ as gather, a_ as sparse$1, a$ as irfft, b0 as rfft, b1 as ifft, b2 as fft, b3 as string$1, b4 as broadcastTo, b5 as depthToSpace, b6 as batchToSpaceND, b7 as spaceToBatchND, b8 as pad, b9 as mirrorPad, ba as expandDims, bb as tensor2d, bc as concat2d, bd as fromPixels } from '../common/ops-9f139c1d.js';
+import { t as toNestedArray, c as clone, e as env, s as squaredDifference, p as pow, m as maximum, a as minimum, b as sub, f as floorDiv, d as divNoNan, g as div, h as mul, i as mod, j as add, k as prelu, l as leakyRelu, n as prod, r as rsqrt, o as relu6, q as clipByValue, u as tan, v as tanh, w as square, x as sqrt, y as softplus, z as sinh, A as sign, B as sin, C as sigmoid, D as selu, E as round, F as relu, G as real, H as reciprocal, I as neg, J as imag, K as log1p, L as log, M as floor, N as expm1, O as exp, P as erf, Q as elu, R as cosh, S as cos, T as complex, U as ceil, V as atanh, W as atan2, X as atan, Y as asinh, Z as asin, _ as acosh, $ as acos, a0 as abs, a1 as assert, a2 as scalar, a3 as keep, a4 as tensor, a5 as stack, a6 as concat, a7 as unstack, a8 as tidy, a9 as reshape, aa as slice, ab as dilation2d, ac as maxPool, ad as avgPool, ae as depthwiseConv2d, af as conv2dTranspose, ag as conv2d$1, ah as conv1d, ai as zerosLike, aj as zeros, ak as onesLike, al as ones, am as oneHot, an as cast, ao as unique, ap as topk, aq as where, ar as logicalOr, as as logicalNot, at as logicalAnd, au as lessEqual, av as less, aw as greaterEqual, ax as greater, ay as notEqual, az as equal, aA as transpose, aB as matMul$1, aC as logSoftmax, aD as softmax, aE as localResponseNormalization, aF as batchNorm, aG as cumsum, aH as argMin, aI as argMax, aJ as any, aK as all, aL as sum, aM as min, aN as mean, aO as max, aP as split$1, aQ as tile, aR as squeeze, aS as arraysEqual, aT as stridedSlice, aU as reverse, aV as gather, aW as irfft, aX as rfft, aY as ifft, aZ as fft, a_ as broadcastTo, a$ as depthToSpace, b0 as batchToSpaceND, b1 as spaceToBatchND, b2 as pad, b3 as mirrorPad, b4 as expandDims, b5 as isPromise, b6 as browserHTTPRequest, b7 as getLoadHandlers, b8 as decodeWeights, b9 as getSaveHandlers, ba as Tensor, bb as getBackend } from '../common/zeros_like-371809d6.js';
+import { a as addN, m as maxPool3d, b as avgPool3d, c as maxPoolWithArgmax, d as conv3d, e as depthwiseConv2d$1, f as conv2d, t as truncatedNormal, r as range, g as randomUniform, h as multinomial, l as linspace, i as fill, s as setdiff1dAsync, w as whereAsync, j as image$1, k as tensor1d, n as matMul, o as sparseToDense, p as denseBincount, q as bincount, u as gatherND, v as scatterND, x as tensor2d, y as concat2d, z as fromPixels } from '../common/ops-c96d7cb7.js';
 import '../common/_commonjsHelpers-8a10f9bf.js';
 
 /**
@@ -160,18 +160,16 @@ function getTensorsForCurrentContenxt(name, tensorsMap, context) {
     return tensorsMap[getNodeNameWithContextId(name, context.currentContextId)];
 }
 /**
- * Returns the node name, outputName and index from the Node input name.
+ * Returns the node name and index from the Node input name.
  * @param inputName The input name of the node, in format of
  * node_name:output_index, i.e. MatMul:0, if the output_index is not set, it is
  * default to 0.
- * If the input name contains output name i.e. StringSplit:indices:0, it will
- * return ['StringSplit', 0, 'indices'].
  */
 function getNodeNameAndIndex(inputName, context) {
-    const [nodeName, index, outputName] = parseNodeName(inputName);
+    const [nodeName, index] = parseNodeName(inputName);
     return [
         getNodeNameWithContextId(nodeName, context && context.currentContextId),
-        index, outputName
+        index
     ];
 }
 function getNodeNameWithContextId(name, contextId) {
@@ -180,12 +178,10 @@ function getNodeNameWithContextId(name, contextId) {
 function parseNodeName(name) {
     const parts = name.split(':');
     if (parts.length === 1) {
-        return [name, 0, undefined];
+        return [name, 0];
     }
     const nodeName = parts[0];
-    const outputName = parts.length === 3 ? parts[1] : undefined;
-    const index = Number(parts[parts.length - 1]);
-    return [nodeName, index, outputName];
+    return [nodeName, Number(parts[parts.length - 1])];
 }
 function getPadding(node, tensorMap, context) {
     let pad = getParamValue('pad', node, tensorMap, context);
@@ -878,21 +874,13 @@ const json$1 = [
                 'type': 'number',
                 'defaultValue': 0.2
             },
-            { 'tfName': 'T', 'name': 'dtype', 'type': 'dtype', 'notSupported': true }
-        ]
-    },
-    {
-        'tfOpName': 'IsNan',
-        'category': 'basic_math',
-        'inputs': [
-            { 'start': 0, 'name': 'x', 'type': 'tensor' },
-        ],
-        'attrs': [{
+            {
                 'tfName': 'T',
                 'name': 'dtype',
                 'type': 'dtype',
                 'notSupported': true
-            }]
+            }
+        ]
     }
 ];
 
@@ -2164,20 +2152,6 @@ const json$8 = [
                 'notSupported': true
             }
         ]
-    },
-    {
-        'tfOpName': 'LookupTableSize',
-        'category': 'hash_table',
-        'inputs': [
-            { 'start': 0, 'name': 'tableHandle', 'type': 'tensor' }
-        ]
-    },
-    {
-        'tfOpName': 'LookupTableSizeV2',
-        'category': 'hash_table',
-        'inputs': [
-            { 'start': 0, 'name': 'tableHandle', 'type': 'tensor' }
-        ]
     }
 ];
 
@@ -2537,19 +2511,12 @@ const json$b = [
             { 'start': 0, 'name': 'x', 'type': 'tensor' },
             { 'start': 1, 'name': 'perm', 'type': 'number[]' },
         ],
-        'attrs': [
-            { 'tfName': 'T', 'name': 'dtype', 'type': 'dtype', 'notSupported': true }
-        ]
-    },
-    {
-        'tfOpName': 'Einsum',
-        'category': 'matrices',
-        'inputs': [{ 'start': 0, 'end': 0, 'name': 'tensors', 'type': 'tensors' }],
-        'attrs': [
-            { 'tfName': 'equation', 'name': 'equation', 'type': 'string' },
-            { 'tfName': 'N', 'name': 'n', 'type': 'number', 'defaultValue': 2 },
-            { 'tfName': 'T', 'name': 'dtype', 'type': 'dtype' }
-        ]
+        'attrs': [{
+                'tfName': 'T',
+                'name': 'dtype',
+                'type': 'dtype',
+                'notSupported': true
+            }]
     }
 ];
 
@@ -3077,70 +3044,6 @@ var sliceJoin = /*#__PURE__*/Object.freeze({
 
 /**
  * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-const json$f = [
-    {
-        'tfOpName': 'SparseFillEmptyRows',
-        'category': 'sparse',
-        'inputs': [
-            { 'start': 0, 'name': 'indices', 'type': 'tensor' },
-            { 'start': 1, 'name': 'values', 'type': 'tensor' },
-            { 'start': 2, 'name': 'denseShape', 'type': 'tensor' },
-            { 'start': 3, 'name': 'defaultValue', 'type': 'tensor' },
-        ]
-    },
-    {
-        'tfOpName': 'SparseReshape',
-        'category': 'sparse',
-        'inputs': [
-            { 'start': 0, 'name': 'inputIndices', 'type': 'tensor' },
-            { 'start': 1, 'name': 'inputShape', 'type': 'tensor' },
-            { 'start': 2, 'name': 'newShape', 'type': 'tensor' },
-        ],
-        'attrs': [
-            { 'tfName': 'T', 'name': 'dtype', 'type': 'dtype', 'notSupported': true }
-        ]
-    },
-    {
-        'tfOpName': 'SparseSegmentMean',
-        'category': 'sparse',
-        'inputs': [
-            { 'start': 0, 'name': 'data', 'type': 'tensor' },
-            { 'start': 1, 'name': 'indices', 'type': 'tensor' },
-            { 'start': 2, 'name': 'segmentIds', 'type': 'tensor' },
-        ]
-    },
-    {
-        'tfOpName': 'SparseSegmentSum',
-        'category': 'sparse',
-        'inputs': [
-            { 'start': 0, 'name': 'data', 'type': 'tensor' },
-            { 'start': 1, 'name': 'indices', 'type': 'tensor' },
-            { 'start': 2, 'name': 'segmentIds', 'type': 'tensor' },
-        ]
-    }
-];
-
-var sparse = /*#__PURE__*/Object.freeze({
-    __proto__: null,
-    json: json$f
-});
-
-/**
- * @license
  * Copyright 2018 Google LLC. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -3155,7 +3058,7 @@ var sparse = /*#__PURE__*/Object.freeze({
  * limitations under the License.
  * =============================================================================
  */
-const json$g = [
+const json$f = [
     {
         'tfOpName': 'FFT',
         'category': 'spectral',
@@ -3194,69 +3097,7 @@ const json$g = [
 
 var spectral = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    json: json$g
-});
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-const json$h = [
-    {
-        'tfOpName': 'StringNGrams',
-        'category': 'string',
-        'inputs': [
-            { 'start': 0, 'name': 'data', 'type': 'tensor' },
-            { 'start': 1, 'name': 'dataSplits', 'type': 'tensor' },
-        ],
-        'attrs': [
-            { 'tfName': 'separator', 'name': 'separator', 'type': 'string' },
-            { 'tfName': 'ngram_widths', 'name': 'nGramWidths', 'type': 'number[]' },
-            { 'tfName': 'left_pad', 'name': 'leftPad', 'type': 'string' },
-            { 'tfName': 'right_pad', 'name': 'rightPad', 'type': 'string' },
-            { 'tfName': 'pad_width', 'name': 'padWidth', 'type': 'number' }, {
-                'tfName': 'preserve_short_sequences',
-                'name': 'preserveShortSequences',
-                'type': 'bool'
-            }
-        ],
-        'outputs': ['ngrams', 'ngrams_splits']
-    },
-    {
-        'tfOpName': 'StringSplit',
-        'category': 'string',
-        'inputs': [
-            { 'start': 0, 'name': 'input', 'type': 'tensor' },
-            { 'start': 1, 'name': 'delimiter', 'type': 'tensor' },
-        ],
-        'attrs': [{ 'tfName': 'skip_empty', 'name': 'skipEmpty', 'type': 'bool' }],
-        'outputs': ['indices', 'values', 'shape']
-    },
-    {
-        'tfOpName': 'StringToHashBucketFast',
-        'category': 'string',
-        'inputs': [
-            { 'start': 0, 'name': 'input', 'type': 'tensor' },
-        ],
-        'attrs': [{ 'tfName': 'num_buckets', 'name': 'numBuckets', 'type': 'number' }]
-    }
-];
-
-var string = /*#__PURE__*/Object.freeze({
-    __proto__: null,
-    json: json$h
+    json: json$f
 });
 
 /**
@@ -3275,7 +3116,7 @@ var string = /*#__PURE__*/Object.freeze({
  * limitations under the License.
  * =============================================================================
  */
-const json$i = [
+const json$g = [
     {
         'tfOpName': 'Cast',
         'category': 'transformation',
@@ -3399,7 +3240,7 @@ const json$i = [
 
 var transformation = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    json: json$i
+    json: json$g
 });
 
 /**
@@ -3427,8 +3268,8 @@ class OperationMapper {
     constructor() {
         const ops = [
             arithmetic, basicMath, control, convolution, creation, dynamic,
-            evaluation, graph, hashTable, image, logical, matrices, normalization,
-            reduction, sliceJoin, sparse, spectral, string, transformation
+            evaluation, logical, image, graph, matrices, normalization, reduction,
+            sliceJoin, spectral, transformation, hashTable
         ];
         const mappersJson = [].concat(...ops.map(op => op.json));
         this.opMappers = mappersJson.reduce((map, mapper) => {
@@ -3467,19 +3308,10 @@ class OperationMapper {
         const allNodes = Object.keys(nodes);
         allNodes.forEach(key => {
             const node = nodes[key];
-            node.inputNames.forEach((name, index) => {
-                const [nodeName, , outputName] = getNodeNameAndIndex(name);
-                const inputNode = nodes[nodeName];
-                if (inputNode.outputs != null) {
-                    const outputIndex = inputNode.outputs.indexOf(outputName);
-                    if (outputIndex !== -1) {
-                        const inputName = `${nodeName}:${outputIndex}`;
-                        // update the input name to use the mapped output index directly.
-                        node.inputNames[index] = inputName;
-                    }
-                }
-                node.inputs.push(inputNode);
-                inputNode.children.push(node);
+            node.inputNames.forEach(name => {
+                const [nodeName,] = getNodeNameAndIndex(name);
+                node.inputs.push(nodes[nodeName]);
+                nodes[nodeName].children.push(node);
             });
         });
         // if signature has not outputs set, add any node that does not have
@@ -3552,8 +3384,7 @@ class OperationMapper {
             children: [],
             inputParams: {},
             attrParams: {},
-            rawAttrs: node.attr,
-            outputs: mapper.outputs
+            rawAttrs: node.attr
         };
         if (mapper.inputs != null) {
             newNode.inputParams =
@@ -3686,19 +3517,10 @@ class OperationMapper {
         const allNodes = Object.keys(nodes);
         allNodes.forEach(key => {
             const node = nodes[key];
-            node.inputNames.forEach((name, index) => {
-                const [nodeName, , outputName] = getNodeNameAndIndex(name);
-                const inputNode = nodes[nodeName];
-                if (inputNode.outputs != null) {
-                    const outputIndex = inputNode.outputs.indexOf(outputName);
-                    if (outputIndex !== -1) {
-                        const inputName = `${nodeName}:${outputIndex}`;
-                        // update the input name to use the mapped output index directly.
-                        node.inputNames[index] = inputName;
-                    }
-                }
-                node.inputs.push(inputNode);
-                inputNode.children.push(node);
+            node.inputNames.forEach(name => {
+                const [nodeName,] = getNodeNameAndIndex(name);
+                node.inputs.push(nodes[nodeName]);
+                nodes[nodeName].children.push(node);
             });
         });
         const returnNodeMap = functionDef.ret;
@@ -4124,8 +3946,6 @@ const executeOp$1 = (node, tensorMap, context) => {
             return [leakyRelu(getParamValue('x', node, tensorMap, context), getParamValue('alpha', node, tensorMap, context))];
         case 'Prelu':
             return [prelu(getParamValue('x', node, tensorMap, context), getParamValue('alpha', node, tensorMap, context))];
-        case 'IsNan':
-            return [isNaN(getTensor(node.inputNames[0], tensorMap, context))];
         default:
             throw TypeError(`Node type ${node.op} is not implemented`);
     }
@@ -4147,75 +3967,19 @@ const executeOp$1 = (node, tensorMap, context) => {
  * limitations under the License.
  * =============================================================================
  */
-/**
- * Used by TensorList and TensorArray to verify if elementShape matches, support
- * negative value as the dim shape.
- * @param shapeA
- * @param shapeB
- * @param errorMessagePrefix
- */
 function assertShapesMatchAllowUndefinedSize(shapeA, shapeB, errorMessagePrefix = '') {
-    // constant shape means unknown rank
-    if (typeof shapeA === 'number' || typeof shapeB === 'number') {
-        return;
-    }
-    assert(shapeA.length === shapeB.length, () => errorMessagePrefix + ` Shapes ${shapeA} and ${shapeB} must match`);
-    for (let i = 0; i < shapeA.length; i++) {
-        const dim0 = shapeA[i];
-        const dim1 = shapeB[i];
-        assert(dim0 < 0 || dim1 < 0 || dim0 === dim1, () => errorMessagePrefix + ` Shapes ${shapeA} and ${shapeB} must match`);
-    }
+    assert(shapesEqualAllowUndefinedSize(shapeA, shapeB), () => errorMessagePrefix + ` Shapes ${shapeA} and ${shapeB} must match`);
 }
-function fullDefinedShape(elementShape) {
-    if (typeof elementShape === 'number' || elementShape.some(dim => dim < 0)) {
+function shapesEqualAllowUndefinedSize(n1, n2) {
+    if (n1.length !== n2.length) {
         return false;
     }
-    return true;
-}
-/**
- * Generate the output element shape from the list elementShape, list tensors
- * and input param.
- * @param listElementShape
- * @param tensors
- * @param elementShape
- */
-function inferElementShape(listElementShape, tensors, elementShape) {
-    let partialShape = mergeElementShape(listElementShape, elementShape);
-    const notfullDefinedShape = !fullDefinedShape(partialShape);
-    if (notfullDefinedShape && tensors.length === 0) {
-        throw new Error(`Tried to calculate elements of an empty list` +
-            ` with non-fully-defined elementShape: ${partialShape}`);
-    }
-    if (notfullDefinedShape) {
-        tensors.forEach(tensor => {
-            partialShape = mergeElementShape(tensor.shape, partialShape);
-        });
-    }
-    if (!fullDefinedShape(partialShape)) {
-        throw new Error(`Non-fully-defined elementShape: ${partialShape}`);
-    }
-    return partialShape;
-}
-function mergeElementShape(elementShapeA, elementShapeB) {
-    if (typeof elementShapeA === 'number') {
-        return elementShapeB;
-    }
-    if (typeof elementShapeB === 'number') {
-        return elementShapeA;
-    }
-    if (elementShapeA.length !== elementShapeB.length) {
-        throw new Error(`Incompatible ranks during merge: ${elementShapeA} vs. ${elementShapeB}`);
-    }
-    const result = [];
-    for (let i = 0; i < elementShapeA.length; ++i) {
-        const dim0 = elementShapeA[i];
-        const dim1 = elementShapeB[i];
-        if (dim0 >= 0 && dim1 >= 0 && dim0 !== dim1) {
-            throw new Error(`Incompatible shape during merge: ${elementShapeA} vs. ${elementShapeB}`);
+    for (let i = 0; i < n1.length; i++) {
+        if (n1[i] !== -1 && n2[i] !== -1 && n1[i] !== n2[i]) {
+            return false;
         }
-        result[i] = dim0 >= 0 ? dim0 : dim1;
     }
-    return result;
+    return true;
 }
 
 /**
@@ -4492,8 +4256,7 @@ class TensorList {
     /**
      *
      * @param tensors list of tensors
-     * @param elementShape shape of each tensor, this can be a single number (any
-     * shape is allowed) or partial shape (dim = -1).
+     * @param elementShape shape of each tensor
      * @param elementDtype data type of each tensor
      * @param maxNumElements The maximum allowed size of `tensors`. Defaults to -1
      *   meaning that the size of `tensors` is unbounded.
@@ -4557,9 +4320,8 @@ class TensorList {
             throw new Error(`Operation expected a list with ${numElements} elements but got a list with ${this.tensors.length} elements.`);
         }
         assertShapesMatchAllowUndefinedSize(elementShape, this.elementShape, 'TensorList shape mismatch: ');
-        const outputElementShape = inferElementShape(this.elementShape, this.tensors, elementShape);
         return tidy(() => {
-            const reshapedTensors = this.tensors.map(tensor => reshape(tensor, outputElementShape));
+            const reshapedTensors = this.tensors.map(tensor => reshape(tensor, elementShape));
             return stack(reshapedTensors, 0);
         });
     }
@@ -4575,10 +4337,9 @@ class TensorList {
         if (this.size() === 0) {
             throw new Error('Trying to pop from an empty list.');
         }
-        const outputElementShape = inferElementShape(this.elementShape, this.tensors, elementShape);
         const tensor = this.tensors.pop();
         assertShapesMatchAllowUndefinedSize(tensor.shape, elementShape, 'TensorList shape mismatch: ');
-        return reshape(tensor, outputElementShape);
+        return reshape(tensor, elementShape);
     }
     /**
      * Push a tensor to the end of the list.
@@ -4625,8 +4386,7 @@ class TensorList {
             throw new Error(`element at index ${elementIndex} is null.`);
         }
         assertShapesMatchAllowUndefinedSize(this.tensors[elementIndex].shape, elementShape, 'TensorList shape mismatch: ');
-        const outputElementShape = inferElementShape(this.elementShape, this.tensors, elementShape);
-        return reshape(this.tensors[elementIndex], outputElementShape);
+        return this.tensors[elementIndex];
     }
     /**
      * Set the tensor at the index
@@ -4660,12 +4420,11 @@ class TensorList {
         // When indices is greater than the size of the list, indices beyond the
         // size of the list are ignored.
         indices = indices.slice(0, this.size());
-        const outputElementShape = inferElementShape(this.elementShape, this.tensors, elementShape);
         if (indices.length === 0) {
-            return tensor([], [0].concat(outputElementShape));
+            return tensor([], [0].concat(this.elementShape));
         }
         return tidy(() => {
-            const tensors = indices.map(i => reshape(this.tensors[i], outputElementShape));
+            const tensors = indices.map(i => reshape(this.tensors[i], elementShape));
             return stack(tensors, 0);
         });
     }
@@ -4679,12 +4438,11 @@ class TensorList {
             throw new Error(`TensorList dtype is ${this.elementDtype} but concat requested dtype ${elementDtype}`);
         }
         assertShapesMatchAllowUndefinedSize(this.elementShape, elementShape, 'TensorList shape mismatch: ');
-        const outputElementShape = inferElementShape(this.elementShape, this.tensors, elementShape);
         if (this.size() === 0) {
-            return tensor([], [0].concat(outputElementShape));
+            return tensor([], [0].concat(this.elementShape));
         }
         return tidy(() => {
-            const tensors = this.tensors.map(t => reshape(t, outputElementShape));
+            const tensors = this.tensors.map(t => reshape(t, elementShape));
             return concat(tensors, 0);
         });
     }
@@ -4702,8 +4460,8 @@ function fromTensor(tensor, elementShape, elementDtype) {
     if (tensor.dtype !== elementDtype) {
         throw new Error(`Invalid data types; op elements ${tensor.dtype}, but list elements ${elementDtype}`);
     }
-    const tensorElementShape = tensor.shape.slice(1);
-    assertShapesMatchAllowUndefinedSize(tensorElementShape, elementShape, 'TensorList shape mismatch: ');
+    const outputShape = tensor.shape.slice(1);
+    assertShapesMatchAllowUndefinedSize(outputShape, elementShape, 'TensorList shape mismatch: ');
     const tensorList = unstack(tensor);
     return new TensorList(tensorList, elementShape, dtype);
 }
@@ -4756,8 +4514,6 @@ function split(tensor, length, elementShape) {
           tensor.shape[0], but sum of lengths is
         ${totalLength}, and tensor's shape is: ${tensor.shape}`);
     }
-    const shapeWithoutFirstDim = tensor.shape.slice(1);
-    const outputElementShape = mergeElementShape(shapeWithoutFirstDim, elementShape);
     const elementPerRow = totalLength === 0 ? 0 : tensor.size / totalLength;
     const tensors = tidy(() => {
         const tensors = [];
@@ -4766,7 +4522,7 @@ function split(tensor, length, elementShape) {
             const previousLength = (i === 0) ? 0 : cumulativeLengths[i - 1];
             const indices = [0, previousLength, 0];
             const sizes = [1, length[i], elementPerRow];
-            tensors[i] = reshape(slice(tensor, indices, sizes), outputElementShape);
+            tensors[i] = reshape(slice(tensor, indices, sizes), elementShape);
         }
         tensor.dispose();
         return tensors;
@@ -5075,7 +4831,6 @@ const executeOp$2 = async (node, tensorMap, context) => {
 function fusedConvAndDepthWiseParams(node, tensorMap, context) {
     const [extraOp, activationFunc] = getParamValue('fusedOps', node, tensorMap, context);
     const isBiasAdd = extraOp === 'biasadd';
-    const noBiasAdd = !isBiasAdd;
     const isPrelu = activationFunc === 'prelu';
     const isBatchNorm = extraOp === 'fusedbatchnorm';
     const numArgs = getParamValue('numArgs', node, tensorMap, context);
@@ -5084,24 +4839,20 @@ function fusedConvAndDepthWiseParams(node, tensorMap, context) {
             throw new Error('FusedConv2d and DepthwiseConv2d with BiasAdd and Prelu ' +
                 'must have two extra arguments: bias and alpha.');
         }
-        if (!isPrelu && isBiasAdd && numArgs !== 1) {
+        if (!isPrelu && numArgs !== 1) {
             throw new Error('FusedConv2d and DepthwiseConv2d with BiasAdd must have ' +
                 'one extra argument: bias.');
         }
     }
     if (isBatchNorm) {
-        throw new Error('FusedConv2d and DepthwiseConv2d with FusedBatchNorm is not supported');
+        throw new Error('FusedConv2d and DepthwiseConv2d with FusedBatchNorm is not supported.');
     }
     const stride = getParamValue('strides', node, tensorMap, context);
     const pad = getPadding(node, tensorMap, context);
     const dataFormat = getParamValue('dataFormat', node, tensorMap, context)
         .toUpperCase();
     const dilations = getParamValue('dilations', node, tensorMap, context);
-    let [biasArg, preluArg] = getParamValue('args', node, tensorMap, context);
-    if (noBiasAdd) {
-        preluArg = biasArg;
-        biasArg = undefined;
-    }
+    const [biasArg, preluArg] = getParamValue('args', node, tensorMap, context);
     const leakyreluAlpha = getParamValue('leakyreluAlpha', node, tensorMap, context);
     return {
         stride,
@@ -5537,12 +5288,6 @@ class HashTable {
         return this.tensorMap.size;
     }
     /**
-     * The number of items in the hash table as a rank-0 tensor.
-     */
-    tensorSize() {
-        return scalar(this.size(), 'int32');
-    }
-    /**
      * Replaces the contents of the table with the specified keys and values.
      * @param keys Keys to store in the hashtable.
      * @param values Values to store in the hashtable.
@@ -5657,12 +5402,6 @@ const executeOp$8 = async (node, tensorMap, context, resourceManager) => {
             const defaultValue = getParamValue('defaultValue', node, tensorMap, context);
             const hashTable = resourceManager.getHashTableById(handle.id);
             return [await hashTable.find(keys, defaultValue)];
-        }
-        case 'LookupTableSize':
-        case 'LookupTableSizeV2': {
-            const handle = getParamValue('tableHandle', node, tensorMap, context, resourceManager);
-            const hashTable = resourceManager.getHashTableById(handle.id);
-            return [hashTable.tensorSize()];
         }
         default:
             throw TypeError(`Node type ${node.op} is not implemented`);
@@ -5791,8 +5530,6 @@ const executeOp$b = (node, tensorMap, context) => {
         case 'BatchMatMulV2':
         case 'MatMul':
             return [matMul$1(getParamValue('a', node, tensorMap, context), getParamValue('b', node, tensorMap, context), getParamValue('transposeA', node, tensorMap, context), getParamValue('transposeB', node, tensorMap, context))];
-        case 'Einsum':
-            return [einsum(getParamValue('equation', node, tensorMap, context), ...getParamValue('tensors', node, tensorMap, context))];
         case 'Transpose':
             return [transpose(getParamValue('x', node, tensorMap, context), getParamValue('perm', node, tensorMap, context))];
         case '_FusedMatMul':
@@ -6087,7 +5824,7 @@ const executeOp$e = (node, tensorMap, context) => {
 
 /**
  * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
+ * Copyright 2018 Google LLC. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -6103,23 +5840,17 @@ const executeOp$e = (node, tensorMap, context) => {
  */
 const executeOp$f = (node, tensorMap, context) => {
     switch (node.op) {
-        case 'SparseFillEmptyRows': {
-            const { outputIndices, outputValues, emptyRowIndicator, reverseIndexMap } = sparse$1.sparseFillEmptyRows(getParamValue('indices', node, tensorMap, context), getParamValue('values', node, tensorMap, context), getParamValue('denseShape', node, tensorMap, context), getParamValue('defaultValue', node, tensorMap, context));
-            return [
-                outputIndices, outputValues, emptyRowIndicator, reverseIndexMap
-            ];
+        case 'FFT': {
+            return [fft(getParamValue('x', node, tensorMap, context))];
         }
-        case 'SparseReshape': {
-            const { outputIndices, outputShape } = sparse$1.sparseReshape(getParamValue('inputIndices', node, tensorMap, context), getParamValue('inputShape', node, tensorMap, context), getParamValue('newShape', node, tensorMap, context));
-            return [outputIndices, outputShape];
+        case 'IFFT': {
+            return [ifft(getParamValue('x', node, tensorMap, context))];
         }
-        case 'SparseSegmentMean': {
-            const outputData = sparse$1.sparseSegmentMean(getParamValue('data', node, tensorMap, context), getParamValue('indices', node, tensorMap, context), getParamValue('segmentIds', node, tensorMap, context));
-            return [outputData];
+        case 'RFFT': {
+            return [rfft(getParamValue('x', node, tensorMap, context))];
         }
-        case 'SparseSegmentSum': {
-            const outputData = sparse$1.sparseSegmentSum(getParamValue('data', node, tensorMap, context), getParamValue('indices', node, tensorMap, context), getParamValue('segmentIds', node, tensorMap, context));
-            return [outputData];
+        case 'IRFFT': {
+            return [irfft(getParamValue('x', node, tensorMap, context))];
         }
         default:
             throw TypeError(`Node type ${node.op} is not implemented`);
@@ -6143,76 +5874,6 @@ const executeOp$f = (node, tensorMap, context) => {
  * =============================================================================
  */
 const executeOp$g = (node, tensorMap, context) => {
-    switch (node.op) {
-        case 'FFT': {
-            return [fft(getParamValue('x', node, tensorMap, context))];
-        }
-        case 'IFFT': {
-            return [ifft(getParamValue('x', node, tensorMap, context))];
-        }
-        case 'RFFT': {
-            return [rfft(getParamValue('x', node, tensorMap, context))];
-        }
-        case 'IRFFT': {
-            return [irfft(getParamValue('x', node, tensorMap, context))];
-        }
-        default:
-            throw TypeError(`Node type ${node.op} is not implemented`);
-    }
-};
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-const executeOp$h = (node, tensorMap, context) => {
-    switch (node.op) {
-        case 'StringNGrams': {
-            const { nGrams, nGramsSplits } = string$1.stringNGrams(getParamValue('data', node, tensorMap, context), getParamValue('dataSplits', node, tensorMap, context), getParamValue('separator', node, tensorMap, context), getParamValue('nGramWidths', node, tensorMap, context), getParamValue('leftPad', node, tensorMap, context), getParamValue('rightPad', node, tensorMap, context), getParamValue('padWidth', node, tensorMap, context), getParamValue('preserveShortSequences', node, tensorMap, context));
-            return [nGrams, nGramsSplits];
-        }
-        case 'StringSplit': {
-            const { indices, values, shape } = string$1.stringSplit(getParamValue('input', node, tensorMap, context), getParamValue('delimiter', node, tensorMap, context), getParamValue('skipEmpty', node, tensorMap, context));
-            return [indices, values, shape];
-        }
-        case 'StringToHashBucketFast': {
-            const output = string$1.stringToHashBucketFast(getParamValue('input', node, tensorMap, context), getParamValue('numBuckets', node, tensorMap, context));
-            return [output];
-        }
-        default:
-            throw TypeError(`Node type ${node.op} is not implemented`);
-    }
-};
-
-/**
- * @license
- * Copyright 2018 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-const executeOp$i = (node, tensorMap, context) => {
     switch (node.op) {
         case 'Cast': {
             return [cast(getParamValue('x', node, tensorMap, context), getParamValue('dtype', node, tensorMap, context))];
@@ -6281,7 +5942,7 @@ const executeOp$i = (node, tensorMap, context) => {
  * @param context contains tensors and information for running the current node.
  * @param resourceManager Optional. Contains global resources of the model.
  */
-function executeOp$j(node, tensorMap, context, resourceManager) {
+function executeOp$h(node, tensorMap, context, resourceManager) {
     const value = ((node, tensorMap, context) => {
         switch (node.category) {
             case 'arithmetic':
@@ -6312,14 +5973,10 @@ function executeOp$j(node, tensorMap, context, resourceManager) {
                 return tidy(() => executeOp$d(node, tensorMap, context));
             case 'slice_join':
                 return tidy(() => executeOp$e(node, tensorMap, context));
-            case 'sparse':
-                return tidy(() => executeOp$f(node, tensorMap, context));
             case 'spectral':
-                return tidy(() => executeOp$g(node, tensorMap, context));
-            case 'string':
-                return tidy(() => executeOp$h(node, tensorMap, context));
+                return tidy(() => executeOp$f(node, tensorMap, context));
             case 'transformation':
-                return tidy(() => executeOp$i(node, tensorMap, context));
+                return tidy(() => executeOp$g(node, tensorMap, context));
             case 'hash_table':
                 return executeOp$8(node, tensorMap, context, resourceManager);
             case 'custom':
@@ -6608,7 +6265,7 @@ const DYNAMIC_SHAPE_OPS = [
 ];
 const HASH_TABLE_OPS = [
     'HashTable', 'HashTableV2', 'LookupTableImport', 'LookupTableImportV2',
-    'LookupTableFind', 'LookupTableFindV2', 'LookupTableSize', 'LookupTableSizeV2'
+    'LookupTableFind', 'LookupTableFindV2'
 ];
 function isControlFlow(node) {
     return CONTROL_FLOW_OPS.indexOf(node.op) >= 0;
@@ -6802,7 +6459,7 @@ class GraphExecutor {
             for (let i = 0; i < orderedNodes.length; i++) {
                 const node = orderedNodes[i];
                 if (!tensorsMap[node.name]) {
-                    const tensors = executeOp$j(node, tensorsMap, context, this._resourceManager);
+                    const tensors = executeOp$h(node, tensorsMap, context, this._resourceManager);
                     if (isPromise(tensors)) {
                         throw new Error(`The execution of the op '${node.op}' returned a promise. ` +
                             `Please use model.executeAsync() instead.`);
@@ -6844,7 +6501,7 @@ class GraphExecutor {
                 const tensors = getTensorsForCurrentContenxt(input.name, tensorMap, context);
                 if (tensors != null) {
                     tensors.forEach(tensor => {
-                        if (tensor && !tensor.kept && !tensorsToKeep.has(tensor.id)) {
+                        if (tensor && !tensorsToKeep.has(tensor.id)) {
                             const count = intermediateTensorConsumerCount[tensor.id];
                             if (count === 1) {
                                 tensor.dispose();
@@ -6908,8 +6565,7 @@ class GraphExecutor {
         Object.keys(tensorMap).forEach(key => {
             const tensorArray = tensorMap[key];
             tensorArray.forEach(tensor => {
-                if (tensor && !tensor.kept && !tensor.isDisposed &&
-                    !keepIds.has(tensor.id)) {
+                if (tensor && !tensor.isDisposed && !keepIds.has(tensor.id)) {
                     tensor.dispose();
                 }
             });
@@ -7005,7 +6661,7 @@ class GraphExecutor {
             // only process nodes that are not in the tensorMap yet, this include
             // inputNodes and internal initNodes.
             if (tensorMap[item.node.name] == null) {
-                const tensors = executeOp$j(item.node, tensorMap, context, this._resourceManager);
+                const tensors = executeOp$h(item.node, tensorMap, context, this._resourceManager);
                 if (!nodeName) {
                     [nodeName] = getNodeNameAndIndex(item.node.name, context);
                 }

@@ -1,5 +1,5 @@
-import { c as cubicOut } from '../common/index-12f0bf17.js';
-import { a as identity } from '../common/index-dc507534.js';
+import { c as cubicOut } from '../common/index-5c2511b8.js';
+import { a as identity } from '../common/index-c06ecee6.js';
 
 function fade(node, {delay = 0, duration = 400, easing = identity} = {}) {
   const o = +getComputedStyle(node).opacity;

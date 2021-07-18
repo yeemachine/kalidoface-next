@@ -1,9 +1,9 @@
-import { v as browserHTTPRequest, dn as concatenateArrayBuffers, x as decodeWeights, dz as encodeWeights, w as getLoadHandlers, dm as getModelArtifactsForJSON, dr as getModelArtifactsInfoForJSON, y as getSaveHandlers, dA as http, dB as isHTTPScheme, dC as loadWeights, dD as registerLoadRouter, dE as registerSaveRouter, dF as weightsLoaderFactory, dG as copyModel, dH as listModels, dI as moveModel, dJ as removeModel, B as op, C as convertToTensor, f as assert, n as cast, E as ENGINE, I as inferShape, q as arraysEqual, dK as isTypedArray, cA as flatten, cC as isString, cs as encodeString, m as mul, s as sigmoid, j as reshape, c$ as Conv3DBackpropInputV2, d1 as Diag, d6 as IsFinite, d7 as IsInf, ar as assertAndGetBroadcastShape, T as Tensor, b4 as sizeFromShape, aV as parseAxisParam, aW as expandShapeToKeepDim, a7 as convertToTensorArray, a3 as eitherStridesOrDilationsAreOne, cS as computePool2DInfo, aA as buffer, H as assertNonNull, J as makeTensor, a4 as isInt, dj as UnsortedSegmentSum, aP as assertShapesMatch, dL as assertTypesMatch, g as scalar, ck as getTypedArrayFromDType, h as tensor, c5 as dispose, i as tidy, k as keep, bZ as nonMaxSuppressionV3Impl, c1 as nonMaxSuppressionV4Impl, b$ as nonMaxSuppressionV5Impl, bE as whereImpl } from '../common/non_max_suppression_impl-9daabd29.js';
-export { Q as Abs, S as Acos, U as Acosh, M as Add, V as AddN, W as All, X as Any, Y as ArgMax, Z as ArgMin, _ as Asin, $ as Asinh, a0 as Atan, a1 as Atan2, a2 as Atanh, a5 as AvgPool, a6 as AvgPool3D, cU as AvgPool3DGrad, cV as AvgPoolGrad, F as BatchMatMul, ab as BatchToSpaceND, ad as Bincount, ef as BroadcastTo, cW as Cast, af as Ceil, ag as ClipByValue, cH as Complex, P as ComplexAbs, a8 as Concat, ah as Conv2D, bJ as Conv2DBackpropFilter, ai as Conv2DBackpropInput, aj as Conv3D, c_ as Conv3DBackpropFilterV2, c$ as Conv3DBackpropInputV2, ak as Cos, al as Cosh, bV as CropAndResize, am as Cumsum, cw as DataStorage, an as DenseBincount, ao as DepthToSpace, ap as DepthwiseConv2dNative, bR as DepthwiseConv2dNativeBackpropFilter, bS as DepthwiseConv2dNativeBackpropInput, d1 as Diag, aq as Dilation2D, eh as Dilation2DBackpropFilter, eg as Dilation2DBackpropInput, dS as ENV, av as Einsum, d3 as Elu, d4 as EluGrad, dR as Environment, as as Equal, aw as Erf, ax as Exp, ay as ExpandDims, az as Expm1, bs as FFT, aB as Fill, bW as FlipLeftRight, aC as Floor, N as FloorDiv, L as FromPixels, ac as FusedBatchNorm, bN as FusedConv2D, bT as FusedDepthwiseConv2D, bI as GatherNd, aD as GatherV2, aE as Greater, aF as GreaterEqual, bt as IFFT, cG as Identity, aG as Imag, d6 as IsFinite, d7 as IsInf, aH as IsNan, cv as KernelBackend, aL as LRN, d8 as LRNGrad, cI as LeakyRelu, aI as Less, aJ as LessEqual, aK as LinSpace, aM as Log, aN as Log1p, ei as LogSoftmax, aX as LogicalAnd, aY as LogicalNot, aZ as LogicalOr, aT as Max, a_ as MaxPool, a$ as MaxPool3D, d9 as MaxPool3DGrad, da as MaxPoolGrad, b0 as MaxPoolWithArgmax, b1 as Maximum, b2 as Mean, b5 as Min, b6 as Minimum, b7 as MirrorPad, b8 as Mod, b9 as Multinomial, cK as Multiply, aR as Neg, bY as NonMaxSuppressionV3, c0 as NonMaxSuppressionV4, b_ as NonMaxSuppressionV5, ba as NotEqual, dV as OP_SCOPE_SUFFIX, O as OneHot, bb as OnesLike, by as Pack, bc as PadV2, ej as Pool, be as Pow, cJ as Prelu, bf as Prod, bg as Range, dQ as Rank, bh as Real, R as RealDiv, bi as Reciprocal, db as Relu, dc as Relu6, cL as Reshape, c2 as ResizeBilinear, dd as ResizeBilinearGrad, c3 as ResizeNearestNeighbor, de as ResizeNearestNeighborGrad, bj as Reverse, bX as RotateWithOffset, bk as Round, bl as Rsqrt, bG as ScatterNd, at as Select, bm as Selu, dg as Sigmoid, bo as Sign, bp as Sin, bq as Sinh, a9 as Slice, br as Softmax, aS as Softplus, bd as SpaceToBatchND, c6 as SparseFillEmptyRows, c7 as SparseReshape, c8 as SparseSegmentMean, c9 as SparseSegmentSum, bH as SparseToDense, bu as SplitV, bv as Sqrt, dh as Square, bw as SquaredDifference, di as Step, bz as StridedSlice, ca as StringNGrams, cb as StringSplit, cc as StringToHashBucketFast, aU as Sub, cR as Sum, bA as Tan, aa as Tanh, T as Tensor, bn as TensorBuffer, ae as Tile, bB as TopK, c4 as Transform, G as Transpose, bC as Unique, bD as Unpack, dj as UnsortedSegmentSum, aQ as Variable, au as ZerosLike, bU as _FusedMatMul, e7 as backend, aA as buffer, n as cast, c as clone, d as complex, ee as copyRegisteredKernels, dZ as deprecationWarn, dP as device_util, dY as disableDeprecationWarnings, c5 as dispose, d_ as disposeVariables, b as elu, dX as enableDebugMode, dW as enableProdMode, cx as engine, e as env, e5 as findBackend, e6 as findBackendFactory, A as getBackend, e9 as getGradient, K as getKernel, ea as getKernelsForBackend, k as keep, l as leakyRelu, d$ as memory, m as mul, B as op, p as prelu, dT as print, e0 as profile, e3 as ready, cF as registerBackend, eb as registerGradient, dk as registerKernel, a as relu, r as relu6, e4 as removeBackend, j as reshape, g as scalar, dO as scatter_util, e2 as setBackend, e8 as setPlatform, s as sigmoid, dU as step, o as sum, cQ as sumOutType, h as tensor, dN as tensor_util, i as tidy, e1 as time, ed as unregisterGradient, ec as unregisterKernel, cr as upcastType, dM as util, z as zeros } from '../common/non_max_suppression_impl-9daabd29.js';
-import { af as oneHot, aA as transpose, aC as matMul, V as concat, h as add, X as slice, l as tanh, aH as batchNorm, be as customGrad, B as neg, q as softplus, as as logicalAnd, aq as logicalOr, ar as logicalNot, ae as ones, aQ as mean, n as square, b as sub, b8 as pad, b7 as spaceToBatchND, a1 as avgPool, a0 as maxPool, b6 as batchToSpaceND, bf as RandGamma, bg as MPRandGauss, aY as reverse, a3 as depthwiseConv2d, a7 as conv2d, ak as whereAsync, aW as squeeze, aZ as gather, c as div, p as pow, F as floor, ac as randomUniform, a6 as conv2d$1, a5 as depthwiseConv2d$1, az as matMul$1, bh as variableGrads, a9 as zerosLike, o as sqrt, ai as fill, T as abs, m as maximum } from '../common/ops-9f139c1d.js';
-export { bj as Reduction, T as abs, S as acos, R as acosh, h as add, g as addN, aO as all, aN as any, aM as argMax, aL as argMin, Q as asin, P as asinh, O as atan, N as atan2, M as atanh, a1 as avgPool, _ as avgPool3d, aH as batchNorm, b6 as batchToSpaceND, aJ as bincount, b4 as broadcastTo, bi as browser, L as ceil, k as clipByValue, V as concat, bc as concat2d, a8 as conv1d, a7 as conv2d, a4 as conv2dTranspose, a2 as conv3d, K as cos, J as cosh, bx as cosineWindow, aK as cumsum, be as customGrad, aI as denseBincount, b5 as depthToSpace, a3 as depthwiseConv2d, Y as dilation2d, c as div, d as divNoNan, aB as einsum, bw as enclosingPowerOfTwo, ay as equal, I as erf, H as exp, ba as expandDims, G as expm1, bs as eye, b2 as fft, ai as fill, F as floor, f as floorDiv, aZ as gather, aS as gatherND, bk as grad, bl as grads, aw as greater, av as greaterEqual, b1 as ifft, C as imag, al as image, a$ as irfft, i as isNaN, au as less, at as lessEqual, bo as linalg, ah as linspace, aG as localResponseNormalization, E as log, D as log1p, aE as logSoftmax, bt as logSumExp, as as logicalAnd, ar as logicalNot, aq as logicalOr, bp as losses, aC as matMul, aR as max, a0 as maxPool, Z as maxPool3d, $ as maxPoolWithArgmax, m as maximum, aQ as mean, aP as min, a as minimum, b9 as mirrorPad, e as mod, ag as multinomial, B as neg, bv as norm, ax as notEqual, af as oneHot, ae as ones, ad as onesLike, b8 as pad, p as pow, j as prod, ac as randomUniform, ab as range, z as real, A as reciprocal, aY as reverse, b0 as rfft, y as round, r as rsqrt, aT as scatterND, x as selu, aj as setdiff1dAsync, v as sign, br as signal, w as sin, u as sinh, X as slice, aF as softmax, q as softplus, b7 as spaceToBatchND, a_ as sparse, aD as sparseToDense, bq as spectral, aU as split, o as sqrt, n as square, s as squaredDifference, aW as squeeze, U as stack, aX as stridedSlice, b3 as string, b as sub, t as tan, l as tanh, ao as tensor1d, bb as tensor2d, bu as tensor3d, aV as tile, an as topk, aA as transpose, aa as truncatedNormal, am as unique, W as unstack, bm as valueAndGrad, bn as valueAndGrads, bh as variableGrads, ap as where, ak as whereAsync, a9 as zerosLike } from '../common/ops-9f139c1d.js';
-import { K as browserFiles } from '../common/backend_util-7cd32a14.js';
-export { b as backend_util, M as gather_util, L as slice_util } from '../common/backend_util-7cd32a14.js';
+import { b6 as browserHTTPRequest, e$ as concatenateArrayBuffers, b8 as decodeWeights, f9 as encodeWeights, b7 as getLoadHandlers, f1 as getModelArtifactsInfoForJSON, b9 as getSaveHandlers, fa as http, fb as isHTTPScheme, fc as loadWeights, fd as registerLoadRouter, fe as registerSaveRouter, ff as weightsLoaderFactory, fg as copyModel, fh as listModels, fi as moveModel, fj as removeModel, bg as op, bf as convertToTensor, a1 as assert, am as oneHot, an as cast, aA as transpose, aB as matMul, bi as ENGINE, bd as inferShape, aS as arraysEqual, fk as isTypedArray, cy as flatten, cA as isString, cB as encodeString, a6 as concat, j as add, aa as slice, h as mul, C as sigmoid, v as tanh, aF as batchNorm, fl as conv3DBackpropInput, dD as Diag, cs as parseAxisParam, aN as mean, c7 as expandShapeToKeepDim, w as square, b as sub, a9 as reshape, fm as convertToTensorArray, b2 as pad, bU as sizeFromShape, bs as buffer, aU as reverse, bc as assertNonNull, be as makeTensor, c5 as assertShapesMatch, aR as squeeze, aV as gather, fn as assertTypesMatch, a2 as scalar, g as div, p as pow, ba as Tensor, M as floor, ch as getTypedArrayFromDType, a4 as tensor, c4 as dispose, fo as variableGrads, a8 as tidy, ai as zerosLike, x as sqrt, a0 as abs, m as maximum, a3 as keep, b_ as nonMaxSuppressionV3Impl, c2 as nonMaxSuppressionV4Impl, c0 as nonMaxSuppressionV5Impl, bA as whereImpl } from '../common/zeros_like-371809d6.js';
+export { cS as Abs, cT as Acos, cU as Acosh, cV as Add, bk as AddN, cW as All, cX as Any, cY as ArgMax, cZ as ArgMin, c_ as Asin, c$ as Asinh, d0 as Atan, d1 as Atan2, d2 as Atanh, d3 as AvgPool, bo as AvgPool3D, d6 as AvgPool3DGrad, d7 as AvgPoolGrad, d8 as BatchMatMul, dd as BatchToSpaceND, bp as Bincount, gk as BroadcastTo, dg as Cast, di as Ceil, dj as ClipByValue, cG as Complex, dk as ComplexAbs, dm as Concat, dn as Conv2D, dq as Conv2DBackpropFilter, dr as Conv2DBackpropInput, bq as Conv3D, dt as Conv3DBackpropFilterV2, du as Conv3DBackpropInputV2, dv as Cos, dw as Cosh, bW as CropAndResize, dx as Cumsum, cu as DataStorage, br as DenseBincount, dz as DepthToSpace, dA as DepthwiseConv2dNative, dB as DepthwiseConv2dNativeBackpropFilter, dC as DepthwiseConv2dNativeBackpropInput, dD as Diag, dE as Dilation2D, gm as Dilation2DBackpropFilter, gl as Dilation2DBackpropInput, fA as ENV, dG as Elu, dH as EluGrad, fz as Environment, dI as Equal, dJ as Erf, dK as Exp, dL as ExpandDims, dM as Expm1, dN as FFT, bt as Fill, bX as FlipLeftRight, dP as Floor, dQ as FloorDiv, bj as FromPixels, d9 as FusedBatchNorm, bL as FusedConv2D, bR as FusedDepthwiseConv2D, bE as GatherNd, dR as GatherV2, dS as Greater, dT as GreaterEqual, dU as IFFT, cF as Identity, dl as Imag, dV as IsFinite, dW as IsInf, dX as IsNan, ct as KernelBackend, e3 as LRN, e4 as LRNGrad, cH as LeakyRelu, dY as Less, dZ as LessEqual, bu as LinSpace, d_ as Log, d$ as Log1p, gn as LogSoftmax, e0 as LogicalAnd, e1 as LogicalNot, e2 as LogicalOr, e5 as Max, e7 as MaxPool, bv as MaxPool3D, e8 as MaxPool3DGrad, e9 as MaxPoolGrad, bw as MaxPoolWithArgmax, e6 as Maximum, ea as Mean, eb as Min, ec as Minimum, ed as MirrorPad, ee as Mod, bx as Multinomial, cJ as Multiply, ei as Neg, bZ as NonMaxSuppressionV3, c1 as NonMaxSuppressionV4, b$ as NonMaxSuppressionV5, de as NotEqual, fM as OP_SCOPE_SUFFIX, ej as OneHot, el as OnesLike, em as Pack, en as PadV2, go as Pool, eo as Pow, cI as Prelu, ep as Prod, by as Range, fu as Rank, df as Real, ef as RealDiv, eq as Reciprocal, er as Relu, es as Relu6, cK as Reshape, et as ResizeBilinear, eu as ResizeBilinearGrad, ev as ResizeNearestNeighbor, ew as ResizeNearestNeighborGrad, ex as Reverse, bY as RotateWithOffset, ey as Round, ez as Rsqrt, bC as ScatterNd, eB as Select, eC as Selu, eF as Sigmoid, eG as Sign, eH as Sin, eI as Sinh, da as Slice, eh as Softmax, eJ as Softplus, eK as SpaceToBatchND, bD as SparseToDense, eL as SplitV, eM as Sqrt, eN as Square, eO as SquaredDifference, eP as Step, eQ as StridedSlice, eg as Sub, cQ as Sum, eS as Tan, eT as Tanh, ba as Tensor, bz as TensorBuffer, eU as Tile, eV as TopK, cR as Transpose, eW as Unique, eX as Unpack, eY as UnsortedSegmentSum, ft as Variable, ek as ZerosLike, bV as _FusedMatMul, a0 as abs, $ as acos, _ as acosh, j as add, fT as addStrict, aK as all, aJ as any, aI as argMax, aH as argMin, Z as asin, Y as asinh, X as atan, W as atan2, V as atanh, ad as avgPool, gc as backend, aF as batchNorm, b0 as batchToSpaceND, a_ as broadcastTo, bs as buffer, an as cast, U as ceil, q as clipByValue, c as clone, T as complex, a6 as concat, ah as conv1d, ag as conv2d, af as conv2dTranspose, gj as copyRegisteredKernels, S as cos, R as cosh, aG as cumsum, bK as customGrad, bl as deprecationWarn, a$ as depthToSpace, ae as depthwiseConv2d, fs as device_util, ab as dilation2d, g2 as disableDeprecationWarnings, c4 as dispose, g3 as disposeVariables, g as div, d as divNoNan, fU as divStrict, fB as dot, Q as elu, g1 as enableDebugMode, g0 as enableProdMode, cv as engine, e as env, az as equal, fN as equalStrict, P as erf, O as exp, b4 as expandDims, N as expm1, aZ as fft, ga as findBackend, gb as findBackendFactory, M as floor, f as floorDiv, aV as gather, bb as getBackend, ge as getGradient, bh as getKernel, gf as getKernelsForBackend, fv as grad, fw as grads, ax as greater, aw as greaterEqual, fO as greaterEqualStrict, fP as greaterStrict, aY as ifft, J as imag, aW as irfft, fC as isFinite, fD as isInf, fE as isNaN, a3 as keep, l as leakyRelu, av as less, au as lessEqual, fQ as lessEqualStrict, fR as lessStrict, aE as localResponseNormalization, L as log, K as log1p, fF as logSigmoid, aC as logSoftmax, c6 as logSumExp, at as logicalAnd, as as logicalNot, ar as logicalOr, fG as logicalXor, aB as matMul, aO as max, ac as maxPool, m as maximum, fV as maximumStrict, aN as mean, g4 as memory, aM as min, a as minimum, fW as minimumStrict, b3 as mirrorPad, i as mod, fX as modStrict, h as mul, fY as mulStrict, I as neg, c3 as norm, ay as notEqual, fS as notEqualStrict, am as oneHot, al as ones, ak as onesLike, bg as op, b2 as pad, fH as pool, p as pow, fZ as powStrict, k as prelu, fI as print, n as prod, g5 as profile, g8 as ready, G as real, H as reciprocal, cE as registerBackend, gg as registerGradient, eZ as registerKernel, F as relu, o as relu6, g9 as removeBackend, a9 as reshape, aU as reverse, aX as rfft, E as round, r as rsqrt, a2 as scalar, fr as scatter_util, D as selu, fJ as separableConv2d, g7 as setBackend, gd as setPlatform, C as sigmoid, A as sign, B as sin, z as sinh, aa as slice, f3 as slice_util, aD as softmax, y as softplus, b1 as spaceToBatchND, aP as split, x as sqrt, w as square, s as squaredDifference, f_ as squaredDifferenceStrict, aR as squeeze, a5 as stack, fK as step, aT as stridedSlice, b as sub, f$ as subStrict, aL as sum, cP as sumOutType, u as tan, v as tanh, a4 as tensor, fq as tensor_util, a8 as tidy, aQ as tile, g6 as time, ap as topk, aA as transpose, ao as unique, gi as unregisterGradient, gh as unregisterKernel, fL as unsortedSegmentSum, a7 as unstack, cp as upcastType, fp as util, fx as valueAndGrad, fy as valueAndGrads, fo as variableGrads, aq as where, aj as zeros, ai as zerosLike } from '../common/zeros_like-371809d6.js';
+import { R as RandGamma, M as MPRandGauss, w as whereAsync, g as randomUniform, f as conv2d, e as depthwiseConv2d, n as matMul$1, i as fill } from '../common/ops-c96d7cb7.js';
+export { B as Reduction, a as addN, b as avgPool3d, q as bincount, A as browser, y as concat2d, d as conv3d, J as cosineWindow, p as denseBincount, I as enclosingPowerOfTwo, G as eye, i as fill, u as gatherND, j as image, C as linalg, l as linspace, D as losses, m as maxPool3d, c as maxPoolWithArgmax, h as multinomial, g as randomUniform, r as range, v as scatterND, s as setdiff1dAsync, F as signal, o as sparseToDense, E as spectral, k as tensor1d, x as tensor2d, H as tensor3d, t as truncatedNormal, w as whereAsync } from '../common/ops-c96d7cb7.js';
+import { y as browserFiles } from '../common/backend_util-068d7069.js';
+export { b as backend_util, z as gather_util } from '../common/backend_util-068d7069.js';
 import '../common/_commonjsHelpers-8a10f9bf.js';
 
 /**
@@ -136,7 +136,6 @@ var io = /*#__PURE__*/Object.freeze({
     encodeWeights: encodeWeights,
     fromMemory: fromMemory,
     getLoadHandlers: getLoadHandlers,
-    getModelArtifactsForJSON: getModelArtifactsForJSON,
     getModelArtifactsInfoForJSON: getModelArtifactsInfoForJSON,
     getSaveHandlers: getSaveHandlers,
     http: http,
@@ -507,7 +506,7 @@ var test_util = /*#__PURE__*/Object.freeze({
 
 /** @license See the LICENSE file. */
 // This code is auto-generated, do not modify this file!
-const version = '3.8.0';
+const version = '2.8.6';
 
 /**
  * @license
@@ -754,74 +753,6 @@ function concat4d_(tensors, axis) {
 const concat4d = op({ concat4d_ });
 
 /**
- * @license
- * Copyright 2020 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-/**
- * Computes the derivative of the input of a 3D convolution.
- *
- * @param xShape The shape of the input: [batch, depth, height, width,
- * in_channels]. If length of 4, batch of 1 is assumed.
- * @param dy The derivative of the output, of rank 5 or rank 4 of shape
- *   `[batch, outDepth, outHeight, outWidth, in_channels]`.
- * If rank 4, batch of 1 is assumed.
- * @param filter The filter, rank 5, of shape
- *     `[filterDepth, filterHeight, filterWidth, inDepth, outDepth]`.
- * @param strides The strides of the convolution: `[strideDepth, strideHeight,
- * strideWidth]`.
- * @param pad The type of padding algorithm used:
- *    - `same` and stride 1: output will be of same size as input,
- *       regardless of filter size.
- *    - `valid`: output will be smaller than input if filter is larger
- *       than 1x1.
- */
-function conv3DBackpropInput_(xShape, dy, filter, strides, pad) {
-    assert(xShape.length === dy.rank, () => `Length of inShape ` +
-        `(${xShape.length}) and rank of dy (${dy.rank}) must match`);
-    let xShape5D = xShape;
-    let dy5D = dy;
-    let reshapedTo5D = false;
-    if (dy.rank === 4) {
-        reshapedTo5D = true;
-        dy5D = reshape(dy, [1, dy.shape[0], dy.shape[1], dy.shape[2], dy.shape[3]]);
-        xShape5D = [1, xShape[0], xShape[1], xShape[2], xShape[3]];
-    }
-    const inDepth = xShape5D[4];
-    const outDepth = dy5D.shape[4];
-    assert(xShape5D.length === 5, () => `Error in conv3dDerInput: inShape must be length 5, but got length ` +
-        `${xShape5D.length}.`);
-    assert(dy5D.rank === 5, () => `Error in conv3dDerInput: dy must be rank 5, but got ` +
-        `rank ${dy5D.rank}`);
-    assert(filter.rank === 5, () => `Error in conv3dDerInput: filter must be rank 5, but got ` +
-        `rank ${filter.rank}`);
-    assert(inDepth === filter.shape[3], () => `Error in conv3dDerInput: depth of input (${inDepth}) must ` +
-        `match input depth for filter ${filter.shape[3]}.`);
-    assert(outDepth === filter.shape[4], () => `Error in conv3dDerInput: depth of output (${outDepth}) must ` +
-        `match output depth for filter ${filter.shape[4]}.`);
-    const inputs = { dy: dy5D, filter };
-    const attrs = { pad, strides, inputShape: xShape5D };
-    // tslint:disable-next-line: no-unnecessary-type-assertion
-    const res = ENGINE.runKernel(Conv3DBackpropInputV2, inputs, attrs);
-    if (reshapedTo5D) {
-        return reshape(res, [res.shape[1], res.shape[2], res.shape[3], res.shape[4]]);
-    }
-    return res;
-}
-const conv3DBackpropInput = op({ conv3DBackpropInput_ });
-
-/**
  * Computes the transposed 3D convolution of a volume, also known as a
  * deconvolution.
  *
@@ -883,8 +814,6 @@ const conv3dTranspose = op({ conv3dTranspose_ });
  * tf.diag(x).print()
  * ```
  * @param x The input tensor.
- *
- * @doc {heading: 'Tensors', subheading: 'Creation'}
  */
 function diag_(x) {
     const $x = convertToTensor(x, 'x', 'diag');
@@ -892,309 +821,6 @@ function diag_(x) {
     return ENGINE.runKernel(Diag, inputs);
 }
 const diag = op({ diag_ });
-
-/**
- * @license
- * Copyright 2020 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-/**
- * Computes the dot product of two matrices and/or vectors, `t1` and `t2`.
- *
- * ```js
- * const a = tf.tensor1d([1, 2]);
- * const b = tf.tensor2d([[1, 2], [3, 4]]);
- * const c = tf.tensor2d([[1, 2, 3], [4, 5, 6]]);
- *
- * a.dot(b).print();  // or tf.dot(a, b)
- * b.dot(a).print();
- * b.dot(c).print();
- * ```
- * @param t1 The first tensor in the dot operation.
- * @param t2 The second tensor in the dot operation.
- *
- * @doc {heading: 'Operations', subheading: 'Matrices'}
- */
-function dot_(t1, t2) {
-    const $t1 = convertToTensor(t1, 't1', 'dot');
-    const $t2 = convertToTensor(t2, 't2', 'dot');
-    assert(($t1.rank === 1 || $t1.rank === 2) && ($t2.rank === 1 || $t2.rank === 2), () => `Error in dot: inputs must all be rank 1 or 2, but got ranks ` +
-        `${$t1.rank} and ${$t2.rank}.`);
-    const t1Inner = ($t1.rank === 1 ? $t1.size : $t1.shape[1]);
-    const t2Inner = ($t2.rank === 1 ? $t2.size : $t2.shape[0]);
-    assert(t1Inner === t2Inner, () => `Error in dot: inner dimensions of inputs must match, but got ` +
-        `${t1Inner} and ${t2Inner}.`);
-    if ($t1.rank === 1 && $t2.rank === 1) {
-        const t12D = reshape($t1, [1, -1]);
-        const t22D = reshape($t2, [-1, 1]);
-        const t1t2 = matMul(t12D, t22D);
-        return reshape(t1t2, []);
-    }
-    else if ($t1.rank === 1 && $t2.rank === 2) {
-        const t12D = reshape($t1, [1, -1]);
-        const t22D = reshape($t2, [$t2.shape[0], $t2.shape[1]]);
-        const t1t2 = matMul(t12D, t22D);
-        return reshape(t1t2, [t1t2.size]);
-    }
-    else if ($t1.rank === 2 && $t2.rank === 1) {
-        const t22D = reshape($t2, [-1, 1]);
-        const t1t2 = matMul($t1, t22D);
-        return reshape(t1t2, [t1t2.size]);
-    }
-    else {
-        const t22D = reshape($t2, [$t2.shape[0], $t2.shape[1]]);
-        const t1t2 = matMul($t1, t22D);
-        return t1t2;
-    }
-}
-const dot = op({ dot_ });
-
-/**
- * @license
- * Copyright 2018 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-/**
- * Returns which elements of x are finite.
- *
- * ```js
- * const x = tf.tensor1d([NaN, Infinity, -Infinity, 0, 1]);
- *
- * x.isFinite().print();  // or tf.isNaN(x)
- * ```
- * @param x The input Tensor.
- *
- * @doc {heading: 'Operations', subheading: 'Basic math'}
- */
-function isFinite_(x) {
-    const $x = convertToTensor(x, 'x', 'isFinite');
-    const inputs = { x: $x };
-    return ENGINE.runKernel(IsFinite, inputs);
-}
-const isFinite$1 = op({ isFinite_ });
-
-/**
- * @license
- * Copyright 2018 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-/**
- * Returns which elements of x are Infinity or -Infinity.
- *
- * ```js
- * const x = tf.tensor1d([NaN, Infinity, -Infinity, 0, 1]);
- *
- * x.isInf().print();  // or tf.isNaN(x)
- * ```
- * @param x The input Tensor.
- *
- * @doc {heading: 'Operations', subheading: 'Basic math'}
- */
-function isInf_(x) {
-    const $x = convertToTensor(x, 'x', 'isInf');
-    const inputs = { x: $x };
-    return ENGINE.runKernel(IsInf, inputs);
-}
-const isInf = op({ isInf_ });
-
-/**
- * @license
- * Copyright 2018 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-/**
- * Computes log sigmoid of the input `tf.Tensor` element-wise:
- * `logSigmoid(x)`. For numerical stability, we use `-tf.softplus(-x)`.
- *
- * ```js
- * const x = tf.tensor1d([0, 1, -1, .7]);
- *
- * x.logSigmoid().print();  // or tf.logSigmoid(x)
- * ```
- * @param x The input tensor.
- *
- * @doc {heading: 'Operations', subheading: 'Basic math'}
- */
-function logSigmoid_(x) {
-    const $x = convertToTensor(x, 'x', 'logSigmoid');
-    // Use a custom gradient to maintain previous implementation.
-    // There is no LogSigmoid kernel in TF so we can't use engine.runKernel
-    // directly
-    const customOp = customGrad((x) => {
-        // TODO(yassogba) we can remove the chained softplus call here only
-        // after backends have modualrized softplus at which point we can call
-        // engine runKernel(..., Sotfplus, ...) directly.
-        const value = neg(softplus(neg(x)));
-        const gradFunc = (dy) => {
-            const derX = mul(dy, sigmoid(neg(x)));
-            return derX;
-        };
-        return { value, gradFunc };
-    });
-    return customOp($x);
-}
-const logSigmoid = op({ logSigmoid_ });
-
-/**
- * @license
- * Copyright 2020 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-/**
- * Returns the truth value of `a XOR b` element-wise. Supports broadcasting.
- *
- * ```js
- * const a = tf.tensor1d([false, false, true, true], 'bool');
- * const b = tf.tensor1d([false, true, false, true], 'bool');
- *
- * a.logicalXor(b).print();
- * ```
- *
- * @param a The first input tensor. Must be of dtype bool.
- * @param b The second input tensor. Must be of dtype bool.
- *
- * @doc {heading: 'Operations', subheading: 'Logical'}
- */
-function logicalXor_(a, b) {
-    const $a = convertToTensor(a, 'a', 'logicalXor', 'bool');
-    const $b = convertToTensor(b, 'b', 'logicalXor', 'bool');
-    assertAndGetBroadcastShape($a.shape, $b.shape);
-    // x ^ y = (x | y) & ~(x & y)
-    return logicalAnd(logicalOr(a, b), logicalNot(logicalAnd(a, b)));
-}
-const logicalXor = op({ logicalXor_ });
-
-/**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-/**
- * Broadcasts parameters for evaluation on an N-D grid.
- *
- * Given N one-dimensional coordinate arrays `*args`, returns a list `outputs`
- * of N-D coordinate arrays for evaluating expressions on an N-D grid.
- *
- * Notes:
- * `meshgrid` supports cartesian ('xy') and matrix ('ij') indexing conventions.
- * When the `indexing` argument is set to 'xy' (the default), the broadcasting
- * instructions for the first two dimensions are swapped.
- * Examples:
- * Calling `const [X, Y] = meshgrid(x, y)` with the tensors
- *
- * ```javascript
- * const x = [1, 2, 3];
- * const y = [4, 5, 6];
- * const [X, Y] = tf.meshgrid(x, y);
- * // X = [[1, 2, 3],
- * //      [1, 2, 3],
- * //      [1, 2, 3]]
- * // Y = [[4, 4, 4],
- * //      [5, 5, 5],
- * //      [6, 6, 6]]
- * ```
- *
- * @param x Tensor with rank geq 1.
- * @param y Tensor with rank geq 1.
- * @param indexing
- *
- * @doc {heading: 'Operations', subheading: 'Slicing and Joining'}
- */
-function meshgrid(x, y, { indexing = 'xy' } = {}) {
-    if (indexing !== 'xy' && indexing !== 'ij') {
-        throw new TypeError(`${indexing} is not a valid third argument to meshgrid`);
-    }
-    if (x === undefined) {
-        return [];
-    }
-    let $x = convertToTensor(x, 'x', 'meshgrid', x instanceof Tensor ? x.dtype : 'float32');
-    if (y === undefined) {
-        return [$x];
-    }
-    let $y = convertToTensor(y, 'y', 'meshgrid', y instanceof Tensor ? y.dtype : 'float32');
-    const w = sizeFromShape($x.shape);
-    const h = sizeFromShape($y.shape);
-    if (indexing === 'xy') {
-        $x = reshape($x, [1, -1]);
-        $y = reshape($y, [-1, 1]);
-        return [
-            matMul(ones([h, 1], $x.dtype), $x),
-            matMul($y, ones([1, w], $y.dtype)),
-        ];
-    }
-    $x = reshape($x, [-1, 1]);
-    $y = reshape($y, [1, -1]);
-    return [
-        matMul($x, ones([1, h], $x.dtype)),
-        matMul(ones([w, 1], $y.dtype), $y),
-    ];
-}
 
 /**
  * @license
@@ -1345,127 +971,6 @@ const pad4d = op({ pad4d_ });
 
 /**
  * @license
- * Copyright 2018 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-/**
- * Performs an N-D pooling operation
- *
- * @param input The input tensor, of rank 4 or rank 3 of shape
- *     `[batch, height, width, inChannels]`. If rank 3, batch of 1 is assumed.
- * @param windowShape The filter size: `[filterHeight, filterWidth]`. If
- *     `filterSize` is a single number, then `filterHeight == filterWidth`.
- * @param poolingType The type of pooling, either 'max' or 'avg'.
- * @param pad The type of padding algorithm:
- *    - `same` and stride 1: output will be of same size as input,
- *       regardless of filter size.
- *    - `valid`: output will be smaller than input if filter is larger
- *       than 1x1.
- *    - For more info, see this guide:
- *     [https://www.tensorflow.org/api_guides/python/nn#Convolution](
- *         https://www.tensorflow.org/api_guides/python/nn#Convolution)
- * @param dilations The dilation rates: `[dilationHeight, dilationWidth]`
- *     in which we sample input values across the height and width dimensions
- *     in dilated pooling. Defaults to `[1, 1]`. If `dilationRate` is a single
- *     number, then `dilationHeight == dilationWidth`. If it is greater than
- *     1, then all values of `strides` must be 1.
- * @param strides The strides of the pooling: `[strideHeight, strideWidth]`. If
- *     `strides` is a single number, then `strideHeight == strideWidth`.
- *
- * @doc {heading: 'Operations', subheading: 'Convolution'}
- */
-function pool_(input, windowShape, poolingType, pad, dilations, strides) {
-    if (dilations == null) {
-        dilations = [1, 1];
-    }
-    if (strides == null) {
-        strides = 1;
-    }
-    if (pad === 0) {
-        pad = 'valid';
-    }
-    const $x = convertToTensor(input, 'x', 'maxPool');
-    let x4D = $x;
-    let reshapedTo4D = false;
-    if ($x.rank === 3) {
-        reshapedTo4D = true;
-        x4D = reshape($x, [1, $x.shape[0], $x.shape[1], $x.shape[2]]);
-    }
-    assert(eitherStridesOrDilationsAreOne(strides, dilations), () => 'Error in pool: Either strides or dilations must be 1. ' +
-        `Got strides ${strides} and dilations '${dilations}'`);
-    const convInfo = computePool2DInfo(x4D.shape, windowShape, strides, dilations, pad);
-    const dilation = [convInfo.dilationHeight, convInfo.dilationWidth];
-    // The following implementation does batchToSpace(pool(spaceToBatch(x)))
-    // whenever dilation > 1 since the TF kernels do not support dilation > 1.
-    // tslint:disable-next-line:max-line-length
-    // https://github.com/tensorflow/tensorflow/blob/50f6bb67dc98c9b74630b6047aae7a4f8a40fd02/tensorflow/python/ops/nn_ops.py#L1037
-    let basePadding;
-    if (pad === 'same') {
-        basePadding = withSpaceToBatchBasePaddings([convInfo.filterHeight, convInfo.filterWidth], dilation);
-    }
-    else {
-        basePadding = [[0, 0], [0, 0]];
-    }
-    const isDilationOne = dilation[0] === 1 && dilation[1] === 1;
-    const [adjustedPadding, adjustedCrops] = requiredSpaceToBatchPaddings([convInfo.inHeight, convInfo.inWidth], dilation, basePadding);
-    const convertedPad = isDilationOne ? pad : 'valid';
-    const convertedX = isDilationOne ? x4D : spaceToBatchND(x4D, dilation, adjustedPadding);
-    const forwardOp = poolingType === 'avg' ?
-        () => avgPool(convertedX, windowShape, strides, convertedPad) :
-        () => maxPool(convertedX, windowShape, strides, convertedPad);
-    const y = forwardOp();
-    const res = isDilationOne ? y : batchToSpaceND(y, dilation, adjustedCrops);
-    if (reshapedTo4D) {
-        return reshape(res, [res.shape[1], res.shape[2], res.shape[3]]);
-    }
-    return res;
-}
-// Helper function to compute crops and paddings for pool with dilation > 1.
-// tslint:disable-next-line:max-line-length
-// https://github.com/tensorflow/tensorflow/blob/50f6bb67dc98c9b74630b6047aae7a4f8a40fd02/tensorflow/python/ops/array_ops.py#L2184
-function requiredSpaceToBatchPaddings(inputShape, blockShape, basePadding) {
-    const padStart = basePadding.map(b => b[0]);
-    const origPadEnd = basePadding.map(b => b[1]);
-    const fullInputShape = inputShape.concat(padStart, origPadEnd);
-    const padEndExtra = blockShape.map((b, i) => (b - fullInputShape[i] % b) % b);
-    const padEnd = origPadEnd.map((s, i) => s + padEndExtra[i]);
-    const paddings = blockShape.map((_, i) => [padStart[i], padEnd[i]]);
-    const crops = blockShape.map((_, i) => [0, padEndExtra[i]]);
-    return [paddings, crops];
-}
-// Helper function to compute base paddings for pool with dilation > 1.
-// tslint:disable-next-line:max-line-length
-// https://github.com/tensorflow/tensorflow/blob/50f6bb67dc98c9b74630b6047aae7a4f8a40fd02/tensorflow/python/ops/nn_ops.py#L524
-function withSpaceToBatchBasePaddings(filterShape, dilation) {
-    // Spatial dimensions of the filters and the upsampled filters in which we
-    // introduce (rate - 1) zeros between consecutive filter values.
-    const dilatedFilterShape = filterShape.map((s, i) => {
-        return s + (s - 1) * (dilation[i] - 1);
-    });
-    const padExtraShape = dilatedFilterShape.map(s => s - 1);
-    // When padding is odd, we pad more at end, following the same
-    // convention as conv2d.
-    const padExtraStart = padExtraShape.map(s => Math.floor(s / 2));
-    const padExtraEnd = padExtraShape.map((s, i) => s - padExtraStart[i]);
-    return padExtraShape.map((_, i) => {
-        return [padExtraStart[i], padExtraEnd[i]];
-    });
-}
-const pool = op({ pool_ });
-
-/**
- * @license
  * Copyright 2020 Google LLC. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -1488,8 +993,6 @@ const pool = op({ pool_ });
  * @param randFunction A random number generator function which is called
  * for each element in the output tensor.
  * @param dtype The data type of the output tensor. Defaults to 'float32'.
- *
- * @doc {heading: 'Tensors', subheading: 'Random'}
  */
 function rand_(shape, randFunction, dtype) {
     const size = sizeFromShape(shape);
@@ -1725,90 +1228,6 @@ function reverse4d_(x, axis) {
     return reverse($x, axis);
 }
 const reverse4d = op({ reverse4d_ });
-
-/**
- * 2-D convolution with separable filters.
- *
- * Performs a depthwise convolution that acts separately on channels followed
- * by a pointwise convolution that mixes channels. Note that this is
- * separability between dimensions [1, 2] and 3, not spatial separability
- * between dimensions 1 and 2.
- *
- * See
- * [https://www.tensorflow.org/api_docs/python/tf/nn/separable_conv2d](
- *     https://www.tensorflow.org/api_docs/python/tf/nn/separable_conv2d)
- * for more details.
- *
- * @param x The input tensor, of rank 4 or rank 3, of shape
- *     `[batch, height, width, inChannels]`. If rank 3, batch of 1 is
- * assumed.
- * @param depthwiseFilter The depthwise filter tensor, rank 4, of shape
- *     `[filterHeight, filterWidth, inChannels, channelMultiplier]`. This is
- *     the filter used in the first step.
- * @param pointwiseFilter The pointwise filter tensor, rank 4, of shape
- *     `[1, 1, inChannels * channelMultiplier, outChannels]`. This is
- *     the filter used in the second step.
- * @param strides The strides of the convolution: `[strideHeight,
- * strideWidth]`. If strides is a single number, then `strideHeight ==
- * strideWidth`.
- * @param pad The type of padding algorithm.
- *   - `same` and stride 1: output will be of same size as input,
- *       regardless of filter size.
- *   - `valid`: output will be smaller than input if filter is larger
- *       than 1x1.
- *   - For more info, see this guide:
- *     [https://www.tensorflow.org/api_docs/python/tf/nn/convolution](
- *          https://www.tensorflow.org/api_docs/python/tf/nn/convolution)
- * @param dilations The dilation rates: `[dilationHeight, dilationWidth]`
- *     in which we sample input values across the height and width dimensions
- *     in atrous convolution. Defaults to `[1, 1]`. If `rate` is a single
- *     number, then `dilationHeight == dilationWidth`. If it is greater than
- *     1, then all values of `strides` must be 1.
- * @param dataFormat: An optional string from: "NHWC", "NCHW". Defaults to
- *     "NHWC". Specify the data format of the input and output data. With the
- *     default format "NHWC", the data is stored in the order of: [batch,
- *     height, width, channels]. Only "NHWC" is currently supported.
- *
- * @doc {heading: 'Operations', subheading: 'Convolution'}
- */
-function separableConv2d_(x, depthwiseFilter, pointwiseFilter, strides, pad, dilation = [1, 1], dataFormat = 'NHWC') {
-    const $x = convertToTensor(x, 'x', 'separableConv2d');
-    const $depthwiseFilter = convertToTensor(depthwiseFilter, 'depthwiseFilter', 'separableConv2d');
-    const $pointwiseFilter = convertToTensor(pointwiseFilter, 'pointwiseFilter', 'separableConv2d');
-    let x4D = $x;
-    let reshapedTo4D = false;
-    if ($x.rank === 3) {
-        reshapedTo4D = true;
-        x4D = reshape($x, [1, $x.shape[0], $x.shape[1], $x.shape[2]]);
-    }
-    if (dataFormat === 'NCHW') {
-        throw new Error('separableConv2d currently does not support dataFormat NCHW; only ' +
-            'NHWC is supported');
-    }
-    assert(x4D.rank === 4, () => `Error in separableConv2d: input must be rank 4, but got ` +
-        `rank ${x4D.rank}.`);
-    assert($depthwiseFilter.rank === 4, () => `Error in separableConv2d: depthwise filter must be rank 4, but ` +
-        `got rank ${$depthwiseFilter.rank}.`);
-    assert($pointwiseFilter.rank === 4, () => `Error in separableConv2d: pointwise filter must be rank 4, but ` +
-        `got rank ${$depthwiseFilter.rank}.`);
-    assert($pointwiseFilter.shape[0] === 1, () => `Error in separableConv2d: the first dimension of pointwise filter ` +
-        ` must be 1, but got ${$pointwiseFilter.shape[0]}.`);
-    assert($pointwiseFilter.shape[1] === 1, () => `Error in separableConv2d: the second dimension of pointwise ` +
-        `filter must be 1, but got ${$pointwiseFilter.shape[1]}.`);
-    const inChannels = $depthwiseFilter.shape[2];
-    const channelMultiplier = $depthwiseFilter.shape[3];
-    assert($pointwiseFilter.shape[2] === inChannels * channelMultiplier, () => `Error in separableConv2d: the third dimension of pointwise filter ` +
-        `must be ${inChannels * channelMultiplier}, ` +
-        `but got ${$pointwiseFilter.shape[2]}.`);
-    const depthwise = depthwiseConv2d(x4D, $depthwiseFilter, strides, pad, dataFormat, dilation);
-    const pointwiseStride = 1;
-    const res = conv2d(depthwise, $pointwiseFilter, pointwiseStride, 'valid', dataFormat);
-    if (reshapedTo4D) {
-        return reshape(res, [res.shape[1], res.shape[2], res.shape[3]]);
-    }
-    return res;
-}
-const separableConv2d = op({ separableConv2d_ });
 
 /**
  * @license
@@ -2086,50 +1505,6 @@ function tensor6d(values, shape, dtype) {
         inferredShape;
     return makeTensor(values, shape, inferredShape, dtype);
 }
-
-/**
- * @license
- * Copyright 2020 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-/**
- * Computes the sum along segments of a `tf.Tensor`.
- *
- * ```js
- * const x = tf.tensor1d([1, 2, 3, 4]);
- * const segmentIds = tf.tensor1d([1, 2, 0, 1], 'int32');
- * const numSegments = 3;
- *
- * x.unsortedSegmentSum(segmentIds, numSegments).print()
- * //or tf.unsortedSegmentSum(x, segmentIds, numSegments)
- * ```
- * @param x The `tf.Tensor` that will be summed along its segments.
- * @param segmentIds A `tf.Tensor1D` whose rank is equal to the rank of `x`'s
- * dimension along the `axis`.  Maps each element of `x` to a segment.
- * @param numSegments The number of distinct `segmentIds`.
- *
- * @doc {heading: 'Operations', subheading: 'Segment'}
- */
-function unsortedSegmentSum_(x, segmentIds, numSegments) {
-    const $x = convertToTensor(x, 'x', 'unsortedSegmentSum');
-    const $segmentIds = convertToTensor(segmentIds, 'segmentIds', 'unsortedSegmentSum', 'int32');
-    assert(isInt(numSegments), () => 'numSegments must be of dtype int');
-    const inputs = { x: $x, segmentIds: $segmentIds };
-    const attrs = { numSegments };
-    return ENGINE.runKernel(UnsortedSegmentSum, inputs, attrs);
-}
-const unsortedSegmentSum = op({ unsortedSegmentSum_ });
 
 /**
  * @license
@@ -2494,8 +1869,8 @@ const inTopKAsync = inTopKAsync_;
 
 var fused_ops = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    conv2d: conv2d$1,
-    depthwiseConv2d: depthwiseConv2d$1,
+    conv2d: conv2d,
+    depthwiseConv2d: depthwiseConv2d,
     matMul: matMul$1
 });
 
@@ -3645,4 +3020,4 @@ var kernel_impls = /*#__PURE__*/Object.freeze({
     whereImpl: whereImpl
 });
 
-export { AdadeltaOptimizer, AdagradOptimizer, AdamOptimizer, AdamaxOptimizer, MomentumOptimizer, Optimizer, RMSPropOptimizer, SGDOptimizer, basicLSTMCell, batchNorm2d, batchNorm3d, batchNorm4d, booleanMaskAsync, concat1d, concat3d, concat4d, conv3dTranspose, diag, dot, dropout, fused_ops as fused, inTopKAsync, io, isFinite$1 as isFinite, isInf, kernel_impls, logSigmoid, logicalXor, math, meshgrid, moments, movingAverage, multiRNNCell, nextFrame, outerProduct, pad1d, pad2d, pad3d, pad4d, pool, rand, randomGamma, randomNormal, reverse1d, reverse2d, reverse3d, reverse4d, separableConv2d, serialization, slice1d, slice2d, slice3d, slice4d, tensor4d, tensor5d, tensor6d, test_util, train, unsortedSegmentSum, variable, version as version_core };
+export { AdadeltaOptimizer, AdagradOptimizer, AdamOptimizer, AdamaxOptimizer, MomentumOptimizer, Optimizer, RMSPropOptimizer, SGDOptimizer, basicLSTMCell, batchNorm2d, batchNorm3d, batchNorm4d, booleanMaskAsync, concat1d, concat3d, concat4d, conv3dTranspose, diag, dropout, fused_ops as fused, inTopKAsync, io, kernel_impls, math, moments, movingAverage, multiRNNCell, nextFrame, outerProduct, pad1d, pad2d, pad3d, pad4d, rand, randomGamma, randomNormal, reverse1d, reverse2d, reverse3d, reverse4d, serialization, slice1d, slice2d, slice3d, slice4d, tensor4d, tensor5d, tensor6d, test_util, train, variable, version as version_core };

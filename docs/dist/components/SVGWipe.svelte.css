@@ -1,0 +1,3 @@
+.shape-overlays.svelte-19kx5c6{width:100%;height:100%;position:absolute;top:0;left:0;cursor:pointer;transform-origin:center}.shape-overlays[data-flip=true][data-axis='y']{transform:scale(1,-1)
+  }.shape-overlays[data-flip=true][data-axis='x']{transform:scale(-1,1)
+  }

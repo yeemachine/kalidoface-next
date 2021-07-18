@@ -1,4 +1,4 @@
-import { dl as IORouterRegistry, dm as getModelArtifactsForJSON, dn as concatenateArrayBuffers, dp as basename, e as env, dq as getModelJSONForModelArtifacts, dr as getModelArtifactsInfoForJSON, b4 as sizeFromShape, ch as computeStrides, f as assert, ds as clamp, dt as nearestDivisor, cz as decodeString, cs as encodeString, cr as upcastType, du as axesAreInnerMostDims, dv as combineLocations, cq as computeOutAndReduceShapes, aW as expandShapeToKeepDim, cP as assertAxesAreInnerMostDims, cN as getAxesPermutation, d0 as getUndoAxesPermutation, cO as getInnerMostAxes, cj as getBroadcastDims, dw as getReductionAxes, ar as assertAndGetBroadcastShape, d2 as computeDilation2DInfo, cS as computePool2DInfo, cT as computePool3DInfo, bM as computeConv2DInfo, cZ as computeConv3DInfo, dx as computeDefaultPad, bP as tupleValuesAreOne, a3 as eitherStridesOrDilationsAreOne, cY as convertConv2DDataFormat, bO as getFusedDyActivation, bQ as getFusedBiasGradient, bL as applyActivation, bK as shouldFuse, dy as validateUpdateShape, bF as validateInput, df as calculateShapes } from './non_max_suppression_impl-9daabd29.js';
+import { e_ as IORouterRegistry, e$ as concatenateArrayBuffers, f0 as basename, e as env, f1 as getModelArtifactsInfoForJSON, bU as sizeFromShape, cf as computeStrides, a1 as assert, f2 as nearestDivisor, aj as zeros, an as cast, dh as hasEncodingLoss, bi as ENGINE, a2 as scalar, cx as decodeString, cB as encodeString, f3 as slice_util, cp as upcastType, f4 as axesAreInnerMostDims, f5 as combineLocations, co as computeOutAndReduceShapes, c7 as expandShapeToKeepDim, cO as assertAxesAreInnerMostDims, cM as getAxesPermutation, dy as getUndoAxesPermutation, cN as getInnerMostAxes, ci as getBroadcastDims, f6 as getReductionAxes, bJ as assertAndGetBroadcastShape, dF as computeDilation2DInfo, d4 as computePool2DInfo, d5 as computePool3DInfo, bH as computeConv2DInfo, ds as computeConv3DInfo, f7 as computeDefaultPad, bN as tupleValuesAreOne, bm as eitherStridesOrDilationsAreOne, dp as convertConv2DDataFormat, bM as getFusedDyActivation, bQ as getFusedBiasGradient, bG as applyActivation, bF as shouldFuse, f8 as validateUpdateShape, bB as validateInput, eA as calculateShapes, eD as SELU_SCALEALPHA, eE as SELU_SCALE } from './zeros_like-371809d6.js';
 
 /**
  * @license
@@ -36,7 +36,7 @@ class BrowserDownloads {
         if (fileNamePrefix == null || fileNamePrefix.length === 0) {
             fileNamePrefix = DEFAULT_FILE_NAME_PREFIX;
         }
-        this.modelJsonFileName = fileNamePrefix + DEFAULT_JSON_EXTENSION_NAME;
+        this.modelTopologyFileName = fileNamePrefix + DEFAULT_JSON_EXTENSION_NAME;
         this.weightDataFileName =
             fileNamePrefix + DEFAULT_WEIGHT_DATA_EXTENSION_NAME;
     }
@@ -55,15 +55,31 @@ class BrowserDownloads {
                     paths: ['./' + this.weightDataFileName],
                     weights: modelArtifacts.weightSpecs
                 }];
-            const modelJSON = getModelJSONForModelArtifacts(modelArtifacts, weightsManifest);
-            const modelJsonURL = window.URL.createObjectURL(new Blob([JSON.stringify(modelJSON)], { type: 'application/json' }));
+            const modelTopologyAndWeightManifest = {
+                modelTopology: modelArtifacts.modelTopology,
+                format: modelArtifacts.format,
+                generatedBy: modelArtifacts.generatedBy,
+                convertedBy: modelArtifacts.convertedBy,
+                weightsManifest
+            };
+            if (modelArtifacts.signature != null) {
+                modelTopologyAndWeightManifest.signature = modelArtifacts.signature;
+            }
+            if (modelArtifacts.userDefinedMetadata != null) {
+                modelTopologyAndWeightManifest.userDefinedMetadata =
+                    modelArtifacts.userDefinedMetadata;
+            }
+            if (modelArtifacts.modelInitializer != null) {
+                modelTopologyAndWeightManifest.modelInitializer =
+                    modelArtifacts.modelInitializer;
+            }
+            const modelTopologyAndWeightManifestURL = window.URL.createObjectURL(new Blob([JSON.stringify(modelTopologyAndWeightManifest)], { type: 'application/json' }));
             // If anchor elements are not provided, create them without attaching them
             // to parents, so that the downloaded file names can be controlled.
-            const jsonAnchor = this.modelJsonAnchor == null ?
-                document.createElement('a') :
-                this.modelJsonAnchor;
-            jsonAnchor.download = this.modelJsonFileName;
-            jsonAnchor.href = modelJsonURL;
+            const jsonAnchor = this.jsonAnchor == null ? document.createElement('a') :
+                this.jsonAnchor;
+            jsonAnchor.download = this.modelTopologyFileName;
+            jsonAnchor.href = modelTopologyAndWeightManifestURL;
             // Trigger downloads by evoking a click event on the download anchors.
             // When multiple downloads are started synchronously, Firefox will only
             // save the last one.
@@ -87,10 +103,11 @@ class BrowserFiles {
             throw new Error(`When calling browserFiles, at least 1 file is required, ` +
                 `but received ${files}`);
         }
-        this.jsonFile = files[0];
-        this.weightsFiles = files.slice(1);
+        this.files = files;
     }
     async load() {
+        const jsonFile = this.files[0];
+        const weightFiles = this.files.slice(1);
         return new Promise((resolve, reject) => {
             const jsonReader = new FileReader();
             jsonReader.onload = (event) => {
@@ -98,56 +115,82 @@ class BrowserFiles {
                 const modelJSON = JSON.parse(event.target.result);
                 const modelTopology = modelJSON.modelTopology;
                 if (modelTopology == null) {
-                    reject(new Error(`modelTopology field is missing from file ${this.jsonFile.name}`));
+                    reject(new Error(`modelTopology field is missing from file ${jsonFile.name}`));
                     return;
+                }
+                if (weightFiles.length === 0) {
+                    resolve({ modelTopology });
                 }
                 const weightsManifest = modelJSON.weightsManifest;
                 if (weightsManifest == null) {
-                    reject(new Error(`weightManifest field is missing from file ${this.jsonFile.name}`));
+                    reject(new Error(`weightManifest field is missing from file ${jsonFile.name}`));
                     return;
                 }
-                if (this.weightsFiles.length === 0) {
-                    resolve({ modelTopology });
+                let pathToFile;
+                try {
+                    pathToFile =
+                        this.checkManifestAndWeightFiles(weightsManifest, weightFiles);
+                }
+                catch (err) {
+                    reject(err);
                     return;
                 }
-                const modelArtifactsPromise = getModelArtifactsForJSON(modelJSON, (weightsManifest) => this.loadWeights(weightsManifest));
-                resolve(modelArtifactsPromise);
+                const weightSpecs = [];
+                const paths = [];
+                const perFileBuffers = [];
+                weightsManifest.forEach(weightsGroup => {
+                    weightsGroup.paths.forEach(path => {
+                        paths.push(path);
+                        perFileBuffers.push(null);
+                    });
+                    weightSpecs.push(...weightsGroup.weights);
+                });
+                weightsManifest.forEach(weightsGroup => {
+                    weightsGroup.paths.forEach(path => {
+                        const weightFileReader = new FileReader();
+                        weightFileReader.onload = (event) => {
+                            // tslint:disable-next-line:no-any
+                            const weightData = event.target.result;
+                            const index = paths.indexOf(path);
+                            perFileBuffers[index] = weightData;
+                            if (perFileBuffers.indexOf(null) === -1) {
+                                const result = {
+                                    modelTopology,
+                                    weightSpecs,
+                                    weightData: concatenateArrayBuffers(perFileBuffers),
+                                    format: modelJSON.format,
+                                    generatedBy: modelJSON.generatedBy,
+                                    convertedBy: modelJSON.convertedBy
+                                };
+                                if (modelJSON.signature != null) {
+                                    result.signature = modelJSON.signature;
+                                }
+                                if (modelJSON.userDefinedMetadata != null) {
+                                    result.userDefinedMetadata = modelJSON.userDefinedMetadata;
+                                }
+                                if (modelJSON.modelInitializer != null) {
+                                    result.modelInitializer = modelJSON.modelInitializer;
+                                }
+                                resolve(result);
+                            }
+                        };
+                        weightFileReader.onerror = error => reject(`Failed to weights data from file of path '${path}'.`);
+                        weightFileReader.readAsArrayBuffer(pathToFile[path]);
+                    });
+                });
             };
             jsonReader.onerror = error => reject(`Failed to read model topology and weights manifest JSON ` +
-                `from file '${this.jsonFile.name}'. BrowserFiles supports loading ` +
+                `from file '${jsonFile.name}'. BrowserFiles supports loading ` +
                 `Keras-style tf.Model artifacts only.`);
-            jsonReader.readAsText(this.jsonFile);
-        });
-    }
-    loadWeights(weightsManifest) {
-        const weightSpecs = [];
-        const paths = [];
-        for (const entry of weightsManifest) {
-            weightSpecs.push(...entry.weights);
-            paths.push(...entry.paths);
-        }
-        const pathToFile = this.checkManifestAndWeightFiles(weightsManifest);
-        const promises = paths.map(path => this.loadWeightsFile(path, pathToFile[path]));
-        return Promise.all(promises).then(buffers => [weightSpecs, concatenateArrayBuffers(buffers)]);
-    }
-    loadWeightsFile(path, file) {
-        return new Promise((resolve, reject) => {
-            const weightFileReader = new FileReader();
-            weightFileReader.onload = (event) => {
-                // tslint:disable-next-line:no-any
-                const weightData = event.target.result;
-                resolve(weightData);
-            };
-            weightFileReader.onerror = error => reject(`Failed to weights data from file of path '${path}'.`);
-            weightFileReader.readAsArrayBuffer(file);
+            jsonReader.readAsText(jsonFile);
         });
     }
     /**
      * Check the compatibility between weights manifest and weight files.
      */
-    checkManifestAndWeightFiles(manifest) {
+    checkManifestAndWeightFiles(manifest, files) {
         const basenames = [];
-        const fileNames = this.weightsFiles.map(file => basename(file.name));
+        const fileNames = files.map(file => basename(file.name));
         const pathToFile = {};
         for (const group of manifest) {
             group.paths.forEach(path => {
@@ -161,14 +204,14 @@ class BrowserFiles {
                     throw new Error(`Weight file with basename '${pathBasename}' is not provided.`);
                 }
                 else {
-                    pathToFile[path] = this.weightsFiles[fileNames.indexOf(pathBasename)];
+                    pathToFile[path] = files[fileNames.indexOf(pathBasename)];
                 }
             });
         }
-        if (basenames.length !== this.weightsFiles.length) {
+        if (basenames.length !== files.length) {
             throw new Error(`Mismatch in the number of files in weights manifest ` +
                 `(${basenames.length}) and the number of weight files provided ` +
-                `(${this.weightsFiles.length}).`);
+                `(${files.length}).`);
         }
         return pathToFile;
     }
@@ -346,361 +389,6 @@ var gather_nd_util = /*#__PURE__*/Object.freeze({
  * limitations under the License.
  * =============================================================================
  */
-function assertParamsValid(input, begin, size) {
-    const inputRank = input.shape.length;
-    assert(inputRank === begin.length, () => `Error in slice${inputRank}D: Length of begin ${begin} must ` +
-        `match the rank of the array (${inputRank}).`);
-    assert(inputRank === size.length, () => `Error in slice${inputRank}D: Length of size ${size} must ` +
-        `match the rank of the array (${inputRank}).`);
-    for (let i = 0; i < inputRank; ++i) {
-        assert(begin[i] + size[i] <= input.shape[i], () => `Error in slice${inputRank}D: begin[${i}] + size[${i}] ` +
-            `(${begin[i] + size[i]}) would overflow input.shape[${i}] (${input.shape[i]})`);
-    }
-}
-/** Converts a binary mask to an array of axes. Used in stridedSlice(). */
-function maskToAxes(mask) {
-    const axes = [];
-    let axis = 0;
-    while (mask > 0) {
-        if (mask & 1) {
-            axes.push(axis);
-        }
-        mask /= 2;
-        axis++;
-    }
-    return axes;
-}
-/** Computes the output shape given the strided slice params. */
-function computeOutShape(begin, end, strides) {
-    const size = [];
-    for (let axis = 0; axis < begin.length; axis++) {
-        size[axis] = Math.ceil((end[axis] - begin[axis]) / strides[axis]);
-    }
-    return size;
-}
-// Creates full selection at the elided dimensions. If the dimension matches
-// the ellipsis mask, override the current stride value. Otherwise, insert.
-function stridesWithElidedDims(strides, ellipsisInsertionIndex, numElidedAxes, inputShape) {
-    const newStrides = [...strides];
-    for (let i = newStrides.length; i < inputShape.length; i++) {
-        newStrides.push(1);
-    }
-    for (let i = 0; i < numElidedAxes; i++) {
-        if (i === 0) {
-            newStrides[ellipsisInsertionIndex] = 1;
-        }
-        else {
-            newStrides.splice(ellipsisInsertionIndex, 0 /* num elements to delete */, 1 /* element to add */);
-            newStrides.pop();
-        }
-    }
-    return newStrides;
-}
-function unnormalizeAxis(ellipsisInsertionIndex, numElidedAxes, normalizedAxis) {
-    if (normalizedAxis <= ellipsisInsertionIndex) {
-        return normalizedAxis;
-    }
-    return normalizedAxis - (numElidedAxes - 1);
-}
-function getElidedAxes(numElidedAxes, ellipsisInsertionIndex) {
-    const elidedAxes = [];
-    for (let i = 0; i < numElidedAxes; i++) {
-        elidedAxes.push(ellipsisInsertionIndex + i);
-    }
-    return elidedAxes;
-}
-// Normalize the start, end and strides.
-function getNormalizedAxes(inputShape, ellipsisAxes, numInterpolatedAxes, begin, end, strides, beginMask, endMask, ellipsisMask) {
-    const inputRank = inputShape.length;
-    let normalizedBegin = new Array(inputRank), normalizedEnd = new Array(inputRank), normalizedStrides = new Array(inputRank);
-    if (ellipsisAxes.length && numInterpolatedAxes > 0) {
-        const fullIndex = ellipsisAxes[0];
-        // The ellipsis applies to the masked index as well as any dimensions
-        // that are interpolated.
-        const numElidedAxes = numInterpolatedAxes + 1;
-        normalizedBegin = startIndicesWithElidedDims(beginMask, fullIndex, numElidedAxes, begin, inputShape);
-        normalizedEnd = stopIndicesWithElidedDims(endMask, fullIndex, numElidedAxes, end, inputShape);
-        normalizedStrides =
-            stridesWithElidedDims(strides, fullIndex, numElidedAxes, inputShape);
-    }
-    else {
-        for (let axis = 0; axis < inputRank; axis++) {
-            normalizedBegin[axis] = startForAxis(beginMask, begin, strides, inputShape, axis, ellipsisMask);
-            normalizedEnd[axis] =
-                stopForAxis(endMask, end, strides, inputShape, axis, ellipsisMask);
-            normalizedStrides[axis] = stridesForAxis(strides, axis, ellipsisMask);
-        }
-    }
-    return {
-        begin: normalizedBegin,
-        end: normalizedEnd,
-        strides: normalizedStrides
-    };
-}
-// Creates full selection at the elided dimensions. If the dimension matches
-// the ellipsis mask, override the current start value. Otherwise, insert.
-function startIndicesWithElidedDims(beginMask, ellipsisInsertionIndex, numElidedAxes, originalBegin, inputShape) {
-    const newIndices = [...inputShape];
-    const elidedAxes = getElidedAxes(numElidedAxes, ellipsisInsertionIndex);
-    for (let axis = 0; axis < newIndices.length; axis++) {
-        if (elidedAxes.indexOf(axis) > -1) {
-            newIndices[axis] = 0;
-        }
-        else {
-            const originalAxis = unnormalizeAxis(ellipsisInsertionIndex, numElidedAxes, axis);
-            let originalValue = originalBegin[originalAxis];
-            if (beginMask & 1 << originalAxis) {
-                originalValue = 0;
-            }
-            newIndices[axis] = originalValue;
-        }
-    }
-    return newIndices;
-}
-// Creates full selection at the elided dimensions. If the dimension matches
-// the ellipsis mask, override the current stop value. Otherwise, insert.
-function stopIndicesWithElidedDims(endMask, ellipsisInsertionIndex, numElidedAxes, originalEnd, inputShape) {
-    const newIndices = [...inputShape];
-    const elidedAxes = getElidedAxes(numElidedAxes, ellipsisInsertionIndex);
-    for (let axis = 0; axis < newIndices.length; axis++) {
-        if (elidedAxes.indexOf(axis) > -1) {
-            newIndices[axis] = Number.MAX_SAFE_INTEGER;
-        }
-        else {
-            const originalAxis = unnormalizeAxis(ellipsisInsertionIndex, numElidedAxes, axis);
-            let originalValue = originalEnd[originalAxis];
-            if (endMask & 1 << originalAxis) {
-                originalValue = Number.MAX_SAFE_INTEGER;
-            }
-            newIndices[axis] = originalValue;
-        }
-    }
-    for (let i = 0; i < newIndices.length; i++) {
-        // Handle negative indices
-        const axisSize = inputShape[i];
-        if (newIndices[i] < 0) {
-            newIndices[i] += axisSize;
-        }
-        newIndices[i] = clamp(0, newIndices[i], inputShape[i]);
-    }
-    return newIndices;
-}
-function stridesForAxis(strides, axis, ellipsisMask) {
-    let stride = strides[axis];
-    if (ellipsisMask & (1 << axis) || stride == null) {
-        stride = 1;
-    }
-    return stride;
-}
-function startForAxis(beginMask, startIndices, strides, inputShape, axis, ellipsisMask) {
-    // Begin with the specified index
-    let start = startIndices[axis];
-    const stride = strides[axis] || 1;
-    // Check the axis bit from right of masked axes, or the begin index is not set
-    // for the axis.
-    if (beginMask & 1 << axis || ellipsisMask & 1 << axis || start == null) {
-        if (stride > 0) {
-            // Forward iteration - use the first element. These values will get
-            // clamped below (Note: We could have set them to 0 and axis_size-1, but
-            // use lowest() and max() to maintain symmetry with StopForAxis())
-            start = Number.MIN_SAFE_INTEGER;
-        }
-        else {
-            // Backward iteration - use the last element.
-            start = Number.MAX_SAFE_INTEGER;
-        }
-    }
-    // Handle negative indices
-    const axisSize = inputShape[axis];
-    if (start < 0) {
-        start += axisSize;
-    }
-    // Clamping
-    start = clamp(0, start, axisSize - 1);
-    return start;
-}
-function stopForAxis(endMask, stopIndices, strides, inputShape, axis, ellipsisMask) {
-    // Begin with the specified index
-    let stop = stopIndices[axis];
-    const stride = strides[axis] || 1;
-    // Check the axis bit from right of masked axes, or if the stop index is not
-    // set for this axis.
-    if (endMask & (1 << axis) || ellipsisMask & (1 << axis) || stop == null) {
-        if (stride > 0) {
-            // Forward iteration - use the last element. These values will get
-            // clamped below
-            stop = Number.MAX_SAFE_INTEGER;
-        }
-        else {
-            // Backward iteration - use the first element.
-            stop = Number.MIN_SAFE_INTEGER;
-        }
-    }
-    // Handle negative indices
-    const axisSize = inputShape[axis];
-    if (stop < 0) {
-        stop += axisSize;
-    }
-    // Clamping
-    // Because the end index points one past the last element, we need slightly
-    // different clamping ranges depending on the direction.
-    if (stride > 0) {
-        // Forward iteration
-        stop = clamp(0, stop, axisSize);
-    }
-    else {
-        // Backward iteration
-        stop = clamp(-1, stop, axisSize - 1);
-    }
-    return stop;
-}
-/**
- * Returns true if the slice occupies a continous set of elements in the
- * 'flat' space.
- */
-function isSliceContinous(shape, begin, size) {
-    // Index of the first axis that has size > 1.
-    let firstNonOneAxis = size.length;
-    for (let i = 0; i < size.length; i++) {
-        if (size[i] > 1) {
-            firstNonOneAxis = i;
-            break;
-        }
-    }
-    for (let i = firstNonOneAxis + 1; i < size.length; i++) {
-        if (begin[i] > 0 || size[i] !== shape[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-function computeFlatOffset(begin, strides) {
-    let flatOffset = begin.length > 0 ? begin[begin.length - 1] : 1;
-    for (let i = 0; i < begin.length - 1; i++) {
-        flatOffset += begin[i] * strides[i];
-    }
-    return flatOffset;
-}
-function parseSliceParams(x, begin, size) {
-    // The following logic allows for more ergonomic calls.
-    let begin_;
-    const xRank = x.shape.length;
-    if (typeof begin === 'number') {
-        begin_ = [begin, ...new Array(xRank - 1).fill(0)];
-    }
-    else if (begin.length < xRank) {
-        begin_ = begin.concat(new Array(xRank - begin.length).fill(0));
-    }
-    else {
-        begin_ = begin.slice();
-    }
-    begin_.forEach(d => {
-        assert(d !== -1, () => 'slice() does not support negative begin indexing.');
-    });
-    let size_;
-    if (size == null) {
-        size_ = new Array(xRank).fill(-1);
-    }
-    else if (typeof size === 'number') {
-        size_ = [size, ...new Array(xRank - 1).fill(-1)];
-    }
-    else if (size.length < xRank) {
-        size_ = size.concat(new Array(xRank - size.length).fill(-1));
-    }
-    else {
-        size_ = size;
-    }
-    size_ = size_.map((d, i) => {
-        if (d >= 0) {
-            return d;
-        }
-        else {
-            assert(d === -1, () => `Negative size values should be exactly -1 but got ` +
-                `${d} for the slice() size at index ${i}.`);
-            return x.shape[i] - begin_[i];
-        }
-    });
-    return [begin_, size_];
-}
-function sliceInfo(xShape, begin, end, strides, beginMask, endMask, ellipsisMask, newAxisMask, shrinkAxisMask) {
-    // make a copy because it may be modified further down.
-    let $begin = begin.slice();
-    let $end = end.slice();
-    let $strides = strides;
-    if (strides == null) {
-        $strides = new Array($begin.length);
-    }
-    const ellipsisAxes = maskToAxes(ellipsisMask);
-    if (ellipsisAxes.length > 1) {
-        throw new Error('Multiple ellipses in slice is not allowed.');
-    }
-    if (ellipsisMask !== 0 && newAxisMask !== 0) {
-        throw new Error('Using both ellipsisMask and newAxisMask is not yet supported.');
-    }
-    if (ellipsisMask !== 0 && shrinkAxisMask !== 0) {
-        throw new Error('Using both ellipsisMask and shrinkAxisMask is not yet supported.');
-    }
-    const numInterpolatedAxes = xShape.length - $begin.length;
-    // Expand the dims of x based on the newAxisMask.
-    const expandAxes = maskToAxes(newAxisMask);
-    const newShape = xShape.slice();
-    expandAxes.forEach(axis => {
-        $begin[axis] = 0;
-        $end[axis] = 1;
-        newShape.splice(axis, 0, 1);
-    });
-    const { begin: normalizedBegin, end: normalizedEnd, strides: normalizedStrides } = getNormalizedAxes(newShape, ellipsisAxes, numInterpolatedAxes, $begin, $end, $strides, beginMask, endMask, ellipsisMask);
-    $begin = normalizedBegin;
-    $end = normalizedEnd;
-    $strides = normalizedStrides;
-    const shrinkAxes = maskToAxes(shrinkAxisMask);
-    // Adjust the ends based on the shrink mask.
-    shrinkAxes.forEach(axis => {
-        $end[axis] = $begin[axis] + 1;
-        $strides[axis] = 1;
-    });
-    // Figure out the output shape.
-    const size = computeOutShape($begin, $end, $strides);
-    // Remove the axes based on shrinkMask.
-    const outShape = size.filter((_, axis) => shrinkAxes.indexOf(axis) === -1);
-    const nonStrided = $strides.every(v => v === 1);
-    return { nonStrided, $begin, $end, $strides, size, newShape, outShape };
-}
-
-var slice_util = /*#__PURE__*/Object.freeze({
-    __proto__: null,
-    assertParamsValid: assertParamsValid,
-    maskToAxes: maskToAxes,
-    computeOutShape: computeOutShape,
-    stridesWithElidedDims: stridesWithElidedDims,
-    getNormalizedAxes: getNormalizedAxes,
-    startIndicesWithElidedDims: startIndicesWithElidedDims,
-    stopIndicesWithElidedDims: stopIndicesWithElidedDims,
-    stridesForAxis: stridesForAxis,
-    startForAxis: startForAxis,
-    stopForAxis: stopForAxis,
-    isSliceContinous: isSliceContinous,
-    computeFlatOffset: computeFlatOffset,
-    parseSliceParams: parseSliceParams,
-    sliceInfo: sliceInfo
-});
-
-/**
- * @license
- * Copyright 2017 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
 function assertParamsConsistent(shapes, axis) {
     const rank = shapes[0].length;
     shapes.forEach((shape, i) => {
@@ -717,7 +405,7 @@ function assertParamsConsistent(shapes, axis) {
         }
     });
 }
-function computeOutShape$1(shapes, axis) {
+function computeOutShape(shapes, axis) {
     const outputShape = shapes[0].slice();
     for (let i = 1; i < shapes.length; i++) {
         outputShape[axis] += shapes[i][axis];
@@ -932,25 +620,6 @@ function getSliceSize(uncroppedShape, crops, blockShape) {
  * limitations under the License.
  * =============================================================================
  */
-const SELU_SCALEALPHA = 1.7580993408473768599402175208123;
-const SELU_SCALE = 1.0507009873554804934193349852946;
-
-/**
- * @license
- * Copyright 2018 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
 const ERF_P = 0.3275911;
 const ERF_A1 = 0.254829592;
 const ERF_A2 = -0.284496736;
@@ -1122,195 +791,6 @@ function exponent(k, n, inverse) {
 }
 
 /**
- * @license
- * Copyright 2021 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-const ARROW = '->';
-const ARROW_REGEX = /->/g;
-const COMMA = ',';
-const ELLIPSIS = '...';
-/**
- * Parse an equation for einsum.
- *
- * @param equation The einsum equation (e.g., "ij,jk->ik").
- * @param numTensors Number of tensors provided along with `equation`. Used to
- *   check matching number of input tensors.
- * @returns An object consisting of the following fields:
- *   - allDims: all dimension names as strings.
- *   - summedDims: a list of all dimensions being summed over, as indices to
- *     the elements of `allDims`.
- *   - idDims: indices of the dimensions in each input tensor, as indices to
- *     the elements of `allDims.
- */
-function decodeEinsumEquation(equation, numTensors) {
-    equation = equation.replace(/\s/g, ''); // Remove witespace in equation.
-    const numArrows = (equation.length - equation.replace(ARROW_REGEX, '').length) /
-        ARROW.length;
-    if (numArrows < 1) {
-        throw new Error('Equations without an arrow are not supported.');
-    }
-    else if (numArrows > 1) {
-        throw new Error(`Equation must contain exactly one arrow ("${ARROW}").`);
-    }
-    const [inputString, outputString] = equation.split(ARROW);
-    assert(inputString.indexOf(ELLIPSIS) === -1, () => `The ellipsis notation ("${ELLIPSIS}") is not supported yet.`);
-    const inputTerms = inputString.split(COMMA);
-    const numInputs = inputTerms.length;
-    if (numTensors !== numInputs) {
-        throw new Error(`Expected ${numInputs} input tensors, received ${numTensors}`);
-    }
-    if (numInputs > 2) {
-        throw new Error('Support for more than 2 input tensors is not implemented yet.');
-    }
-    const allDims = [];
-    for (let i = 0; i < outputString.length; ++i) {
-        const dimName = outputString[i];
-        if (!inputTerms.some(inputTerm => inputTerm.indexOf(dimName) !== -1)) {
-            throw new Error(`Output subscripts contain the label ${dimName} ` +
-                `not present in the input subscripts.`);
-        }
-        if (allDims.indexOf(dimName) === -1) {
-            allDims.push(dimName);
-        }
-    }
-    for (let i = 0; i < inputString.length; ++i) {
-        const dimName = inputString[i];
-        if (allDims.indexOf(dimName) === -1 && dimName !== COMMA) {
-            allDims.push(dimName);
-        }
-    }
-    const idDims = new Array(inputTerms.length);
-    for (let i = 0; i < numInputs; ++i) {
-        if (new Set(inputTerms[i].split('')).size !== inputTerms[i].length) {
-            throw new Error(`Found duplicate axes in input component ${inputTerms[i]}. ` +
-                `Support for duplicate axes in input is not implemented yet.`);
-        }
-        idDims[i] = [];
-        for (let j = 0; j < inputTerms[i].length; ++j) {
-            idDims[i].push(allDims.indexOf(inputTerms[i][j]));
-        }
-    }
-    const numDims = allDims.length; // Number of unique dimensions.
-    const numOutDims = outputString.length; // Number of output dimensions.
-    const summedDims = []; // Dimensions being summed over.
-    for (let i = numOutDims; i < numDims; ++i) {
-        summedDims.push(i);
-    }
-    return { allDims, summedDims, idDims };
-}
-/**
- * Get the permutation for a given input tensor.
- *
- * @param nDims Total number of dimension of all tensors involved in the einsum
- *   operation.
- * @param idDims Dimension indices involve in the tensor in question.
- * @returns An object consisting of the following fields:
- *   - permutationIndices: Indices to permute the axes of the tensor with.
- *   - expandDims: Indices to the dimension that need to be expanded from the
- *     tensor after permutation.
- */
-function getEinsumPermutation(nDims, idDims) {
-    let permutationIndices = new Array(nDims);
-    permutationIndices.fill(-1);
-    for (let i = 0; i < idDims.length; ++i) {
-        permutationIndices[idDims[i]] = i;
-    }
-    const expandDims = [];
-    for (let i = 0; i < nDims; ++i) {
-        if (permutationIndices[i] === -1) {
-            expandDims.push(i);
-        }
-    }
-    permutationIndices = permutationIndices.filter(d => d !== -1);
-    return { permutationIndices, expandDims };
-}
-/**
- * Checks that the dimension sizes from different input tensors match the
- * equation.
- */
-function checkEinsumDimSizes(nDims, idDims, tensors) {
-    const dimSizes = new Array(nDims);
-    for (let i = 0; i < tensors.length; ++i) {
-        const shape = tensors[i].shape;
-        for (let j = 0; j < idDims[i].length; ++j) {
-            if (dimSizes[idDims[i][j]] === undefined) {
-                dimSizes[idDims[i][j]] = shape[j];
-            }
-            else {
-                assert(dimSizes[idDims[i][j]] === shape[j], () => `Expected dimension ${dimSizes[idDims[i][j]]} at axis ${j} ` +
-                    `of input shaped ${JSON.stringify(shape)}, ` +
-                    `but got dimension ${shape[j]}`);
-            }
-        }
-    }
-}
-/**
- * Gets path of computation for einsum.
- *
- * @param summedDims indices to the dimensions being summed over.
- * @param idDims A look up table for the dimensions present in each input
- *     tensor. Each consituent array contains indices for the dimensions in the
- *     corresponding input tensor.
- *
- * @return A map with two fields:
- *   - path: The path of computation, with each element indicating the dimension
- *     being summed over after the element-wise multiplication in that step.
- *   - steps: With the same length as `path`. Each element contains the indices
- *     to the input tensors being used for element-wise multiplication in the
- *     corresponding step.
- */
-function getEinsumComputePath(summedDims, idDims) {
-    const path = summedDims;
-    const steps = [];
-    let nSteps = 0;
-    if (summedDims.length === 0) {
-        // Einsum that involes no summing: e.g., transpose and outer product.
-        path.push(-1);
-    }
-    nSteps = summedDims.length + 1;
-    for (let i = 0; i < nSteps; ++i) {
-        steps.push([]);
-    }
-    const computedTermIndices = [];
-    for (let i = 0; i < path.length; ++i) {
-        const summedDim = path[i];
-        const termIndices = findTermsWithDim(idDims, summedDim);
-        for (const termIndex of termIndices) {
-            if (computedTermIndices.indexOf(termIndex) === -1) {
-                steps[i].push(termIndex);
-                computedTermIndices.push(termIndex);
-            }
-        }
-    }
-    return { path, steps };
-}
-/** Determines if an axes permutation is the identity permutation. */
-function isIdentityPermutation(perm) {
-    return perm.every((dim, index) => dim === index);
-}
-function findTermsWithDim(idDims, dim) {
-    const termIndices = [];
-    for (let i = 0; i < idDims.length; ++i) {
-        if (idDims[i].length === 0 || idDims[i].indexOf(dim) !== -1 || dim === -1) {
-            termIndices.push(i);
-        }
-    }
-    return termIndices;
-}
-
-/**
  * Prepare the split size array. When the input is a number, the axis is evenly
  * divided among the split size. When the input contains the negative value, the
  * rest of the axis is allocated toward that.
@@ -1379,7 +859,7 @@ function segOpComputeOptimalWindowSize(inSize, numSegments) {
     }
     return res;
 }
-function computeOutShape$2(aShape, axis, numSegments) {
+function computeOutShape$1(aShape, axis, numSegments) {
     const outShape = [];
     const rank = aShape.length;
     for (let dim = 0; dim < rank; dim++) {
@@ -1441,7 +921,7 @@ function collectGatherOpShapeInfo(x, indices, axis, batchDims) {
 var segment_util = /*#__PURE__*/Object.freeze({
     __proto__: null,
     segOpComputeOptimalWindowSize: segOpComputeOptimalWindowSize,
-    computeOutShape: computeOutShape$2,
+    computeOutShape: computeOutShape$1,
     collectGatherOpShapeInfo: collectGatherOpShapeInfo
 });
 
@@ -1461,6 +941,45 @@ var segment_util = /*#__PURE__*/Object.freeze({
  * limitations under the License.
  * =============================================================================
  */
+function castTensor(x, dtype, backend) {
+    if (dtype === 'complex64') {
+        if (x.dtype === 'complex64') {
+            return x.clone();
+        }
+        const zerosTensor = zeros(x.shape);
+        const floatX = cast(x, 'float32');
+        const result = backend.complex(floatX, zerosTensor);
+        zerosTensor.dispose();
+        floatX.dispose();
+        return result;
+    }
+    if (!hasEncodingLoss(x.dtype, dtype)) {
+        // We don't change the underlying data, since we cast to higher
+        // precision.
+        return ENGINE.makeTensorFromDataId(x.dataId, x.shape, dtype);
+    }
+    if (x.dtype === 'complex64') {
+        const real = backend.real(x);
+        const result = cast(real, dtype);
+        real.dispose();
+        return result;
+    }
+    if (dtype === 'int32') {
+        return backend.int(x);
+    }
+    else if (dtype === 'bool') {
+        const zero = scalar(0, x.dtype);
+        const result = backend.notEqual(x, zero);
+        zero.dispose();
+        return result;
+    }
+    else {
+        throw new Error(`Error in Cast: failed to cast ${x.dtype} to ${dtype}`);
+    }
+}
+function reshapeTensor(x, shape) {
+    return ENGINE.makeTensorFromDataId(x.dataId, shape, x.dtype);
+}
 function fromUint8ToStringArray(vals) {
     try {
         // Decode the bytes into string.
@@ -1478,6 +997,8 @@ var backend_util = /*#__PURE__*/Object.freeze({
     __proto__: null,
     slice_util: slice_util,
     segment_util: segment_util,
+    castTensor: castTensor,
+    reshapeTensor: reshapeTensor,
     fromUint8ToStringArray: fromUint8ToStringArray,
     fromStringArrayToUint8: fromStringArrayToUint8,
     upcastType: upcastType,
@@ -1493,7 +1014,7 @@ var backend_util = /*#__PURE__*/Object.freeze({
     getReductionAxes: getReductionAxes,
     assertAndGetBroadcastShape: assertAndGetBroadcastShape,
     assertParamsConsistent: assertParamsConsistent,
-    computeOutShape: computeOutShape$1,
+    computeOutShape: computeOutShape,
     computeDilation2DInfo: computeDilation2DInfo,
     computePool2DInfo: computePool2DInfo,
     computePool3DInfo: computePool3DInfo,
@@ -1537,12 +1058,7 @@ var backend_util = /*#__PURE__*/Object.freeze({
     assignToTypedArray: assignToTypedArray,
     exponents: exponents,
     exponent: exponent,
-    decodeEinsumEquation: decodeEinsumEquation,
-    getEinsumPermutation: getEinsumPermutation,
-    checkEinsumDimSizes: checkEinsumDimSizes,
-    getEinsumComputePath: getEinsumComputePath,
-    isIdentityPermutation: isIdentityPermutation,
     prepareSplitSize: prepareSplitSize
 });
 
-export { ERF_A5 as A, prepareAndValidate as B, collectGatherOpShapeInfo as C, getImageCenter as D, ERF_P as E, SELU_SCALE as F, prepareSplitSize as G, sliceInfo as H, computeOutShape$2 as I, segOpComputeOptimalWindowSize as J, browserFiles as K, slice_util as L, gather_nd_util as M, SELU_SCALEALPHA as S, fromStringArrayToUint8 as a, backend_util as b, computeFlatOffset as c, computeOptimalWindowSize as d, assertParamsValid as e, fromUint8ToStringArray as f, getReshaped as g, getPermuted as h, isSliceContinous as i, getReshapedPermuted as j, getSliceBeginCoords as k, getSliceSize as l, mergeRealAndImagArrays as m, computeOutShape$1 as n, assertParamsConsistent as o, parseSliceParams as p, decodeEinsumEquation as q, checkEinsumDimSizes as r, getEinsumComputePath as s, getEinsumPermutation as t, isIdentityPermutation as u, ERF_A1 as v, warn as w, ERF_A2 as x, ERF_A3 as y, ERF_A4 as z };
+export { ERF_P as E, fromStringArrayToUint8 as a, backend_util as b, computeOptimalWindowSize as c, getPermuted as d, getReshapedPermuted as e, fromUint8ToStringArray as f, getReshaped as g, getSliceBeginCoords as h, getSliceSize as i, computeOutShape as j, assertParamsConsistent as k, ERF_A1 as l, mergeRealAndImagArrays as m, ERF_A2 as n, ERF_A3 as o, ERF_A4 as p, ERF_A5 as q, prepareAndValidate as r, collectGatherOpShapeInfo as s, getImageCenter as t, prepareSplitSize as u, computeOutShape$1 as v, warn as w, segOpComputeOptimalWindowSize as x, browserFiles as y, gather_nd_util as z };
